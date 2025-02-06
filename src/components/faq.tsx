@@ -24,7 +24,11 @@ export default function FAQSection() {
 			</div>
 
 			<div className='container max-w-3xl py-12 mx-auto'>
-				<Accordion type='single' collapsible className='w-full space-y-4'>
+				<Accordion
+					type='single'
+					collapsible
+					defaultValue='item-0'
+					className='w-full space-y-4'>
 					{faq.questions.map((item, index) => (
 						<AccordionItem
 							key={index}

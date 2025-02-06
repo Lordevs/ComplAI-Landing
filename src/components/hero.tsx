@@ -1,13 +1,14 @@
 import { CTAButton } from "@/components/cta-button";
 import { siteConfig } from "@/config/site";
 import Image from "next/image";
+import LogoSlider from "./logo-slider";
 
 export function Hero() {
 	const { title, subtitle, buttons } = siteConfig.hero;
 
 	return (
-		<section className='container relative pt-24 pb-32'>
-			<div className='mx-auto max-w-5xl text-center'>
+		<section className='relative pt-24 pb-32 bg-[url(/images/bg/grid.svg)] bg-no-repeat bg-center bg-cover'>
+			<div className='mx-auto container max-w-5xl text-center'>
 				<h1 className='mb-6 font-bold tracking-tight sm:text-5xl md:text-6xl leading-[1.5]'>
 					<span className='text-primary'>{title.start}</span>
 					{title.middle}
@@ -32,17 +33,20 @@ export function Hero() {
 				</div>
 			</div>
 
-			<div className='relative mx-auto mt-16 max-w-4xl'>
-				<div className='absolute inset-0 bg-gradient-to-tr from-primary/30 to-primary/10 rounded-lg blur-3xl opacity-50' />
-				<Image
-					src='https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-XjChrJGQv4dEs4nFtGK1G7tCgxammN.png'
-					alt='Compliance review interface'
-					width={800}
-					height={600}
-					className='relative rounded-lg border shadow-2xl'
-					priority
-				/>
+			<div className='relative mx-auto mt-8 w-full max-w-4xl'>
+				{/* <div className='absolute inset-0 bg-gradient-to-tr from-primary/30 to-primary/10 rounded-lg blur-3xl opacity-50' /> */}
+				<div className='relative w-full h-[800px] mx-auto bg-cover'>
+					<Image
+						src='./images/hero-img.svg'
+						alt='Compliance review interface'
+						fill
+						className='bg-cover ml-20'
+						priority
+					/>
+				</div>
 			</div>
+
+			<LogoSlider />
 		</section>
 	);
 }
