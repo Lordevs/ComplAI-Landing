@@ -25,10 +25,6 @@ export const siteConfig = {
       title: 'Contact',
       href: ROUTES.CONTACT,
     },
-    {
-      title: 'News',
-      href: ROUTES.NEWS,
-    },
   ],
   hero: {
     title: {
@@ -117,7 +113,6 @@ export const siteConfig = {
       links: [
         { title: 'About', href: '/about' },
         { title: 'Contact', href: '/contact' },
-        { title: 'News', href: '/news' },
       ],
     },
     contact: {
