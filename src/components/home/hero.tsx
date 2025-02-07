@@ -3,8 +3,6 @@ import Image from 'next/image';
 import { siteConfig } from '@/config/site';
 import { CTAButton } from '@/components/cta-button';
 
-import LogoSlider from './logo-slider';
-
 export function Hero() {
   const { title, subtitle, buttons } = siteConfig.hero;
 
@@ -49,8 +47,6 @@ export function Hero() {
           />
         </div>
       </div>
-
-      <LogoSlider />
     </section>
   );
 }

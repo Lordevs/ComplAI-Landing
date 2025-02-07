@@ -15,7 +15,7 @@ export default function FAQSection() {
         <div className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm">
           FAQ
         </div>
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-6xl">
+        <h2 className="text-3xl font-bold sm:text-4xl md:text-6xl">
           {faq.title}
         </h2>
         <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">

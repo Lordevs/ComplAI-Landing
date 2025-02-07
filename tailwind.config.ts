@@ -57,6 +57,9 @@ export default {
         black: {
           light: 'hsl(var(--black-light))',
         },
+        gray: {
+          dark: 'hsl(var(--gray-dark))',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',
