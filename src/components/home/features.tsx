@@ -129,7 +129,7 @@ export default function Features() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-6xl font-semibold mb-4"
+            className="text-4xl md:text-6xl font-semibold mb-4"
           >
             The Features.
           </motion.h2>
@@ -137,7 +137,7 @@ export default function Features() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-xl max-w-3xl mx-auto"
+            className="text-lg md:text-xl max-w-3xl mx-auto"
           >
             Discover the innovative features that streamline compliance, enhance
             productivity, and provide peace of mind. Tailored for legal
@@ -149,20 +149,20 @@ export default function Features() {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr_0.75fr_0.75fr_0.5fr_1fr] gap-6 ">
           {/* First Row */}
           <FeatureCard
-            className="md:col-span-2"
+            className="col-span-full md:col-span-2"
             title="Smart Document Handling"
             description="Upload, review, and draft tailored responses to emails, letters, and more—effortlessly"
             delay={1}
           />
           <FeatureCard
-            className="md:col-span-2"
+            className="col-span-full md:col-span-2"
             title="AI-Powered File Reviews"
             description="Perform detailed file reviews in minutes and get a clear list of next steps."
             titleIcon="/images/features/2.svg"
             delay={2}
           />
           <FeatureCard
-            className="md:col-span-2 text-start"
+            className="col-span-full md:col-span-2 text-start"
             title="Custom Compliance Manual Upload"
             description="Add your compliance manual to align AI recommendations with your internal policies."
             rightImage="/images/features/3.svg"
@@ -171,21 +171,21 @@ export default function Features() {
 
           {/* Second Row */}
           <FeatureCard
-            className="row-span-2"
+            className="col-span-full md:col-span-1 md:row-span-2"
             title="Voice Assistance"
             description="Experience hands-free AI that delivers real-time, accurate compliance insights on demand."
             topImage="/images/features/4.svg"
             delay={4}
           />
           <FeatureCard
-            className="col-span-4 row-span-2"
+            className="col-span-full md:col-span-4 md:row-span-2"
             title="Interactive Query Assistance"
             description="Provides instant, accurate compliance answers, clarifying SRA Rules, AML, Legal Aid, Lexcel, SQM, and more."
             bottomImage="/images/features/5.svg"
             delay={5}
           />
           <FeatureCard
-            className="row-span-2"
+            className="col-span-full md:col-span-1 md:row-span-2"
             title="Instant Document Creation"
             description="Generate bespoke policies, reports, and procedures in seconds to ensure firm-wide compliance."
             topImage="/images/features/6.svg"
@@ -194,14 +194,14 @@ export default function Features() {
 
           {/* Third Row */}
           <FeatureCard
-            className="md:col-span-4"
+            className="col-span-full md:col-span-4"
             title="Automated Policy Review & Gap Analysis"
             description="Review policies, uncover compliance gaps, and receive actionable feedback to stay aligned."
             leftImage="/images/features/7.svg"
             delay={7}
           />
           <FeatureCard
-            className="md:col-span-2"
+            className="col-span-full md:col-span-2"
             title="Guided Compliance Steps"
             description="Simplify complex regulations with step-by-step actions and expert best practices."
             bottomImage="/images/features/8.svg"

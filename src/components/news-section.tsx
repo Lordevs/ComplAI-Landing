@@ -36,7 +36,7 @@ export function NewsSection() {
     <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-5xl font-semibold">Latest news</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold">Latest news</h2>
           <Link href="/news">
             <Button className="font-medium">
               Browse All <ArrowRight size={16} />

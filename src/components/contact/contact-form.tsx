@@ -31,15 +31,17 @@ const logos = [
 
 export default function ContactForm() {
   return (
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="grid md:grid-cols-2 gap-8 px-4 md:px-0">
       <div className="space-y-12">
         <Card className="bg-gradient-to-br from-[#6499F4] to-[#0a59eb] to-85% h-fit text-white p-8 rounded-lg">
           <div className="space-y-6">
-            <h3 className="text-4xl font-semibold">We&apos;d love to help</h3>
-            <p className="font-medium text-xl">
+            <h3 className="text-3xl md:text-4xl font-semibold">
+              We&apos;d love to help
+            </h3>
+            <p className="font-medium text-lg md:text-xl">
               Talk to our experts about how Compl-AI can benefit your firm.
             </p>
-            <ul className="space-y-3 font-normal">
+            <ul className="space-y-3 font-normal text-sm md:text-base">
               <li className="flex items-center gap-2">
                 <Check size={24} />
                 Enquire about our Enterprise plan
@@ -62,7 +64,7 @@ export default function ContactForm() {
 
         <div className="space-y-4">
           <p className="text-2xl font-semibold">Trusted by teams at</p>
-          <div className="flex items-center gap-x-4 flex-wrap">
+          <div className="flex items-center justify-center md:justify-start gap-x-4 flex-wrap">
             {logos.map((logo) => (
               <div
                 key={logo.name}

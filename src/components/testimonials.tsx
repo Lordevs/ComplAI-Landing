@@ -100,7 +100,7 @@ export default function TestimonialCarousel() {
   }, [rotateItems]);
 
   return (
-    <section className="py-16 px-4 md:px-6 bg-gray-50">
+    <section className="py-16 px-4 md:px-6 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1">
@@ -109,7 +109,7 @@ export default function TestimonialCarousel() {
             </div>
             <span>Testimonials</span>
           </div>
-          <h2 className="text-6xl font-bold mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4">
             See what all the talk
             <br />
             is about.

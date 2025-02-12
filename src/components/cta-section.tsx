@@ -56,7 +56,7 @@ export default function CTASection({
         <div className="space-y-2">
           <h3
             className={cn(
-              'text-xl font-semibold md:text-3xl lg:text-7xl',
+              'text-2xl font-semibold md:text-3xl lg:text-7xl',
               titleClassName
             )}
           >

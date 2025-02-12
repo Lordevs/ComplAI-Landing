@@ -7,14 +7,14 @@ export default function TrustedSection() {
       <div className="absolute right-0 -bottom-2 h-[300px] w-[300px] bg-[url('/images/bg/quator-circle.svg')] bg-contain bg-right bg-no-repeat transform rotate-180" />
 
       <div className="container relative mx-auto">
-        <div className="mx-auto max-w-3xl space-y-8 text-center">
+        <div className="mx-auto max-w-3xl space-y-8 text-center px-4 md:px-0">
           <div className="space-y-4">
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               Trusted by Legal Teams Everywhere
             </h2>
           </div>
 
-          <div className="space-y-6 text-lg leading-relaxed text-white/90">
+          <div className="space-y-6 md:text-lg leading-relaxed text-white/90">
             <p>
               Our users are the compliance champions their teams trust to keep
               everything running smoothly. They&apos;re the ones who navigate

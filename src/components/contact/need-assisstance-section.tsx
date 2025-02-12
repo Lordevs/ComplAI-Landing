@@ -37,14 +37,16 @@ function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
         <Icon className="h-5 w-5 text-white" />
       </div>
       <div>
-        <h3 className="font-medium text-2xl">{title}</h3>
-        <span className="text-xl font-bold underline">{contact}</span>
+        <h3 className="font-medium text-xl md:text-2xl">{title}</h3>
+        <span className="text-lg md:text-xl font-bold underline">
+          {contact}
+        </span>
       </div>
     </>
   );
 
   return (
-    <Card className="p-4 flex items-center justify-center gap-6 h-fit border-primary shadow-primary drop-shadow-md">
+    <Card className="p-4 flex items-center md:justify-center gap-6 h-fit border-primary shadow-primary drop-shadow-md">
       {href ? (
         <a href={href} className="flex items-center gap-6">
           {content}
@@ -58,14 +60,14 @@ function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
 
 export default function NeedAssistanceSection() {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white px-4 md:px-0">
       <div className="container mx-auto">
         <div className="space-y-8">
           <div className="text-center space-y-2">
-            <h2 className="text-4xl font-bold">
+            <h2 className="text-3xl md:text-4xl font-bold">
               Need Further Assistance? Contact Us Directly
             </h2>
-            <p className="text-xl max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl max-w-3xl mx-auto">
               Send attachments or additional details directly to our Sales or
               Support teams for quick and reliable assistance
             </p>

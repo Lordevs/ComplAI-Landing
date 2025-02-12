@@ -17,8 +17,8 @@ export default function News() {
   return (
     <>
       <main>
-        <div className="text-center space-y-2  my-20">
-          <h2 className="text-6xl font-bold">News & Articles</h2>
+        <div className="text-center space-y-2 py-16 md:py-20 px-6">
+          <h2 className="text-5xl md:text-6xl font-bold">News & Articles</h2>
           <p className="font-normal text-xl">
             Our latest updates, news, and AI insights to keep you connected to
             innovation and progress.

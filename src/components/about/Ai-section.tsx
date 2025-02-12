@@ -2,10 +2,12 @@ import Image from 'next/image';
 
 export default function AiSection() {
   return (
-    <section className="my-12">
-      <div className="container mx-auto max-w-screen-lg px-8 py-16 flex flex-col items-center space-y-8">
-        <h2 className="text-6xl font-semibold">AI-Driven Compliance</h2>
-        <p className="text-lg text-center">
+    <section className="py-12">
+      <div className="container mx-auto max-w-screen-lg px-4 md:px-8 py-16 flex flex-col items-center space-y-8">
+        <h2 className="text-4xl md:text-6xl font-semibold">
+          AI-Driven Compliance
+        </h2>
+        <p className="md:text-lg text-justify md:text-center">
           Compl-AI is a specialised AI solution for SRA-regulated law firms,
           offering precise, regulation-aware responses through a custom hybrid
           architecture and proprietary data protocols. Developed and validated

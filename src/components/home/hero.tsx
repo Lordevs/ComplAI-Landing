@@ -9,9 +9,9 @@ export function Hero() {
   return (
     <>
       {/* content */}
-      <section className="relative pt-24 pb-32 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover">
+      <section className="relative pt-24 pb-32 px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover">
         <div className="mx-auto container max-w-5xl text-center">
-          <h1 className="mb-6 font-bold tracking-tight sm:text-5xl md:text-6xl leading-[1.5]">
+          <h1 className="mb-6 font-bold tracking-tight text-4xl md:text-6xl leading-[1.5]">
             <span className="text-primary">{title.start}</span>
             {title.middle}
             <br className="hidden md:inline" />
@@ -44,7 +44,7 @@ export function Hero() {
               src="./images/home-hero.svg"
               alt="Compliance review interface"
               fill
-              className="bg-cover ml-20"
+              className="bg-cover md:ml-20"
               priority
             />
           </div>

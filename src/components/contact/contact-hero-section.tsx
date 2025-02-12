@@ -8,17 +8,17 @@ import { SupportForm } from './support-form';
 export default function ContactHeroSection() {
   return (
     <>
-      <div className="absolute left-0 top-0 h-[500px] w-[500px] bg-[url('/images/bg/ellipse2.svg')] bg-contain bg-left bg-no-repeat" />
+      <div className="absolute left-0 top-0 h-[400px] w-[400px] md:h-[500px] md:w-[500px] bg-[url('/images/bg/ellipse2.svg')] bg-contain bg-left bg-no-repeat" />
       <section className="relative py-16">
-        <div className="absolute right-0 top-0 h-[600px] w-[600px] bg-[url('/images/bg/ellipse.svg')] bg-contain bg-right bg-no-repeat" />
+        <div className="absolute right-0 top-0 h-[400px] w-[400px] md:h-[600px] md:w-[600px] bg-[url('/images/bg/ellipse.svg')] bg-contain bg-right bg-no-repeat" />
 
-        <div className="container mx-auto">
+        <div className="container mx-auto relative z-10">
           <div className="space-y-12">
             <div className="text-center space-y-2 mb-20">
-              <h2 className="text-6xl font-bold">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold">
                 Get in Touch with Us Today!
               </h2>
-              <p className="font-normal text-xl">
+              <p className="font-normal sm:text-lg md:text-xl">
                 Whether It&rsquo;s Sales, Support, or Just a Question, Our Team
                 Is Happy to Help
               </p>

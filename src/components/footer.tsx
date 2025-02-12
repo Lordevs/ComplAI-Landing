@@ -17,15 +17,15 @@ export function Footer() {
   const { footer } = siteConfig;
 
   return (
-    <footer className="border-t py-16 bg-primary">
-      <div className="container grid gap-8 md:grid-cols-[2fr_1fr] mx-auto">
+    <footer className="border-t py-16 bg-primary px-4 md:px-0">
+      <div className="relative container grid gap-8 md:grid-cols-[2fr_1fr] mx-auto">
         {/* Logo and Social Section */}
         <div className="space-y-6">
           <Logo className="justify-start" inverted={true} />
           <p className="text-xl max-w-72 text-white">{footer.tagline}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:relative">
           {/* Product Links */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-white">
@@ -86,9 +86,7 @@ export function Footer() {
         </div>
 
         <div className="col-span-full flex justify-between gap-16 text-white">
-          <div className="basis-1/2">
-            <p className="text-3xl max-w-sm">{footer.mainText}</p>
-          </div>
+          <p className="text-3xl max-w-sm">{footer.mainText}</p>
         </div>
 
         <div className="container flex items-center justify-between col-span-full">
