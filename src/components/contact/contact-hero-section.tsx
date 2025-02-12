@@ -24,7 +24,7 @@ export default function ContactHeroSection() {
               </p>
             </div>
 
-            <Tabs defaultValue="sales" className="w-full">
+            <Tabs defaultValue="support" className="w-full">
               <TabsList className="flex justify-center items-center mb-6 w-fit mx-auto">
                 <TabsTrigger
                   value="sales"
@@ -39,13 +39,15 @@ export default function ContactHeroSection() {
                   Compl-AI Support
                 </TabsTrigger>
               </TabsList>
-
-              <TabsContent value="sales">
-                <ContactForm />
-              </TabsContent>
               <TabsContent value="support">
-                <SupportForm />
+                <ContactForm />
+
               </TabsContent>
+              <TabsContent value="sales">
+                <SupportForm />
+
+              </TabsContent>
+
             </Tabs>
           </div>
         </div>

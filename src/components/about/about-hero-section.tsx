@@ -1,7 +1,7 @@
 export default function AboutHeroSection() {
   return (
     <>
-      <div className="absolute left-0 top-0 bottom-0 right-0 bg-gradient-to-b from-[#70a2ff36] to-[#43619900]" />
+      <div className="absolute left-0 top-0 bottom-0 right-0 bg-gradient-to-b from-[#70a2ff36] to-[#43619900] " />
       <section className="relative overflow-hidden py-16 px-4 md:px-0">
         <div className="absolute right-0 top-10 h-[500px] w-[500px] bg-[url('/images/bg/about-hero-bg.svg')] bg-contain bg-right bg-no-repeat" />
 

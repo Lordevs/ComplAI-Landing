@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { siteConfig } from '@/config/site';
 import { CTAButton } from '@/components/cta-button';
+import { siteConfig } from '@/config/site';
 
 export function Hero() {
   const { title, subtitle, buttons } = siteConfig.hero;
@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <>
       {/* content */}
-      <section className="relative pt-24 pb-32 px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover">
+      <section className="relative pt-28 pb-32 px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover">
         <div className="mx-auto container max-w-5xl text-center">
           <h1 className="mb-6 font-bold tracking-tight text-4xl md:text-6xl leading-[1.5]">
             <span className="text-primary">{title.start}</span>

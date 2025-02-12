@@ -20,7 +20,7 @@ export default function Contact() {
   return (
     <>
       <main>
-        <div className="relative text-center space-y-2 my-20 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] h-screen">
+        <div className="relative text-center space-y-2 my-20 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] pt-20 h-screen">
           <h2 className="text-6xl font-bold">
             Smart Compliance, <br />
             Priced for Your Success

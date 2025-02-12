@@ -19,7 +19,7 @@ export default function NewsExplanation() {
 
   return (
     <>
-      <main>
+      <main className='pt-20'>
         <div className="container mx-auto px-6 pt-12 mt-8 mb-2">
           <Link href="/" className="text-gray-500 hover:underline mb-4 block">
             ← Go back

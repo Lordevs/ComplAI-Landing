@@ -20,7 +20,7 @@ export default function Home() {
   };
   return (
     <>
-      <main>
+      <main >
         <Hero />
         <div className="-mt-64">
           <IndustryStandards />
