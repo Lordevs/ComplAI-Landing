@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { CTAButton } from '@/components/cta-button';
 import { siteConfig } from '@/config/site';
+import { CTAButton } from '@/components/cta-button';
 
 export function Hero() {
   const { title, subtitle, buttons } = siteConfig.hero;
@@ -39,7 +39,7 @@ export function Hero() {
 
         <div className="relative mx-auto mt-8 w-full max-w-4xl">
           {/* <div className='absolute inset-0 bg-gradient-to-tr from-primary/30 to-primary/10 rounded-lg blur-3xl opacity-50' /> */}
-          <div className="relative w-full h-[800px] mx-auto bg-cover">
+          <div className="relative w-full h-[400px] md:h-[800px] mx-auto bg-cover">
             <Image
               src="./images/home-hero.svg"
               alt="Compliance review interface"

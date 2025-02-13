@@ -1,4 +1,7 @@
-'use client'
+'use client';
+
+import { Suspense } from 'react';
+
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import Features from '@/components/home/features';
@@ -6,7 +9,6 @@ import { Hero } from '@/components/home/hero';
 import IndustryStandards from '@/components/home/industry-standards';
 import { NewsSection } from '@/components/news-section';
 import TestimonialSlider from '@/components/testimonials';
-import { Suspense } from 'react';
 
 export default function Home() {
   const cta = {
@@ -23,11 +25,9 @@ export default function Home() {
   return (
     <>
       <Suspense>
-
-
-        <main >
+        <main>
           <Hero />
-          <div className="-mt-64">
+          <div className="-mt-44 md:-mt-64">
             <IndustryStandards />
           </div>
           <Features />
