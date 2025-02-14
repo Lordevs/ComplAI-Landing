@@ -1,13 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Command } from 'lucide-react';
+import { Suspense, useEffect } from 'react';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Command } from 'lucide-react';
 
-import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface FeatureCardProps {
   title: string;
@@ -41,6 +41,7 @@ function FeatureCard({
       transition={{ duration: 0.5, delay: delay * 0.1 }}
       whileHover={{ scale: 1.02 }}
       className={'text-center ' + className}
+      viewport={{ once: true }}
     >
       <Card className="h-full overflow-hidden bg-blue-50/50 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center">
         <CardContent className=" md:py-1 py-6 px-6 flex flex-col items-center justify-center">
@@ -112,8 +113,6 @@ export default function Features() {
 
   return (
     <Suspense>
-
-
       <section id="features" className="py-8 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-5">
@@ -121,6 +120,7 @@ export default function Features() {
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
               className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1"
             >
               <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">
@@ -132,6 +132,7 @@ export default function Features() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
               className="text-4xl md:text-6xl font-semibold mb-4"
             >
               The Features.
@@ -140,11 +141,12 @@ export default function Features() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
               className="text-lg md:text-xl max-w-3xl mx-auto"
             >
-              Discover the innovative features that streamline compliance, enhance
-              productivity, and provide peace of mind. Tailored for legal
-              professionals, by legal professionals.
+              Discover the innovative features that streamline compliance,
+              enhance productivity, and provide peace of mind. Tailored for
+              legal professionals, by legal professionals.
             </motion.p>
           </div>
 
