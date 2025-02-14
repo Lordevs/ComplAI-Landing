@@ -41,10 +41,10 @@ export function Header() {
 
         <div className="flex items-center gap-4">
           <Button variant="ghost" asChild className="text-primary">
-            <Link href="/sign-in">Sign In</Link>
+            <Link href="https://compl-ai-frontend.vercel.app/">Sign In</Link>
           </Button>
           <Button asChild className="rounded-lg">
-            <Link href="/register">Register</Link>
+            <Link href="https://compl-ai-frontend.vercel.app/">Register</Link>
           </Button>
         </div>
       </div>

@@ -32,7 +32,7 @@ export default function IndustryStandards() {
     <LogoSlider
       title="Aligned with Industry Standards"
       logos={logos}
-      titleClassName="text-xl md:text-3xl px-4 text-[#808897]"
+      titleClassName="text-xl md:text-3xl px-4 text-[#808897] hidden"
     />
   );
 }

@@ -43,7 +43,7 @@ function FeatureCard({
       className={'text-center ' + className}
     >
       <Card className="h-full overflow-hidden bg-blue-50/50 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center">
-        <CardContent className="p-6 flex flex-col items-center justify-center">
+        <CardContent className=" md:py-1 py-6 px-6 flex flex-col items-center justify-center">
           {topImage && (
             <div className="relative h-28 w-full mb-2">
               <Image src={topImage} layout="fill" objectFit="contain" alt="" />
@@ -65,7 +65,7 @@ function FeatureCard({
                 {titleIcon && (
                   <Image src={titleIcon} width={52} height={52} alt="" />
                 )}
-                <h3 className="text-2xl font-semibold text-[#0A2758]">
+                <h3 className="text-xl font-semibold text-[#0A2758]">
                   {title}
                 </h3>
               </div>
@@ -114,9 +114,9 @@ export default function Features() {
     <Suspense>
 
 
-      <section id="features" className="py-16 px-4 md:px-6">
+      <section id="features" className="py-8 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-5">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -149,7 +149,7 @@ export default function Features() {
           </div>
 
           {/* Bento Grid Container */}
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr_0.75fr_0.75fr_0.5fr_1fr] gap-6 ">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr_0.75fr_0.75fr_0.5fr_1fr] gap-6 md:gap-2 ">
             {/* First Row */}
             <FeatureCard
               className="col-span-full md:col-span-2"
