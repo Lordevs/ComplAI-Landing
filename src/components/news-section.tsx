@@ -43,16 +43,33 @@ export function NewsSection() {
             </Button>
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        {/* 
+          - On small screens: flex layout with horizontal scroll
+          - On medium screens+: grid layout
+        */}
+        <div
+          className="
+          flex gap-6 overflow-x-auto whitespace-nowrap
+          md:overflow-x-visible md:grid md:grid-cols-2 lg:grid-cols-3
+        "
+        >
           {NEWS_ITEMS.map((item, index) => (
-            <NewsCard
+            <div
               key={index}
-              date={item.date}
-              title={item.title}
-              description={item.description}
-              imageUrl={item.imageUrl}
-              slug={item.href}
-            />
+              className="
+                flex-shrink-0 w-80 
+                md:w-auto
+              "
+            >
+              <NewsCard
+                date={item.date}
+                title={item.title}
+                description={item.description}
+                imageUrl={item.imageUrl}
+                slug={item.href}
+              />
+            </div>
           ))}
         </div>
       </div>
