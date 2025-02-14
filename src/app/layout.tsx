@@ -18,7 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Compl AI',
-  description: 'Your In-house compliance partner, empowered by Artificial Intelligence.',
+  description:
+    'Your In-house compliance partner, empowered by Artificial Intelligence.',
 };
 
 export default function RootLayout({

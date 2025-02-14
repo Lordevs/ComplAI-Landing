@@ -1,8 +1,8 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -102,8 +102,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-
-
 
       <IndustryStandards />
     </section>
