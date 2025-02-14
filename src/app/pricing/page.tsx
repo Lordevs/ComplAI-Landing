@@ -24,7 +24,7 @@ export default function Contact() {
   return (
     <>
       <main>
-        <div className="relative text-center space-y-2 my-20 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] pt-20 h-screen">
+        <div className="relative text-center space-y-2 my-20 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] pt-10 md:pt-20 h-screen">
           <motion.h2
             // 1. Animation starting state
             initial={{ opacity: 0, y: 50 }}
@@ -32,7 +32,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             // 3. Animation timing
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="text-6xl font-bold"
+            className="text-3xl md:text-6xl font-bold"
           >
             Smart Compliance, <br />
             Priced for Your Success
@@ -42,17 +42,17 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
-            className="font-normal text-xl"
+            className="font-normal text-md md:text-xl"
           >
             Streamline Your Law Firm&rsquo;s Compliance with Artificial
             Intelligence
           </motion.p>
 
-          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 text-start w-full">
+          <div className="absolute md:top-1/3 left-1/2 transform -translate-x-1/2 text-start w-full">
             <PricingTable />
           </div>
         </div>
-        <div className="h-96 mt-32" />
+        <div className="h-96 mt-72 md:mt-32" />
         <PricingBanner />
         <TeamsSlider />
         <FAQSection />

@@ -18,8 +18,8 @@ const PricingTable = () => {
           <TableHeader>
             <TableRow className="border-none">
               <TableHead className="w-1/4">
-                <div className="mb-8 text-[#000]">
-                  <h2 className="text-3xl font-semibold">
+                <div className="mb-8 text-[#000] space-y-2">
+                  <h2 className="text-3xl md:text-3xl font-semibold">
                     Find Your Compliance Plan
                   </h2>
                   <p>
