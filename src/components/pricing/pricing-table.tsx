@@ -18,8 +18,8 @@ const PricingTable = () => {
           <TableHeader>
             <TableRow className="border-none">
               <TableHead className="w-1/4">
-                <div className="mb-8 text-[#000]">
-                  <h2 className="text-3xl font-semibold">
+                <div className="mb-8 text-[#000] space-y-2">
+                  <h2 className="text-3xl md:text-3xl font-semibold">
                     Find Your Compliance Plan
                   </h2>
                   <p>
@@ -43,7 +43,9 @@ const PricingTable = () => {
                     </p>
                   </div>
                   <div className="space-y-2">
-                    <Button className="w-44 mx-auto mt-6">Try for Free</Button>
+                    <Button className="w-44 mx-auto mt-6 transition-all duration-300 ease-in-out hover:scale-105">
+                      Try for Free
+                    </Button>
                     <div className="text-xs text-center text-[#000]">
                       or <span className="text-primary">top-up now</span>
                     </div>
@@ -68,7 +70,7 @@ const PricingTable = () => {
                       maintain quality accreditations
                     </p>
                   </div>
-                  <Button className="w-44 mx-auto mt-6">
+                  <Button className="w-44 mx-auto mt-6 transition-all duration-300 ease-in-out hover:scale-105">
                     Get Professional
                   </Button>
                 </div>
@@ -87,7 +89,9 @@ const PricingTable = () => {
                       future flagman
                     </p>
                   </div>
-                  <Button className="w-44 mx-auto mt-6">Contact Sales</Button>
+                  <Button className="w-44 mx-auto mt-6 transition-all duration-300 ease-in-out hover:scale-105">
+                    Contact Sales
+                  </Button>
                 </div>
               </TableHead>
             </TableRow>

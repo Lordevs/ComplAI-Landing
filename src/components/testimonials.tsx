@@ -96,7 +96,6 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialCarousel() {
   const [items, setItems] = useState(testimonials);
-  const [key, setKey] = useState(0); // Key to trigger re-render
   const focusedIndex = 2;
 
   const rotateItems = useCallback((direction: 'left' | 'right') => {
@@ -111,8 +110,6 @@ export default function TestimonialCarousel() {
       }
       return newItems;
     });
-
-    setKey((prevKey) => prevKey + 1); // Force re-render
   }, []);
 
   const handleClick = useCallback(
@@ -163,22 +160,22 @@ export default function TestimonialCarousel() {
             <AnimatePresence mode="popLayout" initial={false}>
               {items.slice(0, 5).map((item, index) => (
                 <motion.div
-                  key={`${item.id}-${key}`} // Ensures motion elements re-render
+                  key={`${item.id}-${index}`}
                   layoutId={String(item.id)}
                   className="relative cursor-pointer rounded-lg mx-2 flex-1"
                   initial={{
-                    opacity: 0,
+                    // opacity: 0,
                     x: index === 0 ? -100 : index === 2 ? 100 : 0,
                   }}
                   animate={{
-                    opacity: 1,
+                    // opacity: 1,
                     x: 0,
                     // scale: index === 2 ? 1 : 0.9,
                     // filter: index === 2 ? 'blur(0px)' : 'blur(3px)',
                     backgroundColor: index === 2 ? '#D7ECFF' : '#EDF8FF',
                   }}
                   exit={{
-                    opacity: 0,
+                    // opacity: 0,
                     x: index === 0 ? -100 : index === 2 ? 100 : 0,
                   }}
                   transition={{
@@ -219,13 +216,13 @@ export default function TestimonialCarousel() {
             <Button
               variant="outline"
               onClick={() => rotateItems('right')}
-              className="p-2 rounded-full text-primary border-primary shadow-md h-fit hover:bg-gray-200 hover:text-primary"
+              className="p-2 rounded-full text-primary border-primary shadow-md h-fit hover:bg-gray-200 hover:text-primary transition-all duration-300 ease-in-out hover:scale-105"
             >
               <ArrowLeft size={24} />
             </Button>
             <Button
               onClick={() => rotateItems('left')}
-              className="p-2 rounded-full bg-primary text-white shadow-md h-fit"
+              className="p-2 rounded-full bg-primary text-white shadow-md h-fit transition-all duration-300 ease-in-out hover:scale-105"
             >
               <ArrowRight size={24} />
             </Button>
