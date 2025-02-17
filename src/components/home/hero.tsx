@@ -28,9 +28,9 @@ const buttons = {
 
 export function Hero() {
   const images = [
-    '/images/hero1.svg',
-    '/images/hero2.svg',
-    '/images/hero3.svg',
+    '/images/hero1.png',
+    '/images/hero2.png',
+    '/images/hero3.png',
   ];
 
   const displayDuration = 5; // Display each image for 5 seconds
