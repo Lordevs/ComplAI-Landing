@@ -1,13 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Command } from 'lucide-react';
+import { Suspense, useEffect } from 'react';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Command } from 'lucide-react';
 
-import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface FeatureCardProps {
   title: string;
