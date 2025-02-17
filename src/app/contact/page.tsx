@@ -9,8 +9,8 @@ export default function Contact() {
       <main className="pt-20">
         <ContactHeroSection />
         <NeedAssistanceSection />
-        <FAQSection />
         <TestimonialCarousel />
+        <FAQSection />
       </main>
     </>
   );
