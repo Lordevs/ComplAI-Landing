@@ -15,8 +15,8 @@ export default function ContactHeroSection() {
         <div className="absolute right-0 top-0 h-[400px] w-[400px] md:h-[600px] md:w-[600px] bg-[url('/images/bg/ellipse.svg')] bg-contain bg-right bg-no-repeat" />
 
         <div className="container mx-auto relative z-10">
-          <div className="space-y-12">
-            <div className="text-center space-y-2 mb-20">
+          <div className="space-y-12 md:space-y-16">
+            <div className="text-center space-y-2">
               {/* Animated heading */}
               <motion.h2
                 initial={{ opacity: 0, y: -20 }}
@@ -34,7 +34,7 @@ export default function ContactHeroSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true, amount: 0.2 }}
-                className="font-normal sm:text-lg md:text-xl"
+                className="font-normal sm:text-lg md:text-xl max-w-xs md:max-w-2xl mx-auto"
               >
                 Whether It&rsquo;s Sales, Support, or Just a Question, Our Team
                 Is Happy to Help
