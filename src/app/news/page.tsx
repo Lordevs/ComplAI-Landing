@@ -21,7 +21,7 @@ export default function News() {
   return (
     <>
       <main className="pt-20">
-        <div className="text-center space-y-2 py-16 md:py-20 px-6">
+        <div className="text-center space-y-2 pt-16 pb-4 md:pt-20 md:pb-8 px-6">
           <motion.h2
             // 1. Animation starting state
             initial={{ opacity: 0, y: 50 }}

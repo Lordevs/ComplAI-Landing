@@ -47,16 +47,22 @@ const faq = {
   ],
 };
 
-export default function FAQSection() {
+export default function FAQSection({
+  showBadge = false,
+}: {
+  showBadge?: boolean;
+}) {
   return (
     <section className="w-full py-12 md:py-24 px-4 md:px-0">
       <div className="container flex flex-col items-center justify-center space-y-4 text-center mx-auto">
-        <div className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1">
-          <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">
-            <Star size={12} />
+        {showBadge && (
+          <div className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1">
+            <div className="bg-[#D5EAFF] rounded-lg px-3 py-1 text-primary">
+              <Star size={12} />
+            </div>
+            <span>FAQ</span>
           </div>
-          <span>FAQ</span>
-        </div>
+        )}
         <h2 className="text-3xl font-bold sm:text-4xl md:text-6xl">
           {faq.title}
         </h2>

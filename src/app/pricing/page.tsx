@@ -52,7 +52,7 @@ export default function Contact() {
             <PricingTable />
           </div>
         </div>
-        <div className="h-96 mt-72 md:mt-32" />
+        <div className="h-96 mt-32" />
         <PricingBanner />
         <TeamsSlider />
         <FAQSection />
