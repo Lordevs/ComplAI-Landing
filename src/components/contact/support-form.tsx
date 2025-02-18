@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { Check } from 'lucide-react';
+import { useState } from 'react';
 
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -12,6 +11,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { cn } from '@/lib/utils';
 
 import TeamsSlider from '../teams-slider';
 import { Card } from '../ui/card';
@@ -70,8 +70,8 @@ export default function SupportForm() {
             <SelectValue placeholder="Version" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="version1">Version 1</SelectItem>
-            <SelectItem value="version2">Version 2</SelectItem>
+            <SelectItem value="version1">Compl-AI-v1</SelectItem>
+            {/* <SelectItem value="version2">Version 2</SelectItem> */}
           </SelectContent>
         </Select>
 
