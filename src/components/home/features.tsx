@@ -1,13 +1,13 @@
 'use client';
 
-import { Suspense, useEffect } from 'react';
-import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Command } from 'lucide-react';
+import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
+import { Suspense, useEffect } from 'react';
 
-import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 interface FeatureCardProps {
   title: string;
@@ -44,7 +44,7 @@ function FeatureCard({
       viewport={{ once: true }}
     >
       <Card className="h-full overflow-hidden bg-blue-50/50 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center">
-        <CardContent className=" md:py-1 py-6 px-6 flex flex-col items-center justify-center">
+        <CardContent className=" md:py-6 py-6 px-6 flex flex-col items-center justify-center">
           {topImage && (
             <div className="relative h-28 w-full mb-2">
               <Image src={topImage} layout="fill" objectFit="contain" alt="" />
@@ -151,7 +151,7 @@ export default function Features() {
           </div>
 
           {/* Bento Grid Container */}
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr_0.75fr_0.75fr_0.5fr_1fr] gap-6 md:gap-2 ">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr_0.75fr_0.75fr_0.5fr_1fr] gap-6 md:gap-6 ">
             {/* First Row */}
             <FeatureCard
               className="col-span-full md:col-span-2"

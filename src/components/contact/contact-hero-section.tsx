@@ -41,7 +41,7 @@ export default function ContactHeroSection() {
               </motion.p>
             </div>
 
-            <Tabs defaultValue="support" className="w-full">
+            <Tabs defaultValue="sales" className="w-full">
               <TabsList className="flex justify-center items-center mb-6 w-fit mx-auto">
                 <TabsTrigger
                   value="sales"
@@ -51,7 +51,7 @@ export default function ContactHeroSection() {
                 </TabsTrigger>
                 <TabsTrigger
                   value="support"
-                  className="data-[state=active]:bg-[#1B1819] data-[state=active]:text-white py-2 rounded-lg bg-gray-light"
+                  className="data-[state=active]:bg-[#2d2d6d] data-[state=active]:text-white py-2 rounded-lg bg-gray-light"
                 >
                   Compl-AI Support
                 </TabsTrigger>
