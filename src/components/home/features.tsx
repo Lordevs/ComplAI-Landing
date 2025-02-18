@@ -62,7 +62,7 @@ function FeatureCard({
               </div>
             )}
             <div>
-              <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="flex items-center justify-center gap-2 mb-4">
                 {titleIcon && (
                   <Image src={titleIcon} width={52} height={52} alt="" />
                 )}
@@ -157,6 +157,7 @@ export default function Features() {
               className="col-span-full md:col-span-2"
               title="Smart Document Handling"
               description="Upload, review, and draft tailored responses to emails, letters, and more—effortlessly"
+              titleIcon="/images/features/1.svg"
               delay={1}
             />
             <FeatureCard
