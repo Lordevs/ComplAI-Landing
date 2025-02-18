@@ -3,6 +3,8 @@ import { Check, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
+import { Logo } from '../logo';
+
 const PricingCard = ({
   title,
   price,
@@ -28,13 +30,18 @@ const PricingCard = ({
           <span>Most Popular</span>
         </div>
       )}
-      <CardHeader className="text-center">
+      <CardHeader className="text-start p-0 space-y-6">
+        <Logo className="justify-start" />
         <CardTitle className="text-xl font-bold text-[#000]">{title}</CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col items-center gap-4">
-        <div className="text-3xl font-bold text-gray-900">{price}</div>
-        <div className="text-sm text-gray-500 mb-2">{subtitle}</div>
-        <Button className="text-white font-semibold py-2 px-4 rounded-md mb-6">
+      <CardContent className="flex flex-col items-start gap-4 p-0 text-start my-4">
+        <div className="">
+          <p className="flex items-center gap-2 text-3xl font-bold text-gray-900">
+            {price}
+            <span className="text-sm text-gray-500">{subtitle}</span>
+          </p>
+        </div>
+        <Button className="text-white font-semibold py-2 px-4 rounded-md mb-4">
           {buttonText}
         </Button>
         <p className="text-justify text-[#1F1F1F] mb-4">{description}</p>
