@@ -55,14 +55,14 @@ export default function LogoSlider({
             {logos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex w-24 md:w-[200px] h-10 md:h-[100px] items-center justify-center"
+                className="flex items-center justify-center w-24 md:w-[200px] h-10 md:h-[100px]"
               >
                 <Image
                   width={200}
                   height={100}
                   src={logo.url || '/placeholder.svg'}
                   alt={`${logo.name} logo`}
-                  className="h-full w-full object-contain"
+                  className="w-full h-full object-contain"
                 />
               </div>
             ))}

@@ -10,8 +10,8 @@ import { Card } from '../ui/card';
 export default function SalesForm() {
   return (
     <div className="grid md:grid-cols-2 gap-8 px-4 md:px-0">
-      <div className="overflow-hidden grid grid-cols-1 gap-8">
-        <Card className="bg-gradient-to-br from-[#6499F4] to-[#0a59eb] to-85% h-fit text-white p-8 rounded-lg">
+      <div className="overflow-hidden grid grid-cols-1 gap-8 order-2 md:order-1">
+        <Card className="bg-gradient-to-br from-[#6499F4] to-[#0a59eb] to-85% h-fit text-white p-8 rounded-lg ">
           <div className="space-y-6">
             <h3 className="text-3xl md:text-4xl font-semibold">
               We&apos;d love to help
@@ -46,7 +46,7 @@ export default function SalesForm() {
         />
       </div>
 
-      <div className="space-y-4 flex-1">
+      <div className="space-y-4 flex-1 order-1 md:order-2">
         <Input placeholder="Your full name" className="py-6" />
         <Input type="email" placeholder="Your email" className="py-6" />
         <Input placeholder="Company name" className="py-6" />
