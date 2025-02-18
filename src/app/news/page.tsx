@@ -22,7 +22,7 @@ export default function News() {
     <>
       <main className="pt-20">
         <div className="text-center space-y-2 pt-16 pb-4 md:pt-20 md:pb-8 px-6">
-          <motion.h2
+          <motion.h1
             // 1. Animation starting state
             initial={{ opacity: 0, y: 50 }}
             // 2. Animation end state
@@ -32,7 +32,7 @@ export default function News() {
             className="text-5xl md:text-6xl font-bold"
           >
             News & Articles
-          </motion.h2>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}

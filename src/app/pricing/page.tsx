@@ -26,7 +26,7 @@ export default function Contact() {
     <>
       <main>
         <div className="relative text-center space-y-2 mt-20 md:mb-56 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] py-10 md:pt-20 md:h-[700px]">
-          <motion.h2
+          <motion.h1
             // 1. Animation starting state
             initial={{ opacity: 0, y: 50 }}
             // 2. Animation end state
@@ -37,7 +37,7 @@ export default function Contact() {
           >
             Smart Compliance, <br />
             Priced for Your Success
-          </motion.h2>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}

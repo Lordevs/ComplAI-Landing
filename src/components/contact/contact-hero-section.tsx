@@ -18,7 +18,7 @@ export default function ContactHeroSection() {
           <div className="space-y-12 md:space-y-16">
             <div className="text-center space-y-2">
               {/* Animated heading */}
-              <motion.h2
+              <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -26,7 +26,7 @@ export default function ContactHeroSection() {
                 className="text-4xl sm:text-5xl md:text-6xl font-bold"
               >
                 Get in Touch with Us Today!
-              </motion.h2>
+              </motion.h1>
 
               {/* Animated paragraph */}
               <motion.p

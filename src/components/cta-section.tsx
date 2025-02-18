@@ -24,9 +24,7 @@ export default function CTASection({
   showRadialImage?: boolean;
 }) {
   return (
-    <section
-      className={cn('relative bg-blue-lightest to-muted', containerClassName)}
-    >
+    <section className={cn('relative bg-blue-lightest', containerClassName)}>
       {showBgImage && (
         <div className="absolute right-0 inset-0 flex items-center justify-end">
           <Image
