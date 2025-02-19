@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { NewsCard } from '@/components/news-card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-// Sample news data
+// Sample news datas
 const newsData = [
   {
     id: 1,
