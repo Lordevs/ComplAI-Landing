@@ -1,12 +1,12 @@
 'use client';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import HoverPopup from '../hooverpopup';
 import SalesForm from './sales-form';
 import SupportForm from './support-form';
-
 
 export default function ContactHeroSection() {
   return (
