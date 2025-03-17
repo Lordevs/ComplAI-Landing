@@ -96,10 +96,10 @@ export default function NeedAssistanceSection() {
             {contactInfo.map((info) => (
               <motion.div
                 key={info.title}
-              // initial={{ opacity: 0, y: 20 }}
-              // whileInView={{ opacity: 1, y: 0 }}
-              // transition={{ duration: 0.5, delay: index * 0.2 }}
-              // viewport={{ amount: 0.5 }}
+                // initial={{ opacity: 0, y: 20 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // transition={{ duration: 0.5, delay: index * 0.2 }}
+                // viewport={{ amount: 0.5 }}
               >
                 <ContactCard {...info} />
               </motion.div>
