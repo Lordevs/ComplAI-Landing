@@ -1,9 +1,8 @@
-import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 import { Facebook, Linkedin, X, Youtube } from 'lucide-react';
+import Link from 'next/link';
 
 import { Logo } from './logo';
-import NavigateToTop from './navigate-to-top';
 
 const socialIcons = {
   linkedin: Linkedin,
@@ -98,8 +97,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Navigate to Top */}
-          <NavigateToTop />
+
         </div>
 
         <div className="col-span-full flex justify-between">

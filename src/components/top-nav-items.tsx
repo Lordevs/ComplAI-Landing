@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { ROUTES } from '@/constants/routes';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { ROUTES } from '@/constants/routes';
+import React, { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -110,7 +110,7 @@ export default function TopNavItems({
           key={item.href}
           href={item.href}
           className={cn(
-            'text-sm font-medium transition-colors hover:text-primary',
+            'text-md font-medium transition-colors hover:text-primary',
             { 'text-primary': isActive(item) }
           )}
           onClick={(event) => handleNavClick(event, item)}

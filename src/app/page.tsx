@@ -6,6 +6,7 @@ import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import Features from '@/components/home/features';
 import { Hero } from '@/components/home/hero';
+import NavigateToTop from '@/components/navigate-to-top';
 import { NewsSection } from '@/components/news-section';
 import TestimonialSlider from '@/components/testimonials';
 
@@ -27,10 +28,11 @@ export default function Home() {
         <main>
           <Hero />
           <Features />
-          <TestimonialSlider showBadge={true} />
-          <FAQSection showBadge={true} />
+          <TestimonialSlider showBadge={false} />
+          <FAQSection showBadge={false} />
           <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
           <NewsSection />
+          <NavigateToTop />
         </main>
       </Suspense>
     </>
