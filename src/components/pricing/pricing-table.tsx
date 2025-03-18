@@ -1,5 +1,3 @@
-import { Check, Star } from 'lucide-react';
-
 import { Button } from '@/components/ui/button';
 import {
   Table,
@@ -9,6 +7,129 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { Check, Star } from 'lucide-react';
+import React from 'react';
+
+const pricingPlans = [
+  {
+    key: 'payasyouuse',
+    name: 'Pay As You Use',
+    subheading: 'Top-up Anytime',
+    description:
+      'From seeking assistance to compliance support without long-term commitments',
+    buttonText: 'Try for Free',
+    linkText: 'top-up now',
+  },
+  {
+    key: 'professional',
+    name: 'Professional',
+    price: '£49',
+    priceSuffix: '/month',
+    description:
+      'Firms aiming to stay ahead of compliance requirements and maintain quality accreditations',
+    buttonText: 'Get Professional',
+    mostPopular: true,
+  },
+  {
+    key: 'enterprise',
+    name: 'Enterprise',
+    price: 'Custom Quote',
+    description:
+      'From managing high-risk firms, multiple legal service or future flagman',
+    buttonText: 'Contact Sales',
+  },
+];
+
+const tableSections = [
+  {
+    title: 'Core',
+    rows: [
+      {
+        label: 'Minimum Commitment',
+        payasyouuse: 'No Contract',
+        professional: '12 Months',
+        enterprise: '24 Months',
+      },
+      {
+        label: 'User Licenses',
+        payasyouuse: 'Single User',
+        professional: 'Single User',
+        enterprise: 'Multiple Users',
+      },
+      {
+        label: 'Accessibility',
+        payasyouuse: 'Desktop Only',
+        professional: 'Desktop Only',
+        enterprise: 'Desktop & Mobile',
+      },
+      {
+        label: 'Key Benefits',
+        payasyouuse: 'Flexibility',
+        professional: 'Comprehensive Support',
+        enterprise: 'Scalable Solutions',
+      },
+    ],
+  },
+  {
+    title: 'Features',
+    rows: [
+      {
+        label: 'Interactive Query Assistance',
+        payasyouuse: true,
+        professional: true,
+        enterprise: true,
+      },
+      {
+        label: 'Create & Manage Documents',
+        payasyouuse: true,
+        professional: true,
+        enterprise: true,
+      },
+      {
+        label: 'Account & Data Security',
+        payasyouuse: true,
+        professional: true,
+        enterprise: true,
+      },
+      {
+        label: 'Step-by-Step Guidance',
+        payasyouuse: true,
+        professional: true,
+        enterprise: true,
+      },
+      {
+        label: 'Automated Policy Review',
+        payasyouuse: true,
+        professional: true,
+        enterprise: true,
+      },
+      {
+        label: 'Document Upload',
+        payasyouuse: '-',
+        professional: 'Up to 15 MB',
+        enterprise: 'Up to 100 MB',
+      },
+      {
+        label: 'File Review & Analysis',
+        payasyouuse: '-',
+        professional: '-',
+        enterprise: true,
+      },
+      {
+        label: 'Voice Assistance',
+        payasyouuse: '-',
+        professional: '-',
+        enterprise: true,
+      },
+      {
+        label: 'Upload Custom Compliance Manual',
+        payasyouuse: '-',
+        professional: '-',
+        enterprise: true,
+      },
+    ],
+  },
+];
 
 const PricingTable = () => {
   return (
@@ -17,6 +138,7 @@ const PricingTable = () => {
         <Table>
           <TableHeader>
             <TableRow className="border-none hover:bg-transparent">
+              {/* Left static header cell */}
               <TableHead className="flex flex-col py-2">
                 <div className="mb-8 text-[#000] space-y-2">
                   <h2 className="text-3xl md:text-3xl font-semibold">
@@ -28,443 +150,112 @@ const PricingTable = () => {
                   </p>
                 </div>
               </TableHead>
-              <TableHead className="w-1/4">
-                <div className="space-y-2 text-center border border-b-0 rounded-xl rounded-b-none h-full pt-8">
-                  <div className="space-y-2">
-                    <div className="font-semibold text-xl text-[#000]">
-                      Pay As You Use
+              {/* Map over pricing plans */}
+              {pricingPlans.map((plan) => (
+                <TableHead key={plan.key} className="w-1/4">
+                  <div className=" text-center relative border border-b-0 rounded-xl rounded-b-none h-full pt-8">
+                    {plan.mostPopular && (
+                      <div className="absolute -top-0 right-0 bg-primary text-white text-xs px-2 py-1 rounded-xl flex items-center gap-1">
+                        <Star className="h-3 w-3 inline-block" />
+                        <span>Most Popular</span>
+                      </div>
+                    )}
+                    <div className="space-y-2">
+                      <div className="font-semibold text-xl text-[#000]">
+                        {plan.name}
+                      </div>
+                      {plan.price ? (
+                        <div className="text-primary text-lg font-semibold">
+                          {plan.price}{' '}
+                          <span className="text-sm text-[#7C7C7C]">
+                            {plan.priceSuffix}
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="text-primary text-lg font-semibold">
+                          {plan.subheading}
+                        </div>
+                      )}
+                      <p className="text-xs text-[#1F1F1F] w-44 mx-auto">
+                        {plan.description}
+                      </p>
                     </div>
-                    <div className="text-primary text-lg font-semibold">
-                      Top-up Anytime
+                    <div className="space-y-2">
+                      <Button className="w-44 mx-auto mt-6 transition-all duration-300 ease-in-out hover:scale-105">
+                        {plan.buttonText}
+                      </Button>
+                      {plan.linkText && (
+                        <div className="text-xs text-center text-[#000]">
+                          or{' '}
+                          <span className="text-primary hover:underline cursor-pointer">
+                            {plan.linkText}
+                          </span>
+                        </div>
+                      )}
                     </div>
-                    <p className="text-xs text-[#1F1F1F] w-44 mx-auto">
-                      From seeking assistance to compliance support without
-                      long-term commitments
-                    </p>
                   </div>
-                  <div className="space-y-2">
-                    <Button className="w-44 mx-auto mt-6 transition-all duration-300 ease-in-out hover:scale-105">
-                      Try for Free
-                    </Button>
-                    <div className="text-xs text-center text-[#000]">
-                      or{' '}
-                      <span className="text-primary hover:underline cursor-pointer">
-                        top-up now
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </TableHead>
-              <TableHead className="w-1/4">
-                <div className="space-y-8 text-center relative border border-b-0 rounded-xl rounded-b-none h-full">
-                  <div className="absolute -top-0 right-0 bg-primary text-white text-xs px-2 py-1 rounded-xl rounded-ss-none rounded-ee-none flex items-center gap-1">
-                    <Star className="h-3 w-3 inline-block" />
-                    <span>Most Popular</span>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="font-semibold text-xl text-[#000]">
-                      Professional
-                    </div>
-                    <div className="text-primary text-lg font-semibold">
-                      £49 <span className="text-sm text-[#7C7C7C]">/month</span>
-                    </div>
-                    <p className="text-xs text-[#1F1F1F] w-44 mx-auto">
-                      Firms aiming to stay ahead of compliance requirements and
-                      maintain quality accreditations
-                    </p>
-                  </div>
-                  <Button className="w-44 mx-auto mt-6 transition-all duration-300 ease-in-out hover:scale-105">
-                    Get Professional
-                  </Button>
-                </div>
-              </TableHead>
-              <TableHead className="w-1/4">
-                <div className="space-y-8 text-center border border-b-0 rounded-xl rounded-b-none h-full pt-8">
-                  <div className="space-y-2">
-                    <div className="font-semibold text-xl text-[#000]">
-                      Enterprise
-                    </div>
-                    <div className="text-primary text-lg font-semibold">
-                      Custom Quote
-                    </div>
-                    <p className="text-xs text-[#1F1F1F] w-44 mx-auto">
-                      From managing high-risk firms, multiple legal service or
-                      future flagman
-                    </p>
-                  </div>
-                  <Button className="w-44 mx-auto mt-6 transition-all duration-300 ease-in-out hover:scale-105">
-                    Contact Sales
-                  </Button>
-                </div>
-              </TableHead>
+                </TableHead>
+              ))}
             </TableRow>
           </TableHeader>
 
           <TableBody className="text-[#454545]">
-            <TableRow className="border-none">
-              <TableCell className="font-semibold">Core</TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2 h-10"></div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2 h-10"></div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2 h-10"></div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none space-x-10">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Minimum Commitment</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    No Contract
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">12 Months</p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">24 Months</p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">User Licenses</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Single User
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Single User
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Multiple Users
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Accessibility</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Desktop Only
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Desktop Only
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Desktop & Mobile
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Key Benefits</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Flexibility
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Comprehensive Support
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Scalable Solutions
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-
-            <TableRow className="border-none">
-              <TableCell className="font-semibold">Features</TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2 h-10"></div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2 h-10"></div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2 h-10"></div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Interactive Data Assistance</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4 text-center" />
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Create & Manage Uncertainty</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Account & Data Security</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Step-by-Step Guidance</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Automated Policy Review</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Document Upload</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">-</p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Up to 15 MB
-                  </p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">
-                    Up to 100 MB
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">File Review & Analysis</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">-</p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">-</p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Voice Assistant</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">-</p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">-</p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
-            <TableRow className="border-none">
-              <TableCell className="!py-0">
-                <p className="border-b mr-4">Upload Custom Compliance Manual</p>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">-</p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b text-center w-44 mx-auto">-</p>
-                </div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-y-0 p-2">
-                  <p className="border-b w-44 mx-auto flex items-center justify-center">
-                    <Check className="h-4 w-4" />
-                  </p>
-                </div>
-              </TableCell>
-            </TableRow>
+            {tableSections.map((section, sectionIndex) => (
+              <React.Fragment key={sectionIndex}>
+                {/* Section header row */}
+                <TableRow className="border-none">
+                  <TableCell className="font-semibold">
+                    {section.title}
+                  </TableCell>
+                  {pricingPlans.map((plan) => (
+                    <TableCell key={plan.key} className="!py-0">
+                      <div className="border border-y-0 p-2 h-10"></div>
+                    </TableCell>
+                  ))}
+                </TableRow>
+                {/* Section content rows */}
+                {section.rows.map((row, rowIndex) => (
+                  <TableRow key={rowIndex} className="border-none">
+                    <TableCell className="!py-0">
+                      <p className="border-b mr-4">{row.label}</p>
+                    </TableCell>
+                    {pricingPlans.map((plan) => {
+                      const cellValue = row[plan.key as keyof typeof row];
+                      return (
+                        <TableCell key={plan.key} className="!py-0">
+                          <div className="border border-y-0 p-2">
+                            {typeof cellValue === 'boolean' && cellValue ? (
+                              <p className="border-b w-44 mx-auto flex items-center justify-center">
+                                <Check className="h-4 w-4" />
+                              </p>
+                            ) : (
+                              <p className="border-b text-center w-44 mx-auto">
+                                {cellValue}
+                              </p>
+                            )}
+                          </div>
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                ))}
+              </React.Fragment>
+            ))}
+            {/* Final empty row to round the table (if needed) */}
             <TableRow className="border-none">
               <TableCell className="!py-0"></TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-t-0 rounded-b-xl p-2 h-10"></div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-t-0 rounded-b-xl p-2 h-10"></div>
-              </TableCell>
-              <TableCell className="!py-0">
-                <div className="border border-t-0 rounded-b-xl p-2 h-10"></div>
-              </TableCell>
+              {pricingPlans.map((plan) => (
+                <TableCell key={plan.key} className="!py-0">
+                  <div className="border border-t-0 rounded-b-xl p-2 h-10"></div>
+                </TableCell>
+              ))}
             </TableRow>
           </TableBody>
         </Table>
 
         <p className="text-base text-gray-dark mt-6 text-center">
           Mobile functionality on Pay As You Use and Professional plans is
-          limited but still usable, with full optimisation exclusive to
-          Enterprise
+          limited but still usable, with full optimisation exclusive to Enterprise
         </p>
       </div>
     </div>
