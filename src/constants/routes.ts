@@ -10,9 +10,9 @@ export const ROUTES = {
   REGISTER: 'https://compl-ai-frontend.vercel.app/sign-up',
 } as const;
 
-export const API_ROUTES={
+export const API_ROUTES = {
   GET_BLOGS: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/blogs`,
   GET_BLOGS_ID(id: string) {
     return `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/blogs/${id}`;
-  }
-}
+  },
+};

@@ -1,13 +1,14 @@
 'use client';
 
-import { API_ROUTES } from '@/constants/routes';
-import { NewsData } from '@/types/news';
 import { useEffect, useState } from 'react';
+import { API_ROUTES } from '@/constants/routes';
+
+import { NewsData } from '@/types/news';
+
 import { NewsCard } from '../news-card';
 
 export default function NewsSection() {
   // Define TypeScript interfaces for the blog data structure
-
 
   // Initialize state as null; it will later store data of type NewsData
   const [newsData, setNewsData] = useState<NewsData | null>(null);
@@ -53,7 +54,10 @@ export default function NewsSection() {
         {newsData?.blogs.map((news, index) => {
           // Convert the HTML content to plain text extracted from the body,
           // and slice for a preview if desired.
-          const mainContentText = parseBodyContentToText(news.content).slice(0, 200);
+          const mainContentText = parseBodyContentToText(news.content).slice(
+            0,
+            200
+          );
           return (
             <NewsCard
               key={news.id || index}

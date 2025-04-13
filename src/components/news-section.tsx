@@ -1,13 +1,13 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-
-import { NewsCard } from '@/components/news-card';
-import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import { API_ROUTES } from '@/constants/routes';
+import { ArrowRight } from 'lucide-react';
+
 import { NewsData } from '@/types/news';
+import { Button } from '@/components/ui/button';
+import { NewsCard } from '@/components/news-card';
 
 export function NewsSection() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -96,10 +96,15 @@ export function NewsSection() {
           </Link>
         </div>
 
-        <div className="flex gap-6 overflow-x-auto whitespace-nowrap
-          md:overflow-x-visible md:grid md:grid-cols-2 lg:grid-cols-3">
+        <div
+          className="flex gap-6 overflow-x-auto whitespace-nowrap
+          md:overflow-x-visible md:grid md:grid-cols-2 lg:grid-cols-3"
+        >
           {newsData?.blogs.map((news, index) => {
-            const mainContentText = parseBodyContentToText(news.content).slice(0, 200);
+            const mainContentText = parseBodyContentToText(news.content).slice(
+              0,
+              200
+            );
             return (
               <div
                 key={index}
@@ -129,8 +134,9 @@ export function NewsSection() {
             <button
               key={index}
               onClick={() => scrollToCard(index)}
-              className={`w-3 h-3 rounded-full ${activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
-                }`}
+              className={`w-3 h-3 rounded-full ${
+                activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
+              }`}
             />
           ))}
         </div>
