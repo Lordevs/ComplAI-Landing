@@ -52,7 +52,8 @@ export default function AboutHeroSection() {
 
               <div className="basis-6/12 border-l-4 border-primary h-fit pl-4 mt-2 md:mt-0">
                 <p className="font-semibold text-black-100 text-3xl md:text-4xl">
-                  AI makes compliance faster, smarter, and more <br /> efficient.
+                  AI makes compliance faster, smarter, and more <br />{' '}
+                  efficient.
                 </p>
               </div>
             </div>

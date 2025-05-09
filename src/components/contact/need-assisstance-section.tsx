@@ -50,7 +50,7 @@ function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
   );
 
   return (
-      <Card className="p-4 flex items-center md:justify-center gap-6 h-fit bg-[#F1F5FE] border-none shadow-none">
+    <Card className="p-4 flex items-center md:justify-center gap-6 h-fit bg-[#F1F5FE] border-none shadow-none">
       {href ? (
         <a href={href} className="flex items-center gap-6">
           {content}

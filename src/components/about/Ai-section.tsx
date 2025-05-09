@@ -26,7 +26,15 @@ export default function AiSection() {
           // transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           // viewport={{ once: true, amount: 0.5 }}
         >
-                  Compl-AI is a specialised AI solution for SRA-regulated law firms, delivering precise, regulation-aware responses through a purpose-built legal intelligence framework. Developed and validated by experienced solicitors, it ensures dependable accuracy, practical relevance, and alignment with the highest standards of legal compliance. Hosted on secure, enterprise-grade infrastructure with full GDPR compliance, Compl-AI provides real-time insights that streamline workflows, minimise risk, and raise compliance performance beyond the limits of generic AI tools.
+          Compl-AI is a specialised AI solution for SRA-regulated law firms,
+          delivering precise, regulation-aware responses through a purpose-built
+          legal intelligence framework. Developed and validated by experienced
+          solicitors, it ensures dependable accuracy, practical relevance, and
+          alignment with the highest standards of legal compliance. Hosted on
+          secure, enterprise-grade infrastructure with full GDPR compliance,
+          Compl-AI provides real-time insights that streamline workflows,
+          minimise risk, and raise compliance performance beyond the limits of
+          generic AI tools.
         </motion.p>
 
         {/* Image Animation */}

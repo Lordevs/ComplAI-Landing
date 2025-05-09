@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 // import Link from 'next/link';
 import DOMPurify from 'dompurify'; // For sanitizing HTML content
-import { Dot,  } from 'lucide-react';
+import { Dot } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'; // For parsing raw HTML in markdown
 import TurndownService from 'turndown';
@@ -35,14 +35,14 @@ export default function NewsDetail({
   }, [content]);
 
   // Get current URL for sharing
-//   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  //   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   // Social media share links
-//   const shareLinks = {
-//     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(title)}`,
-//     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
-//     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(title)}`,
-//   };
+  //   const shareLinks = {
+  //     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(title)}`,
+  //     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
+  //     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(title)}`,
+  //   };
 
   // Custom renderers for markdown elements
   const renderers = {
