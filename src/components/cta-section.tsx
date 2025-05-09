@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { CTAButton } from '@/components/cta-button';
 import { cn } from '@/lib/utils';
+import { CTAButton } from '@/components/cta-button';
 
 export default function CTASection({
   cta,

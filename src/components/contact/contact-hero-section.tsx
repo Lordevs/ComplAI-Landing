@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 
-
 import SalesForm from './sales-form';
 
 export default function ContactHeroSection() {
@@ -39,8 +38,7 @@ export default function ContactHeroSection() {
               </motion.p>
             </div>
 
-                <SalesForm />
-           
+            <SalesForm />
           </div>
         </div>
       </section>
