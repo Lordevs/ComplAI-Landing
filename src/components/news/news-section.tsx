@@ -1,10 +1,10 @@
 'use client';
 
-import { API_ROUTES } from '@/constants/routes';
-import { ChevronRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { API_ROUTES } from '@/constants/routes';
+import { ChevronRight } from 'lucide-react';
 
 import type { NewsData } from '@/types/news';
 
