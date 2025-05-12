@@ -46,7 +46,7 @@ const solutions: CardProps[] = [
 
 export default function SolutionsSection() {
   return (
-    <section className="text-center px-4 py-12 md:px-6">
+    <section className="text-center px-4 pt-20 pb-32 md:px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl font-bold mb-2">Our Solutions</h2>
         <p className="text-gray-600 max-w-2xl mx-auto mb-10">
