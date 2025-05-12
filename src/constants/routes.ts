@@ -1,5 +1,11 @@
 export const ROUTES = {
   HOME: '/',
+  COMPANION: '/solutions/companion',
+  RESOLVE: '/solutions/resolve',
+  REVIEW: '/solutions/review',
+  AUDIT: '/solutions/audit',
+  COMPOSE: '/solutions/compose',
+  VALIDATE: '/solutions/validate',
   FEATURES: '/features',
   PRICING: '/pricing',
   ABOUT: '/about',

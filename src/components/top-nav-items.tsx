@@ -29,42 +29,42 @@ const solutions = [
   {
     title: 'Companion',
     description: 'Your compliance assistant',
-    href: '/companion',
+    href: ROUTES.COMPANION,
     icon: '/images/icons/bot-sparkle-blue.svg',
     comingSoon: false,
   },
   {
     title: 'Resolve',
     description: 'Swift Complaint Handling',
-    href: '/resolve',
+    href: ROUTES.RESOLVE,
     icon: '/images/icons/file-sparkle-blue.svg',
     comingSoon: false,
   },
   {
     title: 'Review',
     description: 'Find Compliance Gaps',
-    href: '/review',
+    href: ROUTES.REVIEW,
     icon: '/images/icons/files-sparkle-gray.svg',
     comingSoon: true,
   },
   {
     title: 'Audit',
     description: 'LAA Audits and Peer Review',
-    href: '/audit',
+    href: ROUTES.AUDIT,
     icon: '/images/icons/users-four-gray.svg',
     comingSoon: true,
   },
   {
     title: 'Compose',
     description: 'Create policies with AI support',
-    href: '/compose',
+    href: ROUTES.COMPOSE,
     icon: '/images/icons/magic-wand-gray.svg',
     comingSoon: true,
   },
   {
     title: 'Validate',
     description: 'Compliance file review made easy',
-    href: '/validate',
+    href: ROUTES.VALIDATE,
     icon: '/images/icons/file-text-gray.svg',
     comingSoon: true,
   },
@@ -84,6 +84,7 @@ export default function TopNavItems({
   const [activeSection, setActiveSection] = useState('home');
   const [solutionsOpen, setSolutionsOpen] = useState(false);
 
+  // Observe the features section for activeSection logic
   useEffect(() => {
     const featuresEl = document.getElementById('features');
     if (!featuresEl) return;
@@ -95,6 +96,7 @@ export default function TopNavItems({
     return () => obs.disconnect();
   }, []);
 
+  // Sync activeSection when the route changes
   useEffect(() => {
     setActiveSection(
       pathname === ROUTES.HOME ? 'home' : pathname.replace('/', '')
@@ -131,7 +133,7 @@ export default function TopNavItems({
           >
             <PopoverTrigger asChild>
               <button
-                onClick={() => setSolutionsOpen((open) => !open)}
+                onClick={() => setSolutionsOpen((o) => !o)}
                 onMouseEnter={() => setSolutionsOpen(true)}
                 className={cn(
                   'text-md font-medium transition-colors hover:text-primary',
@@ -141,71 +143,74 @@ export default function TopNavItems({
                 {item.title}
               </button>
             </PopoverTrigger>
-            {solutionsOpen && (
-              <PopoverContent
-                side="bottom"
-                align="center"
-                className="!max-w-96 md:max-w-[700px] w-full mt-2 !p-0 md:p-4 bg-white rounded-2xl shadow-lg"
-                onMouseLeave={() => setSolutionsOpen(false)}
-              >
-                <div className="grid md:grid-cols-2">
-                  {solutions.map((sol, idx) => (
-                    <Link
-                      key={sol.title}
-                      href={sol.href}
-                      onClick={() => {
+
+            <PopoverContent
+              side="bottom"
+              align="center"
+              className={cn(
+                'pointer-events-auto z-50 w-full max-w-96 md:max-w-[700px] mt-2 p-0 md:p-4 bg-white rounded-2xl shadow-lg'
+              )}
+              onMouseLeave={() => setSolutionsOpen(false)}
+            >
+              <div className="grid md:grid-cols-2">
+                {solutions.map((sol, idx) => (
+                  <Link
+                    key={sol.title}
+                    href={sol.href}
+                    onClick={() => {
+                      if (!sol.comingSoon) {
                         setSolutionsOpen(false);
                         onLinkClick?.();
-                      }}
+                      }
+                    }}
+                    className={cn(
+                      'flex items-center gap-3 p-3 hover:bg-gray-50',
+                      idx % 2 === 1 && 'md:border-l border-gray-200'
+                    )}
+                  >
+                    <div
                       className={cn(
-                        'flex items-center gap-3 p-3 hover:bg-gray-50',
-                        idx % 2 === 1 && 'md:border-l border-gray-200'
+                        'p-2 border rounded-lg',
+                        sol.comingSoon ? 'border-[#A1A7B4]' : 'border-primary'
                       )}
                     >
-                      <div
-                        className={cn(
-                          'p-2 border rounded-lg',
-                          sol.comingSoon ? 'border-[#A1A7B4]' : 'border-primary'
-                        )}
-                      >
-                        <Image
-                          src={sol.icon}
-                          alt={sol.title}
-                          width={24}
-                          height={24}
-                          className="w-4 h-4 md:w-6 md:h-6"
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between">
-                          <p
-                            className={cn(
-                              'md:text-xl font-semibold',
-                              sol.comingSoon ? 'text-[#A1A7B4]' : 'text-primary'
-                            )}
-                          >
-                            {sol.title}
-                          </p>
-                          {sol.comingSoon && (
-                            <Badge className="px-3 py-0.5 text-[7px] font-medium text-white bg-gradient-to-r from-[#0058FF] to-[#21C8F6] rounded-full shadow">
-                              Coming Soon
-                            </Badge>
-                          )}
-                        </div>
+                      <Image
+                        src={sol.icon}
+                        alt={sol.title}
+                        width={24}
+                        height={24}
+                        className="w-4 h-4 md:w-6 md:h-6"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
                         <p
                           className={cn(
-                            'md:mt-1 text-xs',
-                            sol.comingSoon ? 'text-[#A1A7B4]' : 'text-gray-dark'
+                            'md:text-xl font-semibold',
+                            sol.comingSoon ? 'text-[#A1A7B4]' : 'text-primary'
                           )}
                         >
-                          {sol.description}
+                          {sol.title}
                         </p>
+                        {sol.comingSoon && (
+                          <Badge className="px-3 py-0.5 text-[7px] font-medium text-white bg-gradient-to-r from-[#0058FF] to-[#21C8F6] rounded-full shadow">
+                            Coming Soon
+                          </Badge>
+                        )}
                       </div>
-                    </Link>
-                  ))}
-                </div>
-              </PopoverContent>
-            )}
+                      <p
+                        className={cn(
+                          'md:mt-1 text-xs',
+                          sol.comingSoon ? 'text-[#A1A7B4]' : 'text-gray-dark'
+                        )}
+                      >
+                        {sol.description}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </PopoverContent>
           </Popover>
         ) : (
           <Link
