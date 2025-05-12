@@ -84,6 +84,15 @@ export function NewsSection() {
     };
   }, []);
 
+  const latestBlogs = newsData?.blogs
+    // sort by uploaded_at descending, if your backend doesn’t already return newest-first
+    .slice() // clone so we don’t mutate original
+    .sort(
+      (a, b) =>
+        new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime()
+    )
+    .slice(0, 3);
+
   return (
     <section className="py-20 px-12">
       <div className="max-w-7xl mx-auto">
@@ -100,7 +109,7 @@ export function NewsSection() {
           className="flex gap-6 overflow-x-auto whitespace-nowrap
           md:overflow-x-visible md:grid md:grid-cols-2 lg:grid-cols-3"
         >
-          {newsData?.blogs.map((news, index) => {
+          {latestBlogs?.map((news, index) => {
             const mainContentText = parseBodyContentToText(news.content).slice(
               0,
               200
@@ -130,7 +139,7 @@ export function NewsSection() {
 
         {/* Mobile navigation dots */}
         <div className="flex md:hidden justify-center mt-6 gap-2">
-          {newsData?.blogs.map((_, index) => (
+          {latestBlogs?.map((_, index) => (
             <button
               key={index}
               onClick={() => scrollToCard(index)}
