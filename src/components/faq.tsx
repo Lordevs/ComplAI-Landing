@@ -53,7 +53,7 @@ export default function FAQSection({
   showBadge?: boolean;
 }) {
   return (
-    <section className="w-full py-12 px-4 md:px-0">
+    <section className="w-full py-16 px-4 md:px-0">
       <div className="container flex flex-col items-center justify-center space-y-4 text-center mx-auto">
         {showBadge && (
           <div className="inline-flex items-center justify-center px-2 py-1.5 mb-4 text-sm font-medium rounded-lg bg-[#F1F2F6] space-x-1">
@@ -63,12 +63,12 @@ export default function FAQSection({
             <span>FAQ</span>
           </div>
         )}
-        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+        <h2 className="text-3xl font-bold sm:text-4xl md:text-6xl">
           {faq.title}
         </h2>
-        {/* <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+        <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
           {faq.subtitle}
-        </p> */}
+        </p>
       </div>
 
       <div className="container max-w-6xl py-12 mx-auto">
