@@ -1,15 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export type CardProps = {
-  image: string | React.ReactNode;
-  title: string;
-  description: string;
-  buttonLabel?: string;
-  buttonLink?: string;
-  comingSoon?: boolean;
-  imageAlign?: 'left' | 'center' | 'right';
-};
+import { Solution } from '@/types/solutions';
 
 export default function SolCard({
   image,
@@ -19,7 +11,7 @@ export default function SolCard({
   buttonLink,
   comingSoon = false,
   imageAlign = 'center',
-}: CardProps) {
+}: Solution) {
   const alignClass = {
     left: 'justify-start',
     center: 'justify-center',
@@ -47,7 +39,7 @@ export default function SolCard({
       <div className="flex items-center px-5 gap-3 mt-4 mb-2">
         <h3 className="text-xl font-semibold text-[#0A2758]">{title}</h3>
         {comingSoon && (
-          <span className="text-white text-xs font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-[#0058FF] to-[#21C8F6] shadow-md">
+          <span className="text-white text-xs  px-4 py-1 rounded-full bg-gradient-to-r from-[#0058FF] to-[#21C8F6] shadow-md">
             Coming Soon
           </span>
         )}

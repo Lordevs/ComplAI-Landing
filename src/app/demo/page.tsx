@@ -10,10 +10,7 @@ export default function Demo() {
       <main className="pt-20 ">
         <TooltipProvider>
           <DemoHeroSection />
-          <TeamsSlider
-            className="md:text-3xl font-semibold justify-self-center text-left px-12"
-            showSidesFade={false}
-          />
+          <TeamsSlider className="md:text-5xl" showSidesFade={false} />
           <TestimonialCarousel />
         </TooltipProvider>
       </main>

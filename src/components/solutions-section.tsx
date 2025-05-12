@@ -1,48 +1,7 @@
 // components/sections/SolutionsSection.tsx
-import SolCard, { CardProps } from './sol-card';
+import { solutions } from '@/data/solutions';
 
-const solutions: CardProps[] = [
-  {
-    title: 'Companion',
-    description: 'Your AI-powered compliance expert.',
-    image: '/images/companion.svg',
-    buttonLabel: 'Learn More →',
-    buttonLink: '/companion',
-    imageAlign: 'left',
-  },
-  {
-    title: 'Resolve',
-    description: 'Let AI handle complaints efficiently.',
-    image: '/images/resolve.svg',
-    buttonLabel: 'Learn More →',
-    buttonLink: '/resolve',
-  },
-  {
-    title: 'Compose',
-    description: 'Streamline policy drafting with AI support.',
-    image: '/images/compose.svg',
-    comingSoon: true,
-  },
-  {
-    title: 'Review',
-    description:
-      'Upload your policies and let AI find and fix compliance gaps.',
-    image: '/images/review.svg',
-    comingSoon: true,
-  },
-  {
-    title: 'Validate',
-    description: 'Simplify case file review with AI insights.',
-    image: '/images/validate.svg',
-    comingSoon: true,
-  },
-  {
-    title: 'Audit',
-    description: 'Achieve audit readiness and peer review standards with AI.',
-    image: '/images/audit.svg',
-    comingSoon: true,
-  },
-];
+import SolCard from './sol-card';
 
 export default function SolutionsSection() {
   return (
