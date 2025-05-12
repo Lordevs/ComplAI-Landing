@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export type CardProps = {
   image: string | React.ReactNode;
@@ -26,7 +27,7 @@ export default function SolCard({
   }[imageAlign];
 
   return (
-    <div className="bg-white rounded-xl border pb-5 w-full max-w-sm flex flex-col h-full shadow-[0px_0px_18.7px_4px_#0A58EB4D] transition-all transform hover:scale-105 hover:shadow-[0px_0px_25px_#0A58EB] hover:ring-2 hover:ring-blue-500">
+    <div className="bg-white rounded-xl border pb-5 w-full max-w-sm flex flex-col h-full shadow-[0px_0px_10px_4px_#0A58EB4D] transition-all transform hover:scale-105 hover:shadow-[0px_0px_15px_#0A58EB] hover:ring-2 hover:ring-blue-500">
       {/* Fixed height image container for equal spacing */}
       <div className={`flex ${alignClass} h-[180px] items-center`}>
         {typeof image === 'string' ? (
@@ -58,12 +59,12 @@ export default function SolCard({
       </p>
 
       {buttonLabel && buttonLink && (
-        <a
+        <Link
           href={buttonLink}
           className="text-blue-600 px-5 text-sm font-medium text-right hover:underline mt-2"
         >
           {buttonLabel}
-        </a>
+        </Link>
       )}
     </div>
   );
