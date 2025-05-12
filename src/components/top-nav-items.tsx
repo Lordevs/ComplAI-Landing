@@ -16,8 +16,8 @@ import {
 
 const mainNav = [
   { title: 'Home', href: ROUTES.HOME },
-  { title: 'Features', href: `${ROUTES.HOME}?section=features` },
   { title: 'Solutions', href: '#' },
+  { title: 'Features', href: `${ROUTES.HOME}?section=features` },
   { title: 'Pricing', href: ROUTES.PRICING },
   { title: 'About', href: ROUTES.ABOUT },
   { title: 'News', href: ROUTES.NEWS },
