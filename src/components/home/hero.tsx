@@ -1,5 +1,7 @@
 'use client';
 
+import { motion } from 'framer-motion';
+
 import { CTAButton } from '@/components/cta-button';
 
 import IndustryStandards from './industry-standards';
@@ -27,16 +29,33 @@ export function Hero() {
   return (
     <section className="relative pt-[8rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover space-y-10 h-screen flex flex-col justify-center items-center">
       <div className="mx-auto container max-w-5xl text-center h-full flex flex-col justify-center items-center">
-        <h1 className="mb-6 font-bold tracking-tight text-3xl md:text-6xl leading-[1.5]  ">
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="mb-6 font-bold tracking-tight text-3xl md:text-6xl leading-[1.5]  "
+        >
           <span className="text-primary">{title.start}</span>
           {title.middle}
           <br className="hidden md:inline" />
           <span className="text-primary">{title.highlight}</span>
           {title.end}
-        </h1>
+        </motion.h1>
 
-        <p className="mb-4 text-md sm:text-xl">{subtitle}</p>
-        <div className="flex justify-center gap-4">
+        <motion.p
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="mb-4 text-md sm:text-xl"
+        >
+          {subtitle}
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
+          className="flex justify-center gap-4"
+        >
           <CTAButton
             href={buttons.primary.href}
             className="text-base font-medium px-4 py-5"
@@ -50,12 +69,17 @@ export function Hero() {
           >
             {buttons.secondary.text}
           </CTAButton>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="justify-self-end">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
+        className="justify-self-end"
+      >
         <IndustryStandards />
-      </div>
+      </motion.div>
     </section>
   );
 }

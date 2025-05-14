@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { API_ROUTES } from '@/constants/routes';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 import { NewsData } from '@/types/news';
@@ -97,7 +98,15 @@ export function NewsSection() {
     <section className="py-20 px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-8">
-          <h2 className="text-3xl md:text-5xl font-semibold">Latest news</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-semibold"
+          >
+            Latest news
+          </motion.h2>
           <Link href="/news">
             <Button className="font-medium transition-all duration-300 ease-in-out hover:scale-105">
               Browse All <ArrowRight size={16} />
@@ -115,8 +124,16 @@ export function NewsSection() {
               200
             );
             return (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.1 + 0.1 * index,
+                  duration: 0.8,
+                  ease: 'easeOut',
+                }}
+                viewport={{ once: true }}
                 ref={(el) => {
                   cardRefs.current[index] = el;
                 }}
@@ -132,7 +149,7 @@ export function NewsSection() {
                   imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${news.image}`}
                   id={news.id}
                 />
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -1,4 +1,7 @@
+'use client';
+
 import { FC } from 'react';
+import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 import { Card, CardContent } from '@/components/ui/card';
@@ -26,7 +29,11 @@ export const Banner: FC<BannerProps> = ({
   features,
   className = '',
 }) => (
-  <section
+  <motion.section
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: 'easeOut' }}
+    viewport={{ once: true }}
     className={`container mx-auto flex justify-center py-12 md:py-24 px-4 md:px-0 ${className}`}
   >
     <Card className="bg-blue-lightest border-0 overflow-hidden w-full md:w-[90%] rounded-[40px]">
@@ -56,5 +63,5 @@ export const Banner: FC<BannerProps> = ({
         </div>
       </CardContent>
     </Card>
-  </section>
+  </motion.section>
 );

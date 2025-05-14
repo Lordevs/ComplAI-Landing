@@ -1,4 +1,5 @@
 export type Solution = {
+  id?: number;
   image: string | React.ReactNode;
   title: string;
   description: string;

@@ -16,10 +16,10 @@ export default function ContactHeroSection() {
             <div className="text-center space-y-2">
               {/* Animated heading */}
               <motion.h1
-                // initial={{ opacity: 0, y: -20 }}
-                // whileInView={{ opacity: 1, y: 0 }}
-                // transition={{ duration: 0.5 }}
-                // viewport={{ once: true, amount: 0.2 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+                viewport={{ once: true }}
                 className="text-4xl sm:text-5xl md:text-5xl font-bold"
               >
                 Get in Touch with Us Today!
@@ -27,10 +27,10 @@ export default function ContactHeroSection() {
 
               {/* Animated paragraph */}
               <motion.p
-                // initial={{ opacity: 0, y: 20 }}
-                // whileInView={{ opacity: 1, y: 0 }}
-                // transition={{ duration: 0.5, delay: 0.2 }}
-                // viewport={{ once: true, amount: 0.2 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+                viewport={{ once: true }}
                 className="font-normal  md:text-md   max-w-xs md:max-w-2xl mx-auto"
               >
                 Whether It&rsquo;s Sales, Support, or Just a Question, Our Team

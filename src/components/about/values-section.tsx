@@ -60,10 +60,10 @@ export default function ValuesSection() {
         {/* Animated heading container (similar to the Features example) */}
         <div className="text-center mb-12">
           <motion.h2
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            viewport={{ once: true }}
             className="text-4xl md:text-5xl font-semibold mb-4"
           >
             Our Values
@@ -71,7 +71,13 @@ export default function ValuesSection() {
         </div>
 
         {/* Bento Grid Container */}
-        <div className="grid md:grid-cols-[1fr_1fr_1fr] gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true }}
+          className="grid md:grid-cols-[1fr_1fr_1fr] gap-6"
+        >
           {/* First Row */}
           <ValueCard
             className="col-span-full md:col-span-2"
@@ -103,7 +109,7 @@ export default function ValuesSection() {
             icon="/images/icons/empowerment.svg"
             delay={4}
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

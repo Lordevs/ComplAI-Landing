@@ -34,11 +34,23 @@ export default function LogoSlider({
         containerClassName
       )}
     >
-      <h2 className={cn('mb-6 text-center text-3xl', titleClassName)}>
+      <motion.h2
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        viewport={{ once: true }}
+        className={cn('mb-6 text-center text-3xl', titleClassName)}
+      >
         {title}
-      </h2>
+      </motion.h2>
 
-      <div className="relative m-auto w-full overflow-hidden pb-10">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+        viewport={{ once: true }}
+        className="relative m-auto w-full overflow-hidden pb-10"
+      >
         <motion.div
           className="flex w-full"
           animate={{
@@ -140,7 +152,7 @@ export default function LogoSlider({
             ))}
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 }

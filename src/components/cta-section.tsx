@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 import { CTAButton } from '@/components/cta-button';
@@ -53,7 +56,11 @@ export default function CTASection({
       {/* content */}
       <div className="container rounded-lg px-8 py-28 md:px-12 lg:px-16 flex flex-col items-center text-center space-y-6 max-w-5xl mx-auto">
         <div className="space-y-2">
-          <h3
+          <motion.h3
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            viewport={{ once: true }}
             className={cn(
               'text-2xl font-semibold md:text-3xl lg:text-7xl',
               titleClassName
@@ -62,19 +69,30 @@ export default function CTASection({
             {cta.title.start}
             <span className="text-primary">{cta.title.highlight}</span>
             {cta.title.end}
-          </h3>
-          <p
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+            viewport={{ once: true }}
             className={cn('max-w-3xl md:text-xl/relaxed', descriptionClassName)}
           >
             {cta.description}
-          </p>
+          </motion.p>
         </div>
-        <CTAButton
-          href={cta.buttonHref}
-          className="relative z-10 text-base font-medium py-6"
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true }}
         >
-          {cta.buttonText}
-        </CTAButton>
+          <CTAButton
+            href={cta.buttonHref}
+            className="relative z-10 text-base font-medium py-6"
+          >
+            {cta.buttonText}
+          </CTAButton>
+        </motion.div>
       </div>
     </section>
   );

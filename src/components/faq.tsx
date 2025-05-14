@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 import {
@@ -63,9 +66,15 @@ export default function FAQSection({
             <span>FAQ</span>
           </div>
         )}
-        <h2 className="text-3xl font-bold sm:text-4xl md:text-6xl">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold sm:text-4xl md:text-6xl"
+        >
           {faq.title}
-        </h2>
+        </motion.h2>
         <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
           {faq.subtitle}
         </p>
@@ -79,21 +88,33 @@ export default function FAQSection({
           className="w-full space-y-4"
         >
           {faq.questions.map((item, index) => (
-            <AccordionItem
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.2 * index,
+                duration: 0.8,
+                ease: 'easeOut',
+              }}
+              viewport={{ once: true }}
               key={index}
-              value={`item-${index}`}
-              className="border rounded-xl px-6 py-2 data-[state=open]:bg-[#0A58EB0F] data-[state=open]:border-none"
             >
-              <AccordionTrigger
-                className="text-left font-semibold hover:no-underline"
-                iconClassName="bg-primary p-1 rounded-full h-7 w-7 text-white"
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="border rounded-xl px-6 py-2 data-[state=open]:bg-[#0A58EB0F] data-[state=open]:border-none"
               >
-                {item.question}
-              </AccordionTrigger>
-              <AccordionContent className="font-normal">
-                {item.answer}
-              </AccordionContent>
-            </AccordionItem>
+                <AccordionTrigger
+                  className="text-left font-semibold hover:no-underline"
+                  iconClassName="bg-primary p-1 rounded-full h-7 w-7 text-white"
+                >
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="font-normal">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
           ))}
         </Accordion>
       </div>

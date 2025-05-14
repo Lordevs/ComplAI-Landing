@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 
 import 'swiper/css';
@@ -114,11 +115,17 @@ export default function TestimonialCarousel({
           </div>
         )}
 
-        <h2 className="text-center text-4xl md:text-5xl font-bold mb-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true }}
+          className="text-center text-4xl md:text-5xl font-bold mb-10"
+        >
           See what all the talk
           <br />
           is about.
-        </h2>
+        </motion.h2>
 
         {/* Swiper Container */}
         <Swiper
