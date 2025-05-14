@@ -33,20 +33,6 @@ const solutions = [
     comingSoon: false,
   },
   {
-    title: 'Resolve',
-    description: 'Swift Complaint Handling',
-    href: ROUTES.RESOLVE,
-    icon: '/images/icons/file-sparkle-blue.svg',
-    comingSoon: false,
-  },
-  {
-    title: 'Review',
-    description: 'Find Compliance Gaps',
-    href: ROUTES.REVIEW,
-    icon: '/images/icons/files-sparkle-gray.svg',
-    comingSoon: true,
-  },
-  {
     title: 'Audit',
     description: 'LAA Audits and Peer Review',
     href: ROUTES.AUDIT,
@@ -54,10 +40,24 @@ const solutions = [
     comingSoon: true,
   },
   {
+    title: 'Resolve',
+    description: 'Swift Complaint Handling',
+    href: ROUTES.RESOLVE,
+    icon: '/images/icons/file-sparkle-blue.svg',
+    comingSoon: false,
+  },
+  {
     title: 'Compose',
     description: 'Create policies with AI support',
     href: ROUTES.COMPOSE,
     icon: '/images/icons/magic-wand-gray.svg',
+    comingSoon: true,
+  },
+  {
+    title: 'Review',
+    description: 'Find Compliance Gaps',
+    href: ROUTES.REVIEW,
+    icon: '/images/icons/files-sparkle-gray.svg',
     comingSoon: true,
   },
   {
