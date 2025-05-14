@@ -120,7 +120,8 @@ export default function TopNavItems({
     onLinkClick?.();
   };
 
-  const isActive = (title: string) => activeSection === title.toLowerCase();
+  const isActive = (title: string) =>
+    activeSection.startsWith(title.toLowerCase());
 
   return (
     <nav className={cn('relative flex items-center gap-6', className)}>

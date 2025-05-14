@@ -2,8 +2,9 @@
 
 import { Suspense } from 'react';
 
+import { CompanionBanner } from '@/components/companion/companion-banner';
 import { CompanionHero } from '@/components/companion/companion-hero';
-import { ComplianceStats } from '@/components/companion/companion-stats';
+import WhyCompanionSection from '@/components/companion/why-companion';
 import NavigateToTop from '@/components/navigate-to-top';
 import TestimonialSlider from '@/components/testimonials';
 
@@ -13,7 +14,9 @@ export default function CompanionPage() {
       <Suspense>
         <main>
           <CompanionHero />
-          <ComplianceStats />
+          {/* <ComplianceStats /> */}
+          <WhyCompanionSection />
+          <CompanionBanner />
           <TestimonialSlider showBadge={false} />
           <NavigateToTop />
         </main>
