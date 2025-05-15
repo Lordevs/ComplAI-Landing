@@ -5,7 +5,7 @@ import { Check, X } from 'lucide-react';
 
 export function ComparisonSection() {
   return (
-    <section className="w-full py-16">
+    <section className="w-full md:py-16 pt-16">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-12">
           <motion.h2

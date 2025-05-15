@@ -70,7 +70,7 @@ export default function WhyCompanionSection() {
             ease: 'easeOut',
           }}
           viewport={{ once: true }}
-          className="text-5xl font-bold mb-4"
+          className="text-4xl md:text-5xl font-bold mb-4"
         >
           Why Your Firm Needs Resolve?
         </motion.h2>
@@ -83,7 +83,7 @@ export default function WhyCompanionSection() {
             ease: 'easeOut',
           }}
           viewport={{ once: true }}
-          className="text-2xl "
+          className="text-xl md:text-2xl "
         >
           Focus on your real work — let Resolve handle the complaints.
         </motion.p>

@@ -42,7 +42,7 @@ export default function DemoForm() {
             className="relative md:-ml-4 w-full aspect-[1.2] hidden md:block"
           >
             <Image
-              src="/images/demohead.svg"
+              src="/images/demohead.png"
               alt="Demo Illustration"
               fill
               priority

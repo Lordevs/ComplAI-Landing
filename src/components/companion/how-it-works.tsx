@@ -13,7 +13,7 @@ const steps = [
       'Simply type your compliance-related question into the Companion AI tool.',
       'You can use plain language to describe your query or concern.',
     ],
-    image: '/images/solutions/companion/work-1.svg',
+    image: '/images/solutions/companion/work-1.png',
   },
   {
     stepNumber: 2,
@@ -21,7 +21,7 @@ const steps = [
     descriptions: [
       'Companion processes your question by understanding the context and identifying the key compliance issue, drawing on its comprehensive knowledge of laws and industry standards.',
     ],
-    image: '/images/solutions/companion/work-2.svg',
+    image: '/images/solutions/companion/work-2.png',
   },
   {
     stepNumber: 3,
@@ -29,7 +29,7 @@ const steps = [
     descriptions: [
       'Companion provides a well-structured answer, offering practical guidance while ensuring compliance with relevant regulations.',
     ],
-    image: '/images/solutions/companion/work-3.svg',
+    image: '/images/solutions/companion/work-3.png',
   },
 ];
 

@@ -70,7 +70,7 @@ export default function LogoSlider({
             {logos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-center w-24 md:w-[180px] h-10 md:h-[80px]"
+                className="flex items-center justify-center w-48 md:w-[180px] h-14 md:h-[80px]"
               >
                 <Image
                   width={200}
@@ -88,7 +88,7 @@ export default function LogoSlider({
             {logos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex w-24 md:w-[200px] h-10 md:h-[100px] items-center justify-center"
+                className="flex w-48 md:w-[200px] h-14 md:h-[100px] items-center justify-center"
               >
                 <Image
                   width={200}
@@ -105,7 +105,7 @@ export default function LogoSlider({
             {logos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex w-24 md:w-[200px] h-10 md:h-[100px] items-center justify-center"
+                className="flex w-48 md:w-[200px] h-14 md:h-[100px] items-center justify-center"
               >
                 <Image
                   width={200}
@@ -122,7 +122,7 @@ export default function LogoSlider({
             {logos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex w-24 md:w-[200px] h-10 md:h-[100px] items-center justify-center"
+                className="flex w-48 md:w-[200px] h-14 md:h-[100px] items-center justify-center"
               >
                 <Image
                   width={200}
@@ -139,7 +139,7 @@ export default function LogoSlider({
             {logos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex w-24 md:w-[200px] h-10 md:h-[100px] items-center justify-center"
+                className="flex w-48 md:w-[200px] h-14 md:h-[100px] items-center justify-center"
               >
                 <Image
                   width={200}
