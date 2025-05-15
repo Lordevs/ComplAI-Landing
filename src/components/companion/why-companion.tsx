@@ -109,7 +109,7 @@ export default function WhyCompanionSection() {
         </div>
 
         {/* Right column */}
-        <div className="flex-1 space-y-8 mt-12 max-w-md">
+        <div className="flex-1 space-y-8 md:mt-12 max-w-md">
           {rightFeatures.map((feature) => (
             <motion.div
               key={feature.title}

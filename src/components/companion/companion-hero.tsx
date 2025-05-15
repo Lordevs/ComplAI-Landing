@@ -7,11 +7,11 @@ import { CTAButton } from '../cta-button';
 
 export function CompanionHero() {
   return (
-    <section className="w-full max-w-screen-2xl mx-auto overflow-hidden">
+    <section className="w-full max-w-screen-2xl mx-auto overflow-hidden bg-[url('/images/bg/companion-hero-bg.svg')] bg-cover bg-no-repeat bg-center">
       <div className="pt-24 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left side - Hero content */}
-          <div className="flex flex-col items-start justify-center px-16">
+          <div className="flex flex-col items-start justify-center px-8 md:px-16">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ export function CompanionHero() {
             className="flex justify-end pl-4 md:p-0"
           >
             <Image
-              src="/images/companion-hero.svg"
+              src="/images/companion-hero.png"
               alt="Companion Hero Image"
               width={700}
               height={700}
