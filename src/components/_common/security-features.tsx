@@ -58,6 +58,7 @@ export function SecurityFeatures({
                   duration: 0.8,
                   ease: 'easeOut',
                 }}
+                viewport={{ once: true }}
                 className="flex flex-col items-center text-center space-y-2"
               >
                 <div
@@ -102,7 +103,7 @@ export function SecurityFeatures({
         >
           <div className="container max-w-5xl mx-auto py-20 px-12 flex flex-col md:flex-row gap-8 md:gap-16 items-start">
             <div className="md:w-1/2">
-              <h3 className="text-3xl md:text-4xl font-semibold md:max-w-[380px]">
+              <h3 className="text-2xl md:text-4xl font-semibold md:max-w-[380px]">
                 <span className="text-blue-600">Security</span> is fundamental
                 to <br />
                 Everything <span className="text-blue-600">

@@ -60,7 +60,7 @@ export default function Contact() {
             transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
             className="flex justify-center !mt-4 !mb-16"
           >
-            <Button className="bg-primary text-white px-6 py-3 rounded-full hover:bg-blue-600 transition duration-300 w-full max-w-96">
+            <Button className="bg-primary text-white px-6 py-3 rounded-full hover:bg-blue-600 transition duration-300 w-full max-w-64 md:max-w-96">
               <Image
                 src="/images/icons/bot-sparkle-white.svg"
                 alt=""

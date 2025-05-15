@@ -25,7 +25,7 @@ export default function EnterprisePlan() {
         </span> */}
       </motion.h2>
 
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 items-stretch">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
         {solutions.map((card, idx) => (
           <motion.div
             key={idx}

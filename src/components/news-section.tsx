@@ -116,7 +116,7 @@ export function NewsSection() {
 
         <div
           className="flex gap-6 overflow-x-auto whitespace-nowrap
-          md:overflow-x-visible md:grid md:grid-cols-2 lg:grid-cols-3"
+          lg:overflow-x-visible lg:grid lg:grid-cols-3"
         >
           {latestBlogs?.map((news, index) => {
             const mainContentText = parseBodyContentToText(news.content).slice(
@@ -139,7 +139,7 @@ export function NewsSection() {
                 }}
                 className="
                 flex-shrink-0 w-80 
-                md:w-auto
+                lg:w-auto
               "
               >
                 <NewsCard
@@ -155,7 +155,7 @@ export function NewsSection() {
         </div>
 
         {/* Mobile navigation dots */}
-        <div className="flex md:hidden justify-center mt-6 gap-2">
+        <div className="flex lg:hidden justify-center mt-6 gap-2">
           {latestBlogs?.map((_, index) => (
             <button
               key={index}

@@ -31,7 +31,7 @@ export default function SolutionsSection() {
           professionals, by legal professionals.
         </motion.p>
 
-        <div className="grid gap-9 sm:grid-cols-2 md:grid-cols-3 items-stretch">
+        <div className="grid gap-9 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
           {solutions.map((card, idx) => (
             <motion.div
               key={idx}

@@ -27,7 +27,7 @@ interface PricingCardsProps {
 
 export function PricingCards({ plans }: PricingCardsProps) {
   return (
-    <div className="grid gap-8 md:grid-cols-3">
+    <div className="grid gap-8 lg:grid-cols-3">
       {plans.map((plan, idx) => (
         <PricingCard key={plan.id} id={idx} plan={plan} />
       ))}
@@ -47,11 +47,11 @@ export function PricingCard({ plan, id }: PricingCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.8 + 0.2 * id, duration: 0.8, ease: 'easeOut' }}
       viewport={{ once: true }}
-      className="flex"
+      className="flex flex-col "
     >
       <Card
         className={cn(
-          'relative flex flex-col border rounded-xl',
+          'relative flex flex-col border rounded-xl h-full',
           plan.color === 'blue' &&
             'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
         )}
@@ -62,7 +62,7 @@ export function PricingCard({ plan, id }: PricingCardProps) {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 2, duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className="absolute -top-16 -right-2/3 w-full h-16 bg-[url(/images/professional-pricing-promo.svg)] bg-contain bg-center bg-no-repeat hidden md:block"
+            className="absolute -top-16 -right-2/3 w-full h-16 bg-[url(/images/professional-pricing-promo.svg)] bg-contain bg-center bg-no-repeat hidden lg:block"
           />
         )}
         <CardHeader className="pt-6 pb-2 px-6">
