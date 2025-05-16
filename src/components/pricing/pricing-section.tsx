@@ -39,10 +39,13 @@ export function PricingSection() {
       featuresHeader: 'Everything in Top-up and Go PLUS:',
       features: [
         { text: '12-month commitment.' },
-        { text: 'Access file uploads for Companion (5mb).' },
-        { text: 'Priority email support.' },
+        { text: 'File upload feature on Companion (5mb).' },
+        { text: 'Access Resolve.' },
         {
-          text: 'Test new features with exclusive, limited access rolled out randomly every month.',
+          text: 'Priority email support.',
+        },
+        {
+          text: 'Suitable for regular users.',
         },
       ],
       footerHeading: '500 Credits / Month',
@@ -59,14 +62,17 @@ export function PricingSection() {
       featuresHeader: 'Everything in Professional PLUS:',
       features: [
         {
-          text: 'Access to all solutions.',
+          text: '24 month commitment.',
         },
-        { text: 'Companion maximum file upload (100mb). ' },
+        { text: 'File upload feature on Companion (100mb). ' },
         {
-          text: 'Various levels of support.',
+          text: 'Access all Solutions.',
         },
         {
-          text: 'We’ll walk you through all our solutions so you can make the most of them.',
+          text: 'Dedicated account manager.',
+        },
+        {
+          text: 'Suitable for teams and users requiring full unlimited access.',
         },
       ],
       footerHeading: 'Custom pricing',
