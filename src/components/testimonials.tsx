@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
+import Image from 'next/image';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -150,11 +150,11 @@ export default function TestimonialCarousel({
             nextEl: '.swiper-button-next-custom',
             prevEl: '.swiper-button-prev-custom',
           }}
-          className="pb-6"
+          className="pb-8"
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <div className="max-w-[340px] mx-auto p-4 bg-[#EDF8FF] rounded-lg shadow-lg h-[350px] flex flex-col">
+              <div className="max-w-[340px] mx-auto p-4 bg-[#EDF8FF] rounded-lg  h-[350px] flex flex-col">
                 <div className="mb-4">
                   <Image
                     src="/images/icons/quote.svg"
