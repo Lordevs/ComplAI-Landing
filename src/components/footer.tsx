@@ -29,6 +29,13 @@ const footer = {
       { title: 'Audit', href: ROUTES.AUDIT },
     ],
   },
+  policyLinks: {
+    title: 'Policies',
+    links: [
+      { title: 'Privacy Policy', href: ROUTES.PRIVACY_POLICY },
+      { title: 'Cookie Policy', href: ROUTES.COOKIE_POLICY },
+    ],
+  },
   company: {
     title: 'Company',
     links: [
@@ -63,7 +70,7 @@ export function Footer() {
           <p className="text-xl max-w-72 text-white">{footer.tagline}</p>
         </div>
 
-        <div className="grid grid-cols-1 col-span-full md:grid-cols-3 gap-8 md:relative">
+        <div className="grid grid-cols-1 col-span-full md:grid-cols-4 gap-8 md:relative">
           {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-white">
@@ -109,6 +116,25 @@ export function Footer() {
             </h3>
             <ul className="space-y-1">
               {footer.company.links.map((link) => (
+                <li key={link.title}>
+                  <Link
+                    href={link.href}
+                    className="text-base text-white transition-colors hover:text-gray-300"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Policy Links */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-white">
+              {footer.policyLinks.title}
+            </h3>
+            <ul className="space-y-1">
+              {footer.policyLinks.links.map((link) => (
                 <li key={link.title}>
                   <Link
                     href={link.href}

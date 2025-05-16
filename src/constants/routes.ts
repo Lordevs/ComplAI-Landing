@@ -12,7 +12,8 @@ export const ROUTES = {
   NEWS: '/news',
   DEMO: '/demo',
   CONTACT: '/contact',
-  PRIVACY: '/privacy',
+  PRIVACY_POLICY: '/privacy-policy',
+  COOKIE_POLICY: '/cookie-policy',
   SIGN_IN: 'https://compl-ai-frontend.vercel.app/',
   REGISTER: 'https://compl-ai-frontend.vercel.app/sign-up',
 } as const;
