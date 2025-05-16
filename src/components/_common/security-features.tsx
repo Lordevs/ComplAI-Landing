@@ -25,13 +25,7 @@ interface SecurityFeaturesProps {
   securityDescription?: string;
 }
 
-export function SecurityFeatures({
-  title = 'Security you can rely on',
-  features = defaultFeatures,
-  className = '',
-  companyName = 'Compl-AI',
-  securityDescription = "We've built a comprehensive system that protects data at every level—from robust user authentication to vigilant network monitoring. Our approach combines cutting-edge technology with rigorous protocols, ensuring that information remains secure in an ever-changing digital landscape.",
-}: SecurityFeaturesProps) {
+export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
   return (
     <section className={`w-full ${className}`}>
       <div>
@@ -44,11 +38,11 @@ export function SecurityFeatures({
             viewport={{ once: true }}
             className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center"
           >
-            {title}
+            <span className="text-primary">Security</span> you can rely on
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mx-auto">
-            {features.map((feature, index) => (
+            {defaultFeatures.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
@@ -106,16 +100,20 @@ export function SecurityFeatures({
               <h3 className="text-4xl font-semibold md:max-w-[380px]">
                 <span className="text-blue-600">Security</span> is fundamental
                 to <br />
-                Everything <span className="text-blue-600">
-                  {companyName}
-                </span>{' '}
+                Everything <span className="text-blue-600">we</span>{' '}
                 <br className="hidden md:block" />
                 do
               </h3>
             </div>
             <div className="md:w-1/2 flex justify-end">
               <p className="md:max-w-[380px] text-justify">
-                {securityDescription}
+                We’re deeply committed to GDPR compliance and the protection of
+                sensitive client and firm information. Our system is built with
+                security at its core, using end-to-end encryption, strict access
+                controls and continuous threat monitoring. We’re hosted on
+                secure servers, operate under robust data processing agreements
+                and follow strict protocols to ensure your data stays safe and
+                your trust is always protected.
               </p>
             </div>
           </div>
@@ -141,7 +139,7 @@ const defaultFeatures: SecurityFeature[] = [
       width: 'w-40 md:w-56',
       height: 'h-40',
     },
-    title: 'GDPR Complaint',
+    title: 'GDPR Compliant',
     detailLink: '/security/gdpr',
   },
   {

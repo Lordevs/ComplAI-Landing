@@ -57,6 +57,12 @@ export function Footer() {
   return (
     <footer className="border-t pt-16 pb-4 bg-primary px-4 md:px-8">
       <div className="relative container grid gap-8 md:grid-cols-[1fr_1fr_1fr] mx-auto">
+        {/* Logo and Social Section */}
+        <div className="space-y-4">
+          <Logo className="justify-start" inverted={true} />
+          <p className="text-xl max-w-72 text-white">{footer.tagline}</p>
+        </div>
+
         <div className="grid grid-cols-1 col-span-full md:grid-cols-3 gap-8 md:relative">
           {/* Quick Links */}
           <div className="space-y-4">
@@ -142,11 +148,15 @@ export function Footer() {
           <p className="text-3xl max-w-sm">{footer.mainText}</p>
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8 col-span-full ">
-          {/* Logo and Social Section */}
-          <div className="space-y-4">
-            <Logo className="justify-start" inverted={true} />
-            <p className="text-xl max-w-72 text-white">{footer.tagline}</p>
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8 col-span-full mb-8">
+          {/* support mail */}
+          <div className="">
+            <Link
+              href={`mailto:${footer.contact.email}`}
+              className="relative text-base text-white font-medium col-span-full after:block after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:bottom-0 hover:after:w-full"
+            >
+              {footer.contact.email}
+            </Link>
           </div>
 
           <div className="space-y-2 flex flex-col md:tems-end">
@@ -159,16 +169,6 @@ export function Footer() {
               className="w-40 h-auto"
             />
           </div>
-        </div>
-
-        {/* support mail */}
-        <div className="mb-8">
-          <Link
-            href={`mailto:${footer.contact.email}`}
-            className="relative text-base text-white font-medium col-span-full after:block after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:bottom-0 hover:after:w-full"
-          >
-            {footer.contact.email}
-          </Link>
         </div>
 
         <div className="container col-span-full mx-auto">

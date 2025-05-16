@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface NewsCardProps {
   id: number;
@@ -47,9 +47,10 @@ export function BlogCard({
         {/* Read More link */}
         <Link
           href={`/news/${id}`}
-          className="inline-flex items-center text-blue-600 font-medium hover:underline"
+          className="group inline-flex items-center text-blue-600 font-medium"
         >
-          Read More <ChevronRight className="ml-1 h-4 w-4" />
+          Read More{' '}
+          <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </div>

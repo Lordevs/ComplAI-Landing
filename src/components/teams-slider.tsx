@@ -56,9 +56,13 @@ export default function TeamsSlider({
 
   return (
     <LogoSlider
-      title="Trusted by teams at"
+      title={
+        <>
+          Trusted by <span className="text-primary">teams</span> at
+        </>
+      }
       logos={logos}
-      titleClassName={'text-3xl font-bold sm:text-4xl md:text-6xl ' + className}
+      titleClassName={'text-3xl font-bold md:text-5xl ' + className}
       showSidesFade={showSidesFade}
     />
   );

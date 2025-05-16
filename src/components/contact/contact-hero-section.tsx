@@ -22,7 +22,8 @@ export default function ContactHeroSection() {
                 viewport={{ once: true }}
                 className="text-4xl sm:text-5xl md:text-5xl font-bold"
               >
-                Get in Touch with Us Today!
+                <span className="text-primary">Get in Touch</span> with Us
+                Today!
               </motion.h1>
 
               {/* Animated paragraph */}

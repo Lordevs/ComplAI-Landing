@@ -14,7 +14,7 @@ export default function News() {
     },
     description:
       'Compl-AI is your all in one platform for AI solutions built for real compliance work, delivering fast insights and confident results across every task.',
-    buttonText: 'Start Started',
+    buttonText: 'Get Started',
     buttonHref: '/signup',
   };
 

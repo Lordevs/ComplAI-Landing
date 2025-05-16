@@ -18,10 +18,10 @@ export default function DemoForm() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className="text-5xl md:text-[68px] font-bold leading-tight mb-4 text-black"
+            className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-black"
           >
             Let’s Walk You <br className="hidden sm:block" />
-            Through Smarter Compliance.
+            Through <span className="text-primary">Smarter Compliance.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 50 }}
@@ -74,7 +74,7 @@ export default function DemoForm() {
           <Input type="email" placeholder="Your email" className="py-6" />
           <Input placeholder="Company name" className="py-6" />
           <Input placeholder="Your role" className="py-6" />
-          <Input placeholder="+44" className="py-6" />
+          <Input placeholder="Your phone no." className="py-6" />
           <Textarea placeholder="Write a message" className="h-[200px] py-6" />
         </motion.div>
 
@@ -84,7 +84,7 @@ export default function DemoForm() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <Button className="w-full transition-all duration-300 ease-in-out hover:scale-105">
+          <Button className="w-full transition-all duration-300 ease-in-out">
             Submit Enquiry
           </Button>
         </motion.div>

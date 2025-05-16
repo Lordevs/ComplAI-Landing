@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 import LogoSlider from '../logo-slider';
 
 export default function IndustryStandards() {
@@ -53,11 +57,28 @@ export default function IndustryStandards() {
   ];
 
   return (
-    <LogoSlider
-      title="Aligned with Industry Standards"
-      logos={logos}
-      titleClassName="text-xl md:text-3xl px-4 pt-4 text-[#494C53]"
-      containerClassName="before:bg-[linear-gradient(to_right,#e6eefc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#e6eefc,rgba(255,255,255,0)_100%)] after:bg-[linear-gradient(to_right,#e6eefc,rgba(255,255,255,0)_60%)] md:after:bg-[linear-gradient(to_right,#e6eefc,rgba(255,255,255,0)_100%)] px-0 md:px-8"
-    />
+    <>
+      <motion.h2
+        initial={{ opacity: 0, y: 0 }}
+        animate={{ opacity: 1, y: 50 }}
+        transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
+        className="text-4xl md:text-5xl font-bold text-center pt-4"
+      >
+        Aligned with <span className="text-primary">Industry Standards</span>
+      </motion.h2>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
+        className="overflow-hidden w-full relative pt-20"
+      >
+        <LogoSlider
+          title=""
+          logos={logos}
+          titleClassName="text-xl md:text-3xl px-4 pt-4 text-[#494C53]"
+          containerClassName="before:bg-[linear-gradient(to_right,#e6eefc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#e6eefc,rgba(255,255,255,0)_100%)] after:bg-[linear-gradient(to_right,#e6eefc,rgba(255,255,255,0)_60%)] md:after:bg-[linear-gradient(to_right,#e6eefc,rgba(255,255,255,0)_100%)] px-0 md:px-8"
+        />
+      </motion.div>
+    </>
   );
 }

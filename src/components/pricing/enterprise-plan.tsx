@@ -16,13 +16,9 @@ export default function EnterprisePlan() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
-        className="text-3xl md:text-6xl font-bold mb-8 md:mb-16 "
+        className="text-3xl md:text-5xl font-bold mb-8 md:mb-12 "
       >
-        Our Solutions
-        {/* <span className="bg-gradient-to-b from-[#179DFF] to-[#1754FF] bg-clip-text text-transparent  ">
-          {' '}
-          Enterprise Plans
-        </span> */}
+        Our <span className="text-primary">Solutions</span>
       </motion.h2>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">

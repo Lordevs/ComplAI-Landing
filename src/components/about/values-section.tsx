@@ -30,7 +30,7 @@ function ValueCard({
       // whileHover={{ scale: 1.02 }}
       // viewport={{ once: true, amount: 0.5 }}
       className={cn(
-        // 'p-4 bg-[url(/images/bg/value-card-bg.svg)] bg-cover bg-center bg-no-repeat rounded-3xl',
+        // 'p-4 bg-[url(/images/bg/value-card-bg.png)] bg-cover bg-center bg-no-repeat rounded-3xl',
         'p-4 bg-blue-lightest rounded-3xl',
         className
       )}
@@ -66,7 +66,7 @@ export default function ValuesSection() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-semibold mb-4"
           >
-            Our Values
+            Our <span className="text-primary">Values</span>
           </motion.h2>
         </div>
 
@@ -83,14 +83,14 @@ export default function ValuesSection() {
             className="col-span-full md:col-span-2"
             title="Technology-Driven Leadership"
             description="We pioneer the use of cutting-edge technology to transform compliance in the legal industry, setting new standards for efficiency and innovation"
-            icon="/images/icons/technology.svg"
+            icon="/images/icons/technology.png"
             delay={1}
           />
           <ValueCard
             className="col-span-full md:col-span-1"
             title="Collaboration for Impact"
             description="We foster teamwork and partnership to create meaningful change for our users and the industry."
-            icon="/images/icons/collaborate.svg"
+            icon="/images/icons/collaborate.png"
             delay={2}
           />
 
@@ -99,14 +99,14 @@ export default function ValuesSection() {
             className="col-span-full md:col-span-1"
             title="Integrity and Accountability"
             description="We are committed to acting with integrity, taking ownership of our work, and delivering dependable solutions."
-            icon="/images/icons/integrity.svg"
+            icon="/images/icons/integrity.png"
             delay={3}
           />
           <ValueCard
             className="col-span-full md:col-span-2"
             title="Empowerment Through Simplicity"
             description="We enable legal teams to master compliance effortlessly, delivering tools that make the complex simple and accessible."
-            icon="/images/icons/empowerment.svg"
+            icon="/images/icons/empowerment.png"
             delay={4}
           />
         </motion.div>

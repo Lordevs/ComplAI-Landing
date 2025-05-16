@@ -35,7 +35,7 @@ export default function AboutHeroSection() {
           </div>
 
           <div className="space-y-4">
-            <div className="flex flex-col items-center md:flex-row gap-4">
+            <div className="flex flex-col items-center md:flex-row gap-4 mb-4 md:mb-0">
               <div className="basis-6/12 space-y-4">
                 <motion.p
                   initial={{ opacity: 0, y: 50 }}
@@ -83,7 +83,7 @@ export default function AboutHeroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
-              className="font-medium text-gray-dark text-lg md:text-xl"
+              className="font-medium text-gray-dark text-lg md:text-xl max-w-xl"
             >
               A suite of intelligent solutions designed to make compliance
               faster, clearer, and more manageable. No waiting for advice, no

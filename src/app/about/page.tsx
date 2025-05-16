@@ -1,3 +1,4 @@
+import { SecurityFeatures } from '@/components/_common/security-features';
 import AboutHeroSection from '@/components/about/about-hero-section';
 import TrustedSection from '@/components/about/trusteded-section';
 import ValuesSection from '@/components/about/values-section';
@@ -24,6 +25,7 @@ export default function Contact() {
         <AboutHeroSection />
         <TrustedSection />
         <ValuesSection />
+        <SecurityFeatures />
         <div className="py-20">
           <TeamsSlider />
         </div>

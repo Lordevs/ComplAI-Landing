@@ -4,6 +4,7 @@ import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import { Hero } from '@/components/home/hero';
+import IndustryStandards from '@/components/home/industry-standards';
 import NavigateToTop from '@/components/navigate-to-top';
 import { NewsSection } from '@/components/news-section';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
@@ -28,8 +29,8 @@ export default function Home() {
       <Suspense>
         <main>
           <Hero />
+          <IndustryStandards />
           <SolutionsSection />
-          {/* <Features /> */}
           <TeamsSlider />
           <SecurityFeatures />
           <TestimonialSlider showBadge={false} />

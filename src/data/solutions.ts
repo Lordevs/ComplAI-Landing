@@ -1,3 +1,5 @@
+import { ROUTES } from '@/constants/routes';
+
 import { Solution } from '@/types/solutions';
 
 export const solutions: Solution[] = [
@@ -5,16 +7,15 @@ export const solutions: Solution[] = [
     title: 'Companion',
     description: 'Your AI-powered compliance expert.',
     image: '/images/companion.png',
-    buttonLabel: 'Learn More →',
-    buttonLink: '/companion',
+    buttonLabel: 'Learn More',
+    buttonLink: ROUTES.COMPANION,
     imageAlign: 'center',
   },
   {
     title: 'Resolve',
     description: 'Let AI handle complaints efficiently.',
     image: '/images/resolve.png',
-    buttonLabel: 'Learn More →',
-    buttonLink: '/resolve',
+    comingSoon: true,
   },
   {
     title: 'Compose',

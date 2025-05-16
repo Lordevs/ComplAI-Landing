@@ -11,9 +11,6 @@ import {
 } from '@/components/ui/accordion';
 
 const faq = {
-  title: 'Frequently Asked Questions',
-  subtitle:
-    'Explore the most common questions about our platform and how it helps you stay compliant.',
   questions: [
     {
       question: 'What is Compl-AI?',
@@ -71,12 +68,13 @@ export default function FAQSection({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true }}
-          className="text-3xl font-bold sm:text-4xl md:text-6xl"
+          className="text-3xl font-bold sm:text-4xl md:text-5xl"
         >
-          {faq.title}
+          Frequently Asked <span className="text-primary">Questions</span>
         </motion.h2>
         <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-          {faq.subtitle}
+          Explore the most common questions about our platform and how it helps
+          you stay compliant.
         </p>
       </div>
 

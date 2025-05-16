@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { API_ROUTES } from '@/constants/routes';
-import { ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 import type { NewsData } from '@/types/news';
 
@@ -132,9 +132,10 @@ export default function NewsSection() {
               </p>
               <Link
                 href={`/news/${featuredBlog.id}`}
-                className="text-right inline-flex items-end bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+                className="group text-right inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
               >
-                Read More <ChevronRight className="ml-1 h-4 w-4" />
+                Read More{' '}
+                <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>

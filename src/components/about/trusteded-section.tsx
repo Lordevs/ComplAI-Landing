@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function TrustedSection() {
   return (
-    <section className="relative overflow-hidden bg-primary pt-16 p-16">
+    <section className="relative overflow-hidden bg-primary py-16 md:p-16">
       {/* Background Pattern */}
       <div className="absolute left-0 -top-2 h-[300px] w-[300px] bg-[url('/images/bg/quator-circle.svg')] bg-contain bg-right bg-no-repeat" />
       <div className="absolute right-0 -bottom-2 h-[300px] w-[300px] bg-[url('/images/bg/quator-circle.svg')] bg-contain bg-right bg-no-repeat rotate-180" />

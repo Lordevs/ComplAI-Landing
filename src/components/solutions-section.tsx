@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { solutions } from '@/data/solutions';
 import { motion } from 'framer-motion';
 
@@ -7,7 +8,7 @@ import SolCard from './sol-card';
 
 export default function SolutionsSection() {
   return (
-    <section className="text-center px-4 pt-10 md:pt-20 pb-24 md:pb-32 md:px-6">
+    <section className="text-center px-4 pt-10 pb-24 md:pb-32 md:px-6">
       <div className="max-w-7xl mx-auto">
         {/* when scroll into view */}
         <motion.h2
@@ -17,7 +18,7 @@ export default function SolutionsSection() {
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-bold mb-2"
         >
-          Our Solutions
+          Our <span className="text-primary">Solutions</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 50 }}
@@ -33,19 +34,25 @@ export default function SolutionsSection() {
 
         <div className="grid gap-9 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
           {solutions.map((card, idx) => (
-            <motion.div
+            <Link
               key={idx}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.4 + 0.2 * idx,
-                duration: 0.8,
-                ease: 'easeOut',
-              }}
-              viewport={{ once: true }}
+              href={card.buttonLink ?? '#'}
+              className="flex flex-col flex-1 h-full" // added h-full
             >
-              <SolCard {...card} />
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.4 + 0.2 * idx,
+                  duration: 0.8,
+                  ease: 'easeOut',
+                }}
+                viewport={{ once: true }}
+                className="h-full"
+              >
+                <SolCard {...card} />
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>

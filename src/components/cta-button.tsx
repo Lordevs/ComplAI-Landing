@@ -23,7 +23,7 @@ export function CTAButton({
       variant={variant}
       className={cn(
         'rounded-full px-8',
-        'transition-all duration-300 ease-in-out hover:scale-105',
+        'transition-all duration-300 ease-in-out',
         variant === 'outline' && 'bg-white hover:bg-white/90',
         className
       )}

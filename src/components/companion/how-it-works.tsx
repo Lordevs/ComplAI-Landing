@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 
-import { CTAButton } from '../cta-button';
 import { StepCard } from './step-card';
 
 const steps = [
@@ -73,21 +72,6 @@ export function HowItWorks() {
               reverse={index % 2 === 1} // alternate layout for every other step
             />
           ))}
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: 'easeOut',
-            }}
-            viewport={{ once: true }}
-            className="flex justify-center mt-8"
-          >
-            <CTAButton href="#" className="z-10 px-12 text-lg py-4">
-              Get Companion
-            </CTAButton>
-          </motion.div>
         </div>
       </div>
     </section>

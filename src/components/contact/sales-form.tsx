@@ -66,7 +66,7 @@ export default function SalesForm() {
         <Input type="email" placeholder="Your email" className="py-6" />
         <Input placeholder="Company name" className="py-6" />
         <Input placeholder="Your role" className="py-6" />
-        <Input placeholder="+44" className="py-6" />
+        <Input placeholder="Your phone no." className="py-6" />
         <Textarea placeholder="Write a message" className="h-[200px] py-6" />
         <motion.div
           initial={{ opacity: 0 }}
@@ -74,7 +74,7 @@ export default function SalesForm() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <Button className="w-full transition-all duration-300 ease-in-out hover:scale-105">
+          <Button className="w-full transition-all duration-300 ease-in-out">
             Submit Enquiry
           </Button>
         </motion.div>

@@ -122,7 +122,7 @@ export default function TestimonialCarousel({
           viewport={{ once: true }}
           className="text-center text-4xl md:text-5xl font-bold mb-10"
         >
-          See what all the talk
+          See <span className="text-primary">what all the talk</span>
           <br />
           is about.
         </motion.h2>

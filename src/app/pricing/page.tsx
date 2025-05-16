@@ -39,7 +39,7 @@ export default function Contact() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="text-3xl md:text-6xl font-bold"
           >
-            Smart Compliance, <br />
+            <span className="text-primary">Smart Compliance</span>, <br />
             Priced for Your Success
           </motion.h1>
 

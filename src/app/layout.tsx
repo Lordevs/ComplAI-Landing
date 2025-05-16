@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Compl AI',
+  title: 'Compl-AI',
   description:
     'Your In-house compliance partner, empowered by Artificial Intelligence.',
 };

@@ -1,10 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 import { CTAButton } from '@/components/cta-button';
-
-import IndustryStandards from './industry-standards';
 
 const title = {
   start: 'AI-driven',
@@ -25,9 +26,23 @@ const buttons = {
   },
 };
 
+const images = [
+  { src: '/images/homehero.png', alt: 'Hero Image 1' },
+  { src: '/images/homehero2.png', alt: 'Hero Image 2' },
+];
+
 export function Hero() {
+  const [visibleIndex, setVisibleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisibleIndex((prev) => (prev + 1) % images.length);
+    }, 10000); // change every 4 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative pt-[8rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover space-y-10 h-screen flex flex-col justify-center items-center">
+    <section className="relative pt-[8rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover space-y-10 min-h-screen flex flex-col justify-center items-center">
       <div className="mx-auto container max-w-5xl text-center h-full flex flex-col justify-center items-center">
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
@@ -58,28 +73,31 @@ export function Hero() {
         >
           <CTAButton
             href={buttons.primary.href}
-            className="text-base font-medium px-4 py-5"
+            className="group text-base font-medium px-4 py-5"
           >
             {buttons.primary.text}
-          </CTAButton>
-          <CTAButton
-            href={buttons.secondary.href}
-            variant="outline"
-            className="border-blue-light text-base font-medium px-4 py-5"
-          >
-            {buttons.secondary.text}
+            <ArrowRight className="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </CTAButton>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
-        className="justify-self-end overflow-hidden w-full h-[250px] md:h-[400px] relative"
-      >
-        <IndustryStandards />
-      </motion.div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={visibleIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          className="max-w-[800px] w-full"
+        >
+          <Image
+            src={images[visibleIndex].src}
+            alt={images[visibleIndex].alt}
+            width={800}
+            height={800}
+            priority
+          />
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 }

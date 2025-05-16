@@ -8,10 +8,10 @@ import { CTAButton } from '../cta-button';
 export function CompanionHero() {
   return (
     <section className="w-full max-w-screen-2xl mx-auto overflow-hidden bg-[url('/images/bg/companion-hero-bg.svg')] bg-cover bg-no-repeat bg-center">
-      <div className="pt-24 md:py-24">
+      <div className="pt-32 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left side - Hero content */}
-          <div className="flex flex-col items-start justify-center px-8 md:px-16">
+          <div className="flex flex-col items-start justify-center px-8 md:pl-16">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -20,7 +20,7 @@ export function CompanionHero() {
                 ease: 'easeOut',
               }}
               viewport={{ once: true }}
-              className="text-5xl font-bold text-primary"
+              className="text-4xl md:text-6xl font-bold text-primary"
             >
               Companion
             </motion.h1>
@@ -33,7 +33,7 @@ export function CompanionHero() {
                 ease: 'easeOut',
               }}
               viewport={{ once: true }}
-              className="text-4xl font-semibold text-gray-900"
+              className="text-3xl md:text-5xl font-semibold text-gray-900"
             >
               Your AI Compliance Expert
             </motion.h2>

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 
+import { cn } from '@/lib/utils';
 import { Card } from '@/components/ui/card';
 
 const contactInfo = [
@@ -24,6 +25,7 @@ const contactInfo = [
     icon: MapPin,
     title: 'Our Office',
     contact: 'Manchester, UK',
+    href: undefined,
   },
 ] as const;
 
@@ -32,9 +34,16 @@ interface ContactCardProps {
   title: string;
   contact: string;
   href?: string;
+  showUnderlineEffect?: boolean;
 }
 
-function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
+function ContactCard({
+  icon: Icon,
+  title,
+  contact,
+  href,
+  showUnderlineEffect = true,
+}: ContactCardProps) {
   const content = (
     <>
       <div className="h-14 w-14 rounded-full bg-primary flex items-center justify-center">
@@ -42,7 +51,13 @@ function ContactCard({ icon: Icon, title, contact, href }: ContactCardProps) {
       </div>
       <div>
         <h3 className="font-medium text-xl md:text-xl">{title}</h3>
-        <span className="text-lg md:text-xl font-bold underline">
+        <span
+          className={cn(
+            'relative text-lg md:text-xl font-bold',
+            showUnderlineEffect &&
+              'after:block after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:-bottom-1 hover:after:w-full'
+          )}
+        >
           {contact}
         </span>
       </div>
@@ -105,7 +120,10 @@ export default function NeedAssistanceSection() {
                 }}
                 viewport={{ once: true }}
               >
-                <ContactCard {...info} />
+                <ContactCard
+                  {...info}
+                  showUnderlineEffect={info.href !== undefined}
+                />
               </motion.div>
             ))}
           </div>

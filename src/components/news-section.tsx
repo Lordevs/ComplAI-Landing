@@ -108,8 +108,9 @@ export function NewsSection() {
             Latest news
           </motion.h2>
           <Link href="/news">
-            <Button className="font-medium transition-all duration-300 ease-in-out hover:scale-105">
-              Browse All <ArrowRight size={16} />
+            <Button className="group font-medium transition-all duration-300 ease-in-out">
+              Browse All{' '}
+              <ArrowRight className="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>

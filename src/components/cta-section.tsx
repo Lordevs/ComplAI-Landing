@@ -54,17 +54,14 @@ export default function CTASection({
       )}
 
       {/* content */}
-      <div className="container rounded-lg px-8 py-28 md:px-12 lg:px-16 flex flex-col items-center text-center space-y-6 max-w-5xl mx-auto">
+      <div className="relative z-10 container rounded-lg px-8 py-10 md:py-28 md:px-12 lg:px-16 flex flex-col items-center text-center space-y-6 max-w-5xl mx-auto">
         <div className="space-y-2">
           <motion.h3
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className={cn(
-              'text-2xl font-semibold md:text-3xl lg:text-7xl',
-              titleClassName
-            )}
+            className={cn('font-semibold text-3xl lg:text-5xl', titleClassName)}
           >
             {cta.title.start}
             <span className="text-primary">{cta.title.highlight}</span>

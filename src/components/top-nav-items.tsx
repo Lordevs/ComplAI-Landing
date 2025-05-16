@@ -86,7 +86,7 @@ const navItemVariants = {
     transition: { delay: i * 0.05, type: 'spring', stiffness: 100 },
   }),
   hover: {
-    scale: 1.05,
+    // scale: 1.05,
     transition: { duration: 0.2 },
   },
 };
@@ -133,7 +133,7 @@ export default function TopNavItems({
     <ScrollArea>
       <nav
         className={cn(
-          'relative flex gap-8 overflow-x-auto no-scrollbar md:items-center',
+          'relative flex gap-8 overflow-x-auto no-scrollbar mt-6 md:mt-0 md:items-center',
           className
         )}
         aria-label="Primary Navigation"
@@ -153,11 +153,12 @@ export default function TopNavItems({
                       custom={idx}
                       initial="hidden"
                       animate="visible"
+                      variants={navItemVariants}
                       whileHover="hover"
                       onClick={() => setSolutionsOpen((o) => !o)}
                       onMouseEnter={() => setSolutionsOpen(true)}
                       className={cn(
-                        'text-md font-medium transition-colors hover:text-primary flex items-center whitespace-nowrap',
+                        'text-base font-medium transition-colors hover:text-primary flex items-center whitespace-nowrap',
                         { 'text-primary': isActive('solutions') }
                       )}
                     >
@@ -248,7 +249,7 @@ export default function TopNavItems({
                   <motion.button
                     onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
                     className={cn(
-                      'text-md font-medium transition-colors hover:text-primary flex items-center whitespace-nowrap',
+                      'text-xl md:text-base font-medium transition-colors hover:text-primary flex items-center whitespace-nowrap',
                       { 'text-primary': isActive('solutions') }
                     )}
                     aria-expanded={mobileSolutionsOpen}
@@ -366,11 +367,11 @@ export default function TopNavItems({
               animate="visible"
               variants={navItemVariants}
             >
-              <motion.div whileHover="hover">
+              <motion.div whileHover="hover" className="text-lg md:!text-base">
                 <Link
                   href={item.href}
                   className={cn(
-                    'text-md font-medium transition-colors hover:text-primary whitespace-nowrap',
+                    'font-medium transition-colors hover:text-primary whitespace-nowrap',
                     { 'text-primary font-semibold': isActive(item.title) }
                   )}
                   onClick={(e) => handleNavClick(e, item)}
