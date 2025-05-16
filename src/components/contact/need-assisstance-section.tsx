@@ -34,7 +34,7 @@ interface ContactCardProps {
   title: string;
   contact: string;
   href?: string;
-  showUnderlineEffect?: boolean;
+  // showUnderlineEffect?: boolean;
 }
 
 function ContactCard({
@@ -42,7 +42,7 @@ function ContactCard({
   title,
   contact,
   href,
-  showUnderlineEffect = true,
+  // showUnderlineEffect = true,
 }: ContactCardProps) {
   const content = (
     <>
@@ -53,9 +53,9 @@ function ContactCard({
         <h3 className="font-medium text-xl md:text-xl">{title}</h3>
         <span
           className={cn(
-            'relative text-lg md:text-xl font-bold',
-            showUnderlineEffect &&
-              'after:block after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:-bottom-1 hover:after:w-full'
+            'relative text-lg md:text-xl font-bold'
+            // showUnderlineEffect &&
+            //   'after:block after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-500 after:ease-in-out after:absolute after:left-0 after:-bottom-1 hover:after:w-full'
           )}
         >
           {contact}
@@ -65,7 +65,7 @@ function ContactCard({
   );
 
   return (
-    <Card className="p-4 flex items-center md:justify-center gap-6 h-fit bg-[#F1F5FE] border-none shadow-none">
+    <Card className="p-4 flex items-center md:justify-center gap-6 h-fit bg-[#F1F5FE] border-none shadow-none transition-all transform hover:ring-2 hover:ring-blue-500">
       {href ? (
         <a href={href} className="flex items-center gap-6">
           {content}
@@ -122,7 +122,7 @@ export default function NeedAssistanceSection() {
               >
                 <ContactCard
                   {...info}
-                  showUnderlineEffect={info.href !== undefined}
+                  // showUnderlineEffect={info.href !== undefined}
                 />
               </motion.div>
             ))}

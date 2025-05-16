@@ -67,7 +67,7 @@ export default function LogoSlider({
           }}
         >
           {/* First set of logos */}
-          <div className="flex md:gap-16 px-8">
+          <div className="flex gap-4 md:gap-16 px-8">
             {logos.map((logo, idx) => (
               <div
                 key={idx}
@@ -85,7 +85,7 @@ export default function LogoSlider({
           </div>
 
           {/* Duplicate set of logos for seamless loop */}
-          <div className="flex md:gap-16 px-8">
+          <div className="flex gap-4 md:gap-16 px-8">
             {logos.map((logo, idx) => (
               <div
                 key={idx}
@@ -102,7 +102,7 @@ export default function LogoSlider({
             ))}
           </div>
 
-          <div className="flex md:gap-16 px-8">
+          <div className="flex gap-4 md:gap-16 px-8">
             {logos.map((logo, idx) => (
               <div
                 key={idx}
@@ -119,7 +119,7 @@ export default function LogoSlider({
             ))}
           </div>
 
-          <div className="flex md:gap-16 px-8">
+          <div className="flex gap-4 md:gap-16 px-8">
             {logos.map((logo, idx) => (
               <div
                 key={idx}
@@ -136,7 +136,7 @@ export default function LogoSlider({
             ))}
           </div>
 
-          <div className="flex md:gap-16 px-8">
+          <div className="flex gap-4 md:gap-16 px-8">
             {logos.map((logo, idx) => (
               <div
                 key={idx}

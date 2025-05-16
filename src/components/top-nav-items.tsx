@@ -214,9 +214,9 @@ export default function TopNavItems({
                                 {sol.title}
                               </p>
                               {sol.comingSoon && (
-                                <Badge className="px-3 py-0.5 text-[7px] font-medium text-white bg-gradient-to-r from-[#0058FF] to-[#21C8F6] rounded-full shadow">
+                                <div className="px-3 py-0.5 text-[7px] font-medium text-white bg-gradient-to-r from-[#0058FF] to-[#21C8F6] rounded-full shadow">
                                   Coming Soon
-                                </Badge>
+                                </div>
                               )}
                             </div>
                             <p

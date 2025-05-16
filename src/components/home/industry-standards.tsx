@@ -62,7 +62,7 @@ export default function IndustryStandards() {
         initial={{ opacity: 0, y: 0 }}
         animate={{ opacity: 1, y: 50 }}
         transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
-        className="text-4xl md:text-5xl font-bold text-center pt-4"
+        className="text-3xl md:text-5xl font-bold text-center pt-4"
       >
         Aligned with <span className="text-primary">Industry Standards</span>
       </motion.h2>

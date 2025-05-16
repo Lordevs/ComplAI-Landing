@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-import { CTAButton } from '@/components/cta-button';
+import { CTAButton } from '@/components/cta-button'; // Assuming this path is correct
 
 const title = {
   start: 'AI-driven',
@@ -37,18 +37,22 @@ export function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setVisibleIndex((prev) => (prev + 1) % images.length);
-    }, 10000); // change every 4 seconds
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
+  const imageHeightReservationClass = 'pb-[20rem] md:pb-[24rem]';
+
   return (
-    <section className="relative pt-[8rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover space-y-10 min-h-screen flex flex-col justify-center items-center">
-      <div className="mx-auto container max-w-5xl text-center h-full flex flex-col justify-center items-center">
+    <section
+      className={`relative pt-[8rem] ${imageHeightReservationClass} px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover h-screen md:h-auto md:min-h-screen flex flex-col justify-center items-center overflow-hidden`}
+    >
+      <div className="mx-auto container max-w-5xl text-center z-10">
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="mb-6 font-bold tracking-tight text-3xl md:text-6xl leading-[1.5]  "
+          className="mb-6 font-bold tracking-tight text-3xl md:text-6xl leading-[1.5]"
         >
           <span className="text-primary">{title.start}</span>
           {title.middle}
@@ -80,6 +84,8 @@ export function Hero() {
           </CTAButton>
         </motion.div>
       </div>
+
+      {/* Image container - absolutely positioned at the bottom */}
       <AnimatePresence mode="wait">
         <motion.div
           key={visibleIndex}
@@ -87,7 +93,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="max-w-[800px] w-full"
+          className="absolute bottom-0 md:-bottom-4 lg:bottom-0 left-1/2 -translate-x-1/2 max-w-[800px] w-full"
         >
           <Image
             src={images[visibleIndex].src}
@@ -95,6 +101,7 @@ export function Hero() {
             width={800}
             height={800}
             priority
+            className="block w-full h-auto"
           />
         </motion.div>
       </AnimatePresence>
