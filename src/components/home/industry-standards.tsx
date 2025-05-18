@@ -59,8 +59,8 @@ export default function IndustryStandards() {
   return (
     <>
       <motion.h2
-        initial={{ opacity: 0, y: 0 }}
-        animate={{ opacity: 1, y: 50 }}
+        initial={{ y: 100 }}
+        animate={{ y: 50 }}
         transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
         className="text-3xl md:text-5xl font-bold text-center pt-4"
       >

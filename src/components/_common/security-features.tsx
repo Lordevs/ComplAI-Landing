@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 
@@ -32,8 +32,8 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
         {/* Top section with title and features */}
         <div className="flex flex-col items-center justify-center space-y-12 py-12">
           <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 50 }}
+            whileInView={{ y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center"
@@ -45,8 +45,8 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
             {defaultFeatures.map((feature, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 50 }}
+                whileInView={{ y: 0 }}
                 transition={{
                   delay: 0.4 + 0.2 * index,
                   duration: 0.8,
@@ -89,8 +89,8 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
 
         {/* Bottom blue section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 50 }}
+          whileInView={{ y: 0 }}
           transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="bg-blue-50"
@@ -101,7 +101,6 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
                 <span className="text-blue-600">Security</span> is fundamental
                 to <br />
                 Everything <span className="text-blue-600">we</span>{' '}
-                <br className="hidden md:block" />
                 do
               </h3>
             </div>

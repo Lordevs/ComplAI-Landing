@@ -64,8 +64,8 @@ export default function FAQSection({
           </div>
         )}
         <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 50 }}
+          whileInView={{ y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="text-3xl font-bold sm:text-4xl md:text-5xl"
@@ -87,13 +87,13 @@ export default function FAQSection({
         >
           {faq.questions.map((item, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.2 * index,
-                duration: 0.8,
-                ease: 'easeOut',
-              }}
+              // initial={{ opacity: 0, y: 50 }}
+              // whileInView={{ opacity: 1, y: 0 }}
+              // transition={{
+              //   delay: 0.2 * index,
+              //   duration: 0.8,
+              //   ease: 'easeOut',
+              // }}
               viewport={{ once: true }}
               key={index}
             >

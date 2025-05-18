@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-import { cn } from '@/lib/utils';
 import { CTAButton } from '@/components/cta-button';
+import { cn } from '@/lib/utils';
 
 export default function CTASection({
   cta,
@@ -57,8 +57,8 @@ export default function CTASection({
       <div className="relative z-10 container rounded-lg px-8 py-10 md:py-28 md:px-12 lg:px-16 flex flex-col items-center text-center space-y-6 max-w-5xl mx-auto">
         <div className="space-y-2">
           <motion.h3
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 50 }}
+            whileInView={{ y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
             className={cn('font-semibold text-3xl lg:text-5xl', titleClassName)}
@@ -68,8 +68,8 @@ export default function CTASection({
             {cta.title.end}
           </motion.h3>
           <motion.p
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 50 }}
+            whileInView={{ y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
             className={cn('max-w-3xl md:text-xl/relaxed', descriptionClassName)}

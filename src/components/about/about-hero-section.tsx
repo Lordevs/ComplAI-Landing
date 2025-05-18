@@ -12,8 +12,8 @@ export default function AboutHeroSection() {
         <div className="container relative mx-auto space-y-8">
           <div className="mx-auto space-y-8">
             <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl font-bold tracking-tight md:text-6xl max-w-4xl text-black-100"
@@ -22,8 +22,8 @@ export default function AboutHeroSection() {
               industry.
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="text-lg md:text-xl max-w-xl"
@@ -38,8 +38,8 @@ export default function AboutHeroSection() {
             <div className="flex flex-col items-center md:flex-row gap-4 mb-4 md:mb-0">
               <div className="basis-6/12 space-y-4">
                 <motion.p
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ y: 50 }}
+                  whileInView={{ y: 0 }}
                   transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   className="font-medium text-gray-dark max-w-xl text-lg md:text-xl"
@@ -56,8 +56,8 @@ export default function AboutHeroSection() {
                 </motion.p>
               </div>
               <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 50 }}
+                whileInView={{ y: 0 }}
                 transition={{ delay: 0.8, duration: 0.8, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="basis-6/12 border-l-4 border-primary h-fit pl-4 mt-2 md:mt-0"
@@ -70,8 +70,8 @@ export default function AboutHeroSection() {
             </div>
 
             <motion.p
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{ delay: 1, duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="font-semibold text-black-100 text-xl md:text-2xl"
@@ -79,8 +79,8 @@ export default function AboutHeroSection() {
               That&rsquo;s why we built Compl-AI
             </motion.p>
             <motion.p
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="font-medium text-gray-dark text-lg md:text-xl max-w-xl"

@@ -63,8 +63,8 @@ export default function WhyCompanionSection() {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 text-center mb-12">
         <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 50 }}
+          whileInView={{ y: 0 }}
           transition={{
             duration: 0.8,
             ease: 'easeOut',
@@ -72,11 +72,11 @@ export default function WhyCompanionSection() {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold mb-4"
         >
-          Why Your Firm Needs Resolve?
+          Why Your Firm Needs Companion?
         </motion.h2>
         <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 50 }}
+          whileInView={{ y: 0 }}
           transition={{
             delay: 0.2,
             duration: 0.8,
@@ -85,7 +85,7 @@ export default function WhyCompanionSection() {
           viewport={{ once: true }}
           className="text-xl md:text-2xl "
         >
-          Focus on your real work — let Resolve handle the complaints.
+          Focus on your real work — let Companion handle the complaints.
         </motion.p>
       </div>
 
@@ -95,8 +95,8 @@ export default function WhyCompanionSection() {
           {leftFeatures.map((feature) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{
                 duration: 0.8,
                 ease: 'easeOut',
@@ -113,8 +113,8 @@ export default function WhyCompanionSection() {
           {rightFeatures.map((feature) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{
                 delay: 0.2,
                 duration: 0.8,

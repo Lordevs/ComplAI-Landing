@@ -81,10 +81,10 @@ export default function WhyResolveSection() {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 text-center mb-12">
         <h2 className="text-5xl font-bold mb-4">
-          Why Your Firm Needs Resolve?
+          Why Your Firm Needs Companion?
         </h2>
         <p className="text-2xl ">
-          Focus on your real work — let Resolve handle the complaints.
+          Focus on your real work — let Companion handle the complaints.
         </p>
       </div>
 

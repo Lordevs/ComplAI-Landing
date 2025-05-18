@@ -1,9 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-import { Button } from '@/components/ui/button';
 import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
@@ -12,6 +11,7 @@ import EnterprisePlan from '@/components/pricing/enterprise-plan';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
 import { PricingSection } from '@/components/pricing/pricing-section';
 import TeamsSlider from '@/components/teams-slider';
+import { Button } from '@/components/ui/button';
 
 export default function Contact() {
   const cta = {
@@ -32,9 +32,9 @@ export default function Contact() {
         <div className="relative text-center space-y-2 mt-28 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] md:mt-32">
           <motion.h1
             // 1. Animation starting state
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ y: 50 }}
             // 2. Animation end state
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ y: 0 }}
             // 3. Animation timing
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="text-3xl md:text-6xl font-bold"

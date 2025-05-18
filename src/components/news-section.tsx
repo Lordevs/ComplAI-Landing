@@ -1,14 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import { API_ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
-import { NewsData } from '@/types/news';
-import { Button } from '@/components/ui/button';
 import { NewsCard } from '@/components/news-card';
+import { Button } from '@/components/ui/button';
+import { NewsData } from '@/types/news';
 
 export function NewsSection() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -99,8 +99,8 @@ export function NewsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-8">
           <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 50 }}
+            whileInView={{ y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-semibold"
@@ -127,8 +127,8 @@ export function NewsSection() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 50 }}
+                whileInView={{ y: 0 }}
                 transition={{
                   delay: 0.1 + 0.1 * index,
                   duration: 0.8,
@@ -161,9 +161,8 @@ export function NewsSection() {
             <button
               key={index}
               onClick={() => scrollToCard(index)}
-              className={`w-3 h-3 rounded-full ${
-                activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
-              }`}
+              className={`w-3 h-3 rounded-full ${activeIndex === index ? 'bg-blue-600' : 'bg-gray-400'
+                }`}
             />
           ))}
         </div>

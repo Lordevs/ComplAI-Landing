@@ -1,3 +1,5 @@
+'use client'
+import { motion } from 'framer-motion';
 import LogoSlider from './logo-slider';
 
 export default function TeamsSlider({
@@ -55,15 +57,21 @@ export default function TeamsSlider({
   ];
 
   return (
-    <LogoSlider
-      title={
-        <>
-          Trusted by <span className="text-primary">teams</span> at
-        </>
-      }
-      logos={logos}
-      titleClassName={'text-3xl font-bold md:text-5xl ' + className}
-      showSidesFade={showSidesFade}
-    />
+    <motion.div
+      initial={{ y: 100 }}
+      animate={{ y: 50 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
+      <LogoSlider
+        title={
+          <>
+            Trusted by <span className="text-primary">teams</span> at
+          </>
+        }
+        logos={logos}
+        titleClassName={'text-3xl font-bold md:text-5xl ' + (className ?? '')}
+        showSidesFade={showSidesFade}
+      />
+    </motion.div>
   );
 }

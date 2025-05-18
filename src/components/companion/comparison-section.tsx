@@ -9,8 +9,8 @@ export function ComparisonSection() {
       <div className="container px-4 mx-auto">
         <div className="text-center mb-12">
           <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 50 }}
+            whileInView={{ y: 0 }}
             transition={{
               duration: 0.8,
               ease: 'easeOut',
@@ -22,8 +22,8 @@ export function ComparisonSection() {
             Resolution
           </motion.h2>
           <motion.h3
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 50 }}
+            whileInView={{ y: 0 }}
             transition={{
               delay: 0.2,
               duration: 0.8,
@@ -51,8 +51,8 @@ export function ComparisonSection() {
             {/* Before Companion Column */}
             <div className="py-7 px-7 md:px-14 rounded-l-lg border-[3px] border-[#E9E8E8]">
               <motion.h3
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 50 }}
+                whileInView={{ y: 0 }}
                 transition={{
                   delay: 0.8,
                   duration: 0.8,
@@ -65,8 +65,8 @@ export function ComparisonSection() {
               </motion.h3>
 
               <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 50 }}
+                whileInView={{ y: 0 }}
                 transition={{
                   delay: 1,
                   duration: 0.8,
@@ -92,8 +92,8 @@ export function ComparisonSection() {
                 </div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ y: 50 }}
+                  whileInView={{ y: 0 }}
                   transition={{
                     delay: 1.2,
                     duration: 0.8,
@@ -120,8 +120,8 @@ export function ComparisonSection() {
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ y: 50 }}
+                  whileInView={{ y: 0 }}
                   transition={{
                     delay: 1.4,
                     duration: 0.8,
@@ -150,8 +150,8 @@ export function ComparisonSection() {
             {/* With Companion Column */}
             <div className="py-7 px-7 md:px-14 bg-blue-600 text-[#EFEFEF]">
               <motion.h3
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 50 }}
+                whileInView={{ y: 0 }}
                 transition={{
                   delay: 0.8,
                   duration: 0.8,
@@ -165,8 +165,8 @@ export function ComparisonSection() {
 
               <div className="space-y-10">
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ y: 50 }}
+                  whileInView={{ y: 0 }}
                   transition={{
                     delay: 1,
                     duration: 0.8,
@@ -190,8 +190,8 @@ export function ComparisonSection() {
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ y: 50 }}
+                  whileInView={{ y: 0 }}
                   transition={{
                     delay: 1.2,
                     duration: 0.8,
@@ -215,8 +215,8 @@ export function ComparisonSection() {
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ y: 50 }}
+                  whileInView={{ y: 0 }}
                   transition={{
                     delay: 1.4,
                     duration: 0.8,

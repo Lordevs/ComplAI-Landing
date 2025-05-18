@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface StepCardProps {
   stepNumber: number;
@@ -23,8 +23,8 @@ export function StepCard({
       className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-between ${reverse ? 'md:flex-row-reverse' : ''}`}
     >
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 50 }}
+        whileInView={{ y: 0 }}
         transition={{
           duration: 0.8,
           ease: 'easeOut',
@@ -48,8 +48,8 @@ export function StepCard({
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ x: 100 }}
+        whileInView={{ x: 0 }}
         transition={{
           duration: 0.8,
           ease: 'easeOut',

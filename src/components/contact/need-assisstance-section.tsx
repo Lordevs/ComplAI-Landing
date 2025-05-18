@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
 import { Card } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 const contactInfo = [
   {
@@ -85,8 +85,8 @@ export default function NeedAssistanceSection() {
           {/* Animated Heading & Paragraph */}
           <div className="text-center space-y-2">
             <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-bold"
@@ -95,8 +95,8 @@ export default function NeedAssistanceSection() {
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="text-lg md:text-xl max-w-2xl mx-auto"
@@ -111,8 +111,8 @@ export default function NeedAssistanceSection() {
             {contactInfo.map((info, idx) => (
               <motion.div
                 key={info.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 50 }}
+                whileInView={{ y: 0 }}
                 transition={{
                   delay: 0.6 + 0.2 * idx,
                   duration: 0.8,
@@ -122,7 +122,7 @@ export default function NeedAssistanceSection() {
               >
                 <ContactCard
                   {...info}
-                  // showUnderlineEffect={info.href !== undefined}
+                // showUnderlineEffect={info.href !== undefined}
                 />
               </motion.div>
             ))}

@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import React from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -31,13 +31,13 @@ export default function LogoSlider({
       className={cn(
         'relative m-auto w-full overflow-hidden container px-8  ',
         showSidesFade &&
-          "before:absolute before:left-0 before:top-0 before:z-[2] before:h-full  before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full  after:-scale-x-100 after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)]  after:content-['']",
+        "before:absolute before:left-0 before:top-0 before:z-[2] before:h-full  before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)] md:before:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full  after:-scale-x-100 after:bg-[linear-gradient(to_right,#f3f4f6fc,rgba(255,255,255,0)_60%)]  after:content-['']",
         containerClassName
       )}
     >
       <motion.h2
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 50 }}
+        whileInView={{ y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
         className={cn('mb-6 text-center text-3xl', titleClassName)}
@@ -67,7 +67,7 @@ export default function LogoSlider({
           }}
         >
           {/* First set of logos */}
-          <div className="flex gap-4 md:gap-16 px-8">
+          <div className="flex gap-2 md:gap-16 px-8">
             {logos.map((logo, idx) => (
               <div
                 key={idx}

@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import { solutions } from '@/data/solutions';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 import { CTAButton } from '../cta-button';
 import SolCard from '../sol-card';
@@ -12,8 +12,8 @@ export default function EnterprisePlan() {
   return (
     <section className="relative text-center px-4 pt-12 pb-8 flex flex-col justify-center items-center ">
       <motion.h2
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 50 }}
+        whileInView={{ y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
         className="text-3xl md:text-5xl font-bold mb-8 md:mb-12 "
@@ -25,8 +25,8 @@ export default function EnterprisePlan() {
         {solutions.map((card, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 50 }}
+            whileInView={{ y: 0 }}
             transition={{
               delay: 0.4 + 0.2 * idx,
               duration: 0.8,
@@ -40,10 +40,10 @@ export default function EnterprisePlan() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
+        // initial={{ opacity: 0 }}
+        // whileInView={{ opacity: 1 }}
+        // transition={{ delay: 1.8, duration: 0.8, ease: 'easeOut' }}
+        // viewport={{ once: true }}
         className="flex flex-col items-center justify-center mt-10"
       >
         <CTAButton

@@ -14,8 +14,8 @@ export default function SalesForm() {
   return (
     <div className="grid md:grid-cols-2 gap-8 px-4 md:px-0">
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 50 }}
+        whileInView={{ y: 0 }}
         transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
         className="overflow-hidden grid grid-cols-1 gap-8 order-2 items-center justify-items-center  text-left md:order-1"
@@ -56,8 +56,8 @@ export default function SalesForm() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 50 }}
+        whileInView={{ y: 0 }}
         transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
         className="md:w-4/5 space-y-4 flex-1 order-1 md:order-2"

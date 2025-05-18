@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button'; // Assuming this path is correct
 
@@ -41,7 +41,6 @@ export function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  // Reduced bottom padding on mobile to reduce extra space
   const imageHeightReservationClass = 'pb-[16rem] md:pb-[24rem]';
 
   return (
@@ -50,8 +49,8 @@ export function Hero() {
     >
       <div className="mx-auto container max-w-5xl text-center z-10">
         <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="mb-6 font-bold tracking-tight text-3xl md:text-6xl leading-[1.5]"
         >
@@ -63,16 +62,16 @@ export function Hero() {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="mb-4 text-md sm:text-xl"
         >
           {subtitle}
         </motion.p>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
           transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
           className="flex justify-center gap-4"
         >
@@ -90,11 +89,11 @@ export function Hero() {
       <AnimatePresence mode="wait">
         <motion.div
           key={visibleIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
+          exit={{ y: 50 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="absolute bottom-0 md:-bottom-4 lg:bottom-0 left-1/2 -translate-x-1/2 max-w-[800px] w-full"
+          className="absolute bottom-0 md:-bottom-4 lg:bottom-0  -translate-x-1/2 max-w-[800px] w-full"
         >
           <Image
             src={images[visibleIndex].src}

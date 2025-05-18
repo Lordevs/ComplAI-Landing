@@ -13,8 +13,8 @@ export default function TrustedSection() {
         <div className="mx-auto max-w-3xl space-y-8 text-center px-4 md:px-0">
           {/* Heading Animation */}
           <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 50 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="text-4xl font-bold tracking-tight text-white sm:text-6xl"
@@ -25,8 +25,8 @@ export default function TrustedSection() {
           {/* Paragraphs Animation */}
           <div className="space-y-6 md:text-lg leading-relaxed text-white/90">
             <motion.p
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
@@ -37,8 +37,8 @@ export default function TrustedSection() {
               we’re building something different.
             </motion.p>
             <motion.p
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
@@ -50,8 +50,8 @@ export default function TrustedSection() {
               they need to stay compliant.
             </motion.p>
             <motion.p
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 50 }}
+              whileInView={{ y: 0 }}
               transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
             >

@@ -3,8 +3,6 @@
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
-import { PricingPlan } from '@/types/pricing';
-import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -13,6 +11,8 @@ import {
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import { PricingPlan } from '@/types/pricing';
 
 import { Separator } from '../ui/separator';
 
@@ -43,8 +43,8 @@ interface PricingCardProps {
 export function PricingCard({ plan, id }: PricingCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 50 }}
+      whileInView={{ y: 0 }}
       transition={{ delay: 0.8 + 0.2 * id, duration: 0.8, ease: 'easeOut' }}
       viewport={{ once: true }}
       className="flex flex-col "
@@ -53,7 +53,7 @@ export function PricingCard({ plan, id }: PricingCardProps) {
         className={cn(
           'relative flex flex-col border rounded-xl h-full',
           plan.color === 'blue' &&
-            'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
+          'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
         )}
       >
         {plan.popular && (
