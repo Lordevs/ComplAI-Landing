@@ -1,19 +1,20 @@
-import { PricingPlan } from '@/types/pricing';
 import { PricingCards } from '@/components/pricing/new-pricing-cards';
+import { PricingPlan } from '@/types/pricing';
 
 export function PricingSection() {
   const pricingPlans: PricingPlan[] = [
     {
       id: 'top-up',
       name: 'Top-Up & Go',
-      price: '£50',
-      description: 'min top-up',
+      price: '',
+      description: '',
       buttonText: 'Start Free Trial',
       badge: 'Starter',
       secondaryButtonText: 'Top-up Now',
       featuresHeader: 'Top-Up & Go Details:',
+      comitmentText: 'No commitment.',
       features: [
-        { text: 'No commitment, top-up as you go.' },
+        // { text: 'No commitment, top-up as you go.' },
         { text: 'Minimum Top-up of £50.' },
         {
           text: 'Credits to be used with Companion Solution.',
@@ -37,8 +38,9 @@ export function PricingSection() {
       popular: true,
       badge: 'Professional',
       featuresHeader: 'Everything in Top-up and Go PLUS:',
+      comitmentText: '12-month commitment.',
       features: [
-        { text: '12-month commitment.' },
+        // { text: '12-month commitment.' },
         { text: 'File upload feature on Companion (5mb).' },
         { text: 'Access Resolve.' },
         {
@@ -60,10 +62,11 @@ export function PricingSection() {
       buttonText: 'Contact Sales',
       badge: 'Advanced',
       featuresHeader: 'Everything in Professional PLUS:',
+      comitmentText: '24-month commitment.',
       features: [
-        {
-          text: '24 month commitment.',
-        },
+        // {
+        //   text: '24 month commitment.',
+        // },
         { text: 'File upload feature on Companion (100mb). ' },
         {
           text: 'Access all Solutions.',

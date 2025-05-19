@@ -5,6 +5,7 @@ export type PricingPlan = {
   message?: string;
   price: string;
   featuresHeader: string;
+  comitmentText?: string;
   features: PricingFeature[];
   buttonText: string;
   secondaryButtonText?: string;
