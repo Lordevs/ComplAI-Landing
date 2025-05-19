@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
+import { PricingPlan } from '@/types/pricing';
+import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,8 +13,6 @@ import {
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
-import { PricingPlan } from '@/types/pricing';
 
 import { Separator } from '../ui/separator';
 
@@ -53,7 +53,7 @@ export function PricingCard({ plan, id }: PricingCardProps) {
         className={cn(
           'relative flex flex-col border rounded-xl h-full',
           plan.color === 'blue' &&
-          'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
+            'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
         )}
       >
         {plan.popular && (
@@ -161,7 +161,7 @@ export function PricingCard({ plan, id }: PricingCardProps) {
 
             <div className="space-y-3 mt-4">
               <>
-                <p className='font-bold underline'>{plan.comitmentText}</p>
+                <p className="font-bold underline">{plan.comitmentText}</p>
               </>
               {plan.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3 text-left">

@@ -1,6 +1,7 @@
 'use client';
 
 import DocxViewer from '@/components/DocxViewer';
+
 // import { useState } from 'react';
 
 export default function UserAgreementPage() {
