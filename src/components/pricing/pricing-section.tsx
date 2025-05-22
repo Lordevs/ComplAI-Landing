@@ -1,5 +1,5 @@
-import { PricingCards } from '@/components/pricing/new-pricing-cards';
 import { PricingPlan } from '@/types/pricing';
+import { PricingCards } from '@/components/pricing/new-pricing-cards';
 
 export function PricingSection() {
   const pricingPlans: PricingPlan[] = [
@@ -45,7 +45,9 @@ export function PricingSection() {
       features: [
         // { text: '12-month commitment.' },
         { text: '500 credits per month with no rollover.' },
-        { text: 'Access to Resolve, our AI-powered tool for efficient complaint handling.' },
+        {
+          text: 'Access to Resolve, our AI-powered tool for efficient complaint handling.',
+        },
         {
           text: 'File upload feature on Companion for documents up to 5MB.',
         },
@@ -74,7 +76,9 @@ export function PricingSection() {
         // {
         //   text: '24 month commitment.',
         // },
-        { text: 'Access all solutions with unlimited usage across the platform ' },
+        {
+          text: 'Access all solutions with unlimited usage across the platform ',
+        },
         {
           text: 'File upload on Companion for documents up to 30MB',
         },

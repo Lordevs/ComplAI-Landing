@@ -1,5 +1,5 @@
-import { Check, Star } from 'lucide-react';
 import React from 'react';
+import { Check, Star } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {

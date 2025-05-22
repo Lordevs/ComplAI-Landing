@@ -1,10 +1,10 @@
 'use client';
 
-import { API_ROUTES } from '@/constants/routes';
-import { ArrowRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { API_ROUTES } from '@/constants/routes';
+import { ArrowRight } from 'lucide-react';
 
 import type { NewsData } from '@/types/news';
 
@@ -144,7 +144,10 @@ export default function NewsSection() {
 
       {/* Recent Articles */}
       <div className="mb-8">
-        <h2 className="text-4xl font-bold mb-6 text-blue-700 "> Recent News </h2>
+        <h2 className="text-4xl font-bold mb-6 text-blue-700 ">
+          {' '}
+          Recent News{' '}
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {recentBlogs.map((blog, index) => (
             <BlogCard

@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -76,7 +76,9 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
                   />
                 </div>
                 <h3 className="text-xl font-medium">{feature.title}</h3>
-                <Link target="_blank" rel="noopener noreferrer"
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
                   href={feature.detailLink || '#'}
                   className="group text-[#7A7A7A] flex items-center space-x-1"
                 >

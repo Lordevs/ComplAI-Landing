@@ -1,4 +1,3 @@
-
 import { Banner } from '../_common/banner';
 
 export function CompanionBanner() {

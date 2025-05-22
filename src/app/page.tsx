@@ -35,11 +35,7 @@ export default function Home() {
           <TestimonialSlider showBadge={false} />
           <PricingBanner />
           <FAQSection showBadge={false} />
-          <CTASection
-            cta={cta}
-            showBgImage={true}
-            showRadialImage={false}
-          />
+          <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
           <NewsSection />
         </main>
       </Suspense>

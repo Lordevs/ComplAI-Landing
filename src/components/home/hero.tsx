@@ -1,9 +1,9 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button'; // Assuming this path is correct
 
@@ -72,7 +72,7 @@ export function Hero() {
         <motion.div
           initial={{ y: 50 }}
           animate={{ y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}  // ideal speed 
+          transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }} // ideal speed
           className="flex justify-center gap-4 py-5 "
         >
           <CTAButton

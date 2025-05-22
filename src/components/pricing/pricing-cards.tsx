@@ -1,9 +1,9 @@
+import Link from 'next/link';
 import { Check, Star } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-import Link from 'next/link';
 import { Logo } from '../logo';
 
 const PricingCard = ({
@@ -14,7 +14,7 @@ const PricingCard = ({
   description,
   features,
   mostPopular,
-  btn_redirection
+  btn_redirection,
 }: {
   title: string;
   price: string;
@@ -23,9 +23,8 @@ const PricingCard = ({
   description: string;
   features: string[];
   mostPopular?: boolean;
-  btn_redirection: string
+  btn_redirection: string;
 }) => {
-
   return (
     <Card className="relative w-full max-w-full border rounded-2xl shadow-md p-6">
       {mostPopular && (
