@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 
@@ -128,22 +128,13 @@ export function SecurityFeatures({ className = '' }: SecurityFeaturesProps) {
 
 const defaultFeatures: SecurityFeature[] = [
   {
-    icon: '/images/icons/lock-simple.svg',
-    iconSize: {
-      width: 'w-32 md:w-40',
-      height: 'h-32 md:h-40',
-    },
-    title: 'End-to-End Encryption',
-    detailLink: 'https://www.iso.org/standard/75307.html',
-  },
-  {
     icon: '/images/icons/shield.svg',
     iconSize: {
       width: 'w-40 md:w-56',
       height: 'h-40',
     },
     title: 'GDPR Compliant',
-    detailLink: 'http://gdpr-info.eu',
+    detailLink: 'https://www.legislation.gov.uk/eur/2016/679/contents',
   },
   {
     icon: '/images/icons/iso.svg',
@@ -154,4 +145,14 @@ const defaultFeatures: SecurityFeature[] = [
     title: 'ISO 27001 Hosting',
     detailLink: 'https://www.iso.org/standard/27001',
   },
+  {
+    icon: '/images/icons/lock-simple.svg',
+    iconSize: {
+      width: 'w-32 md:w-40',
+      height: 'h-32 md:h-40',
+    },
+    title: 'End-to-End Encryption',
+    detailLink: 'https://www.ibm.com/think/topics/end-to-end-encryption',
+  }
+
 ];
