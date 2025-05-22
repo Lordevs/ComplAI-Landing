@@ -1,7 +1,6 @@
-import { Calendar } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { Calendar } from 'lucide-react';
 
 interface NewsCardProps {
   date: string;
@@ -20,9 +19,6 @@ export function NewsCard({
 }: NewsCardProps) {
   return (
     <Link href={`/news/${id}`}>
-
-
-
       <div className="relative rounded-xl overflow-hidden h-64 md:h-96 group">
         <Image
           src={imageUrl || '/placeholder.svg'}

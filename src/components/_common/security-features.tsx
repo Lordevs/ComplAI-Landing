@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -153,6 +153,5 @@ const defaultFeatures: SecurityFeature[] = [
     },
     title: 'End-to-End Encryption',
     detailLink: 'https://www.ibm.com/think/topics/end-to-end-encryption',
-  }
-
+  },
 ];
