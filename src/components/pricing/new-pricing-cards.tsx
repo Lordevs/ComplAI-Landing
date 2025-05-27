@@ -1,9 +1,12 @@
 'use client';
 
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
-import Link from 'next/link';
 
+import { PricingPlan } from '@/types/pricing';
+import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -12,10 +15,7 @@ import {
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
-import { PricingPlan } from '@/types/pricing';
 
-import { useRouter } from 'next/navigation';
 import { Separator } from '../ui/separator';
 
 // Define the types for our pricing plans
@@ -43,7 +43,7 @@ interface PricingCardProps {
 }
 
 export function PricingCard({ plan }: PricingCardProps) {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <motion.div
       initial={{ y: 50 }}
@@ -56,7 +56,7 @@ export function PricingCard({ plan }: PricingCardProps) {
         className={cn(
           'relative flex flex-col border rounded-xl h-full',
           plan.color === 'blue' &&
-          'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
+            'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
         )}
       >
         {plan.popular && (
@@ -118,14 +118,14 @@ export function PricingCard({ plan }: PricingCardProps) {
           </div>
 
           {/* <Link href={plan.btn_redirection}> */}
-          <Button onClick={() => {
-            if (plan.id != 'enterprise') {
-              window.location.href = plan.btn_redirection
-            } else {
-              router.push(plan.btn_redirection)
-            }
-
-          }}
+          <Button
+            onClick={() => {
+              if (plan.id != 'enterprise') {
+                window.location.href = plan.btn_redirection;
+              } else {
+                router.push(plan.btn_redirection);
+              }
+            }}
             variant={plan.color === 'blue' ? 'default' : 'outline'}
             className={cn(
               'w-full mb-4 text-xl',
