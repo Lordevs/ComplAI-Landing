@@ -1,10 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { Check } from 'lucide-react';
 
+import { PricingPlan } from '@/types/pricing';
+import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -13,8 +15,6 @@ import {
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
-import { PricingPlan } from '@/types/pricing';
 
 import { Separator } from '../ui/separator';
 
@@ -56,7 +56,7 @@ export function PricingCard({ plan }: PricingCardProps) {
         className={cn(
           'relative flex flex-col border rounded-xl h-full',
           plan.color === 'blue' &&
-          'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
+            'bg-primary text-white border-primary shadow-[0px_0px_39px_5px_#0686F6]'
         )}
       >
         {plan.popular && (
@@ -121,7 +121,7 @@ export function PricingCard({ plan }: PricingCardProps) {
           <Button
             onClick={() => {
               if (plan.id != 'enterprise') {
-                console.log(plan.btn_redirection)
+                console.log(plan.btn_redirection);
                 window.location.href = plan.btn_redirection;
               } else {
                 router.push(plan.btn_redirection);
