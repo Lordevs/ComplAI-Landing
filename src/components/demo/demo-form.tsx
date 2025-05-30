@@ -1,11 +1,13 @@
 'use client';
 
+import { FormEvent, useState } from 'react';
+import Image from 'next/image';
+import { motion, Variants } from 'framer-motion';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { motion, Variants } from 'framer-motion';
-import Image from 'next/image';
-import { FormEvent, useState } from 'react';
+
 import SuccessSubmissionModal from '../modals/SuccessModal';
 
 // Animation variants
@@ -137,9 +139,7 @@ export default function DemoForm() {
             For Enterprise Enquiries Only
           </motion.div>
 
-          {error && (
-            <p className="text-red-600 text-center mt-4">{error}</p>
-          )}
+          {error && <p className="text-red-600 text-center mt-4">{error}</p>}
 
           <form
             onSubmit={handleSubmit}
@@ -186,7 +186,10 @@ export default function DemoForm() {
               className="h-[200px] py-6"
               value={message}
               onChange={(e) => {
-                console.log('Textarea onChange fired. New value:', e.target.value);
+                console.log(
+                  'Textarea onChange fired. New value:',
+                  e.target.value
+                );
                 setMessage(e.target.value);
               }}
               required
