@@ -1,5 +1,6 @@
 'use client';
 
+import useMobile from '@/hooks/useMobile';
 import { motion, Variants } from 'framer-motion';
 
 // Parent container for fluid staggered reveal
@@ -27,6 +28,7 @@ const itemVariants: Variants = {
 };
 
 export default function AboutHeroSection() {
+  const isMobile = useMobile();
   return (
     <>
       <div className="absolute left-0 top-0 bottom-0 right-0 bg-gradient-to-b from-[#70a2ff36] to-[#43619900]" />
@@ -85,19 +87,22 @@ export default function AboutHeroSection() {
                   inefficient, frustrating, and unnecessarily costly.
                 </motion.p>
               </motion.div>
-
-              <motion.div
-                variants={itemVariants}
-                className="basis-6/12 border-l-4 border-primary h-fit pl-4 mt-2 md:mt-0"
-              >
-                <motion.p
+              {!isMobile && (<>
+                <motion.div
                   variants={itemVariants}
-                  className="font-semibold text-black-100 text-3xl md:text-4xl"
+                  className="basis-6/12 border-l-4 border-primary h-fit pl-4 mt-2 md:mt-0"
                 >
-                  AI makes compliance faster, smarter, and more <br />{' '}
-                  efficient.
-                </motion.p>
-              </motion.div>
+                  <motion.p
+                    variants={itemVariants}
+                    className="font-semibold text-black-100 text-3xl md:text-4xl"
+                  >
+                    AI makes compliance faster, smarter, and more <br />{' '}
+                    efficient.
+                  </motion.p>
+                </motion.div>
+
+              </>)}
+
             </motion.div>
 
             <motion.p
@@ -118,6 +123,21 @@ export default function AboutHeroSection() {
               drafting policies.
             </motion.p>
           </motion.div>
+          {isMobile && (<>
+            <motion.div
+              variants={itemVariants}
+              className="basis-6/12 border-l-4 border-primary h-fit pl-4 mt-2 md:mt-0"
+            >
+              <motion.p
+                variants={itemVariants}
+                className="font-semibold text-black-100 text-3xl md:text-4xl"
+              >
+                AI makes compliance faster, smarter, and more <br />{' '}
+                efficient.
+              </motion.p>
+            </motion.div>
+          </>)}
+
         </div>
       </motion.section>
     </>
