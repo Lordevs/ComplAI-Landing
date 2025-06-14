@@ -1,19 +1,19 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
-import { cn } from '@/lib/utils';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
 
 import { ScrollArea } from './ui/scroll-area';
 
@@ -248,7 +248,7 @@ export default function TopNavItems({
                   <motion.button
                     onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
                     className={cn(
-                      'md:text-base font-medium transition-colors hover:text-primary flex items-center whitespace-nowrap',
+                      'text-lg font-medium transition-colors hover:text-primary flex items-center whitespace-nowrap',
                       { 'text-primary': isActive('solutions') }
                     )}
                     aria-expanded={mobileSolutionsOpen}
