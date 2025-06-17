@@ -1,6 +1,6 @@
+import { ROUTES } from '@/constants/routes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ROUTES } from '@/constants/routes';
 
 import { Logo } from './logo';
 
@@ -54,7 +54,7 @@ const footer = {
     placeholder: 'Your email',
   },
   socialLinks: [
-    { icon: '/images/icons/linkedin.svg', href: 'https://linkedin.com' },
+    { icon: '/images/icons/linkedin.svg', href: 'https://www.linkedin.com/company/compl-ai-uk/' },
     // { icon: '/images/icons/facebook.svg', href: 'https://facebook.com' },
     // { icon: '/images/icons/x.svg', href: 'https://x.com' },
     // { icon: '/images/icons/brain-ai.svg', href: 'https://youtube.com' },
