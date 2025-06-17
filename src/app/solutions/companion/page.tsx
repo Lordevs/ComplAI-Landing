@@ -7,8 +7,10 @@ import { CompanionHero } from '@/components/companion/companion-hero';
 import { ComparisonSection } from '@/components/companion/comparison-section';
 import { HowItWorks } from '@/components/companion/how-it-works';
 import WhyCompanionSection from '@/components/companion/why-companion';
+import FAQSection from '@/components/faq';
 import NavigateToTop from '@/components/navigate-to-top';
 import TestimonialSlider from '@/components/testimonials';
+import { CompanionFAQs } from '@/constants/faqs';
 
 export default function CompanionPage() {
   // Example default props
@@ -88,6 +90,7 @@ export default function CompanionPage() {
           <HowItWorks />
           <CompanionBanner />
           <TestimonialSlider showBadge={false} />
+          <FAQSection faqs={CompanionFAQs.questions}></FAQSection>
           <NavigateToTop />
         </main>
       </Suspense>

@@ -3,8 +3,10 @@ import AboutHeroSection from '@/components/about/about-hero-section';
 import TrustedSection from '@/components/about/trusteded-section';
 import ValuesSection from '@/components/about/values-section';
 import CTASection from '@/components/cta-section';
+import FAQSection from '@/components/faq';
 import { NewsSection } from '@/components/news-section';
 import TeamsSlider from '@/components/teams-slider';
+import { AboutFAQs } from '@/constants/faqs';
 
 export default function Contact() {
   const cta = {
@@ -29,6 +31,7 @@ export default function Contact() {
         <div className="py-20">
           <TeamsSlider />
         </div>
+        <FAQSection faqs={AboutFAQs.questions}></FAQSection>
         <CTASection
           cta={cta}
           containerClassName="bg-[#EDF8FF]"
