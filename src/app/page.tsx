@@ -1,7 +1,7 @@
 'use client';
 
-import { Suspense } from 'react';
 import { HomeFAQs } from '@/constants/faqs';
+import { Suspense } from 'react';
 
 import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';
@@ -14,7 +14,23 @@ import { PricingBanner } from '@/components/pricing/pricing-banner';
 import SolutionsSection from '@/components/solutions-section';
 import TeamsSlider from '@/components/teams-slider';
 import TestimonialSlider from '@/components/testimonials';
+import { Metadata } from 'next';
 
+
+export const metadata: Metadata = {
+  title: 'Compl-AI | Instant Compliance Insights for Your Team',
+  description:
+    'Compl-AI provides instant compliance insights and solutions exactly when your team needs them. Save time, lower costs, and stay ahead with ease.',
+  openGraph: {
+    title: 'Compl-AI | Instant Compliance Insights',
+    description: 'Save time, reduce costs, and stay compliant with Compl-AI.',
+    url: 'https://compl-ai.co.uk.com/',
+    siteName: 'Compl-AI',
+
+    type: 'website',
+  },
+
+};
 export default function Home() {
   const cta = {
     title: { start: 'Ready to Try ', highlight: 'Compl-AI?', end: '' },
@@ -23,6 +39,7 @@ export default function Home() {
     buttonText: 'Start Your Free Trial',
     buttonHref: '/signup',
   };
+
 
   return (
     <>
