@@ -1,7 +1,8 @@
 'use client';
 
-import { HomeFAQs } from '@/constants/faqs';
 import { Suspense } from 'react';
+import { Metadata } from 'next';
+import { HomeFAQs } from '@/constants/faqs';
 
 import { SecurityFeatures } from '@/components/_common/security-features';
 import CTASection from '@/components/cta-section';
@@ -14,8 +15,6 @@ import { PricingBanner } from '@/components/pricing/pricing-banner';
 import SolutionsSection from '@/components/solutions-section';
 import TeamsSlider from '@/components/teams-slider';
 import TestimonialSlider from '@/components/testimonials';
-import { Metadata } from 'next';
-
 
 export const metadata: Metadata = {
   title: 'Compl-AI | Instant Compliance Insights for Your Team',
@@ -29,7 +28,6 @@ export const metadata: Metadata = {
 
     type: 'website',
   },
-
 };
 export default function Home() {
   const cta = {
@@ -39,7 +37,6 @@ export default function Home() {
     buttonText: 'Start Your Free Trial',
     buttonHref: '/signup',
   };
-
 
   return (
     <>
