@@ -1,6 +1,6 @@
-import { HOME_META_DATA } from '@/constants/meta-data';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { HOME_META_DATA } from '@/constants/meta-data';
 
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
