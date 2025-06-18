@@ -5,6 +5,7 @@ import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import NavigateToTop from '@/components/navigate-to-top';
 
+import { HOME_META_DATA } from '@/constants/meta-data';
 import './globals.css';
 
 const geistSans = Geist({
@@ -17,11 +18,7 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: 'Compl-AI',
-  description:
-    'Your In-house compliance partner, empowered by Artificial Intelligence.',
-};
+export const metadata: Metadata = HOME_META_DATA
 
 export default function RootLayout({
   children,
