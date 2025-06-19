@@ -1,21 +1,24 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import slugify from 'slugify';
 
 import { bucket, db } from '@/app/firebase/admin';
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
+// The Props interface is not strictly necessary for route handlers
+// as Next.js injects the params directly.
+// interface Props {
+//   params: {
+//     id: string;
+//   };
+// }
 
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const blogId = params.id;
-    const blogRef = db.ref(`blogs/${blogId}`);
+    const { id } = await params;
+
+    const blogRef = db.ref(`blogs/${id}`);
     const snapshot = await blogRef.once('value');
     const blog = snapshot.val();
 
@@ -32,11 +35,14 @@ export async function GET(
     );
   }
 }
-// PUT (update) blog by ID
 
-export async function PUT(request: Request, { params }: Props) {
+// PUT (update) blog by ID
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id: oldSlug } = await params;
   try {
-    const { id: oldSlug } = params;
     const formData = await request.formData();
     const title = formData.get('title') as string;
     const content = formData.get('content') as string;
@@ -64,8 +70,19 @@ export async function PUT(request: Request, { params }: Props) {
     if (thumbnail) {
       // Delete old thumbnail if exists
       if (thumbnailUrl) {
+        // Correctly extract the file name from the URL
         const oldFileName = thumbnailUrl.split('/').pop();
-        if (oldFileName) {
+        if (oldFileName && oldFileName.startsWith('complai-blogs%2F')) {
+          // Check if it's a GCS encoded URL
+          try {
+            // Decode the file name to get the actual path
+            const decodedOldFileName = decodeURIComponent(oldFileName);
+            await bucket.file(decodedOldFileName).delete();
+          } catch (error) {
+            console.error('Error deleting old thumbnail:', error);
+          }
+        } else if (oldFileName) {
+          // Assume it's a direct filename if not URL encoded
           try {
             await bucket.file(`complai-blogs/${oldFileName}`).delete();
           } catch (error) {
@@ -76,6 +93,7 @@ export async function PUT(request: Request, { params }: Props) {
 
       // Upload new thumbnail
       const buffer = Buffer.from(await thumbnail.arrayBuffer());
+      // Ensure fileName is unique and descriptive, including the newSlug
       const fileName = `complai-blogs/${newSlug}-${Date.now()}-${thumbnail.name}`;
       const file = bucket.file(fileName);
 
@@ -119,9 +137,12 @@ export async function PUT(request: Request, { params }: Props) {
 }
 
 // DELETE blog by ID
-export async function DELETE(request: Request, { params }: Props) {
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
   try {
-    const { id } = params;
     const blogRef = db.ref(`blogs/${id}`);
 
     // Get the blog data first to check if it exists and get the thumbnail URL
@@ -133,9 +154,19 @@ export async function DELETE(request: Request, { params }: Props) {
     }
 
     // Delete thumbnail from storage if it exists
-    if (blog.thumbnailUrl) {
-      const fileName = blog.thumbnailUrl.split('/').pop();
-      if (fileName) {
+    // The property was `thumbnail` in PUT, so assume it's `thumbnail` here too.
+    if (blog.thumbnail) {
+      const fileName = blog.thumbnail.split('/').pop();
+      if (fileName && fileName.startsWith('complai-blogs%2F')) {
+        // Check if it's a GCS encoded URL
+        try {
+          const decodedFileName = decodeURIComponent(fileName);
+          await bucket.file(decodedFileName).delete();
+        } catch (error) {
+          console.error('Error deleting thumbnail:', error);
+        }
+      } else if (fileName) {
+        // Assume it's a direct filename if not URL encoded
         try {
           await bucket.file(`complai-blogs/${fileName}`).delete();
         } catch (error) {
