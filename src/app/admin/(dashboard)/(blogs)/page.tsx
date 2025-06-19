@@ -1,9 +1,9 @@
 'use client';
 
-import { ROUTES } from '@/constants/routes';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { ROUTES } from '@/constants/routes';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -52,8 +52,6 @@ const fetchBlogs = async (): Promise<Blog[]> => {
     thumbnail: blog.thumbnail ?? '',
   }));
 };
-
-
 
 const BlogListPage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
