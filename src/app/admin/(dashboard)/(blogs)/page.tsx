@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { ROUTES } from '@/constants/routes';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -17,17 +18,20 @@ import {
 type Blog = {
   id: string;
   title: string;
-  author: string;
-  date: string;
+  slug: string;
+  content: string;
   thumbnail: string;
+  date: string;
 };
 
 type BlogAPIResponse = {
   [id: string]: {
     title: string;
-    author: string;
-    createdAt: string;
+    slug: string;
+    content: string;
     thumbnail: string;
+    createdAt: string;
+    updatedAt: string;
   };
 };
 const fetchBlogs = async (): Promise<Blog[]> => {
@@ -40,7 +44,8 @@ const fetchBlogs = async (): Promise<Blog[]> => {
   return Object.entries(data.blogs).map(([id, blog]) => ({
     id: String(id),
     title: blog.title ?? '',
-    author: blog.author ?? '',
+    slug: blog.slug ?? '',
+    content: blog.content ?? '',
     date: blog.createdAt
       ? new Date(blog.createdAt).toISOString().slice(0, 10)
       : '',
@@ -56,7 +61,7 @@ const BlogListPage = () => {
   }, []);
 
   const handleEdit = (id: string) => {
-    router.push(`/admin/${id}`); // Redirect to edit page with blog ID
+    router.push(`${ROUTES.ADMIN.DASHBOARD}/${id}`);
   };
 
   const handleDelete = async (id: string) => {
@@ -84,7 +89,9 @@ const BlogListPage = () => {
     <div className="max-w-7xl mx-auto px-4 py-10">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-semibold">Blogs</h2>
-        <Button onClick={() => router.push('/admin/add')}>Add Blog</Button>
+        <Button onClick={() => router.push(`${ROUTES.ADMIN.DASHBOARD}/add`)}>
+          Add Blog
+        </Button>
       </div>
 
       <div className="overflow-x-auto">

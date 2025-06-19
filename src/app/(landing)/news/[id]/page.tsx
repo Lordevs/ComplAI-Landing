@@ -4,47 +4,36 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { API_ROUTES } from '@/constants/routes';
+import readingTime from 'reading-time';
 
 import Spinner from '@/components/_common/spinner';
 import CTASection from '@/components/cta-section';
 import { NewsSection } from '@/components/news-section';
 import NewsDetail from '@/components/news/new-detail';
 
-export default function NewsExplanation() {
-  const [newsItem, setNewsItem] = useState(null); // State to hold the news item
-  const { id } = useParams(); // Get the `id` from the URL
+export const formatDate = (ts: number) =>
+  new Date(ts).toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  });
 
-  // Helper function to format an ISO date string into "dd MMM yyyy" (e.g., "03 Feb 2025")
-  const formatDate = (isoString: string): string => {
-    const date = new Date(isoString);
-    return date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-    });
-  };
+export default function NewsExplanation() {
+  const [newsItem, setNewsItem] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
-    const getNewsItem = async () => {
-      try {
-        if (typeof id !== 'string') return;
-        const response = await fetch(API_ROUTES.GET_BLOGS_ID(id));
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setNewsItem(data);
-      } catch (error) {
-        console.error('Error fetching news data:', error);
-      }
-    };
-
-    if (id) {
-      getNewsItem();
-    }
+    if (!id) return;
+    fetch(API_ROUTES.GET_BLOGS_ID(id as string))
+      .then((res) => {
+        if (!res.ok) throw new Error(`Status ${res.status}`);
+        return res.json();
+      })
+      .then(setNewsItem)
+      .catch((e) => console.error(e));
   }, [id]);
 
-  if (newsItem === null) {
+  if (!newsItem) {
     return (
       <div className="h-screen flex items-center justify-center">
         <Spinner />
@@ -52,14 +41,12 @@ export default function NewsExplanation() {
     );
   }
 
-  const { title, uploaded_at, content, image } = newsItem;
+  const { title, createdAt, content, thumbnail } = newsItem;
+  const stats = readingTime(content);
+  const readTimeText = `${Math.ceil(stats.minutes)} min read`;
 
   const cta = {
-    title: {
-      start: 'Ready to Try ',
-      highlight: 'Compl-AI?',
-      end: '',
-    },
+    title: { start: 'Ready to Try ', highlight: 'Compl-AI?', end: '' },
     description:
       'Compl-AI provides instant compliance insights and solutions exactly when your team needs them. Save time, lower costs, and stay ahead with ease.',
     buttonText: 'Start Your Free Trial',
@@ -77,18 +64,20 @@ export default function NewsExplanation() {
 
         <NewsDetail
           title={title}
-          date={formatDate(uploaded_at)}
-          readingTime={'3 min read'}
-          coverImageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${image}`}
+          date={formatDate(createdAt)}
+          readingTime={readTimeText}
+          coverImageUrl={thumbnail}
           content={content}
         />
       </div>
+
       <CTASection
         cta={cta}
         containerClassName="bg-[#EDF8FF]"
         titleClassName="lg:text-[40px]"
         descriptionClassName="max-w-4xl"
       />
+
       <div className="md:px-12">
         <NewsSection />
       </div>

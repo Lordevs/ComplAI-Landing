@@ -30,7 +30,9 @@ function cleanAndTruncateDescription(
 const getNewsItem = async (id: string) => {
   try {
     if (typeof id !== 'string') return;
-    const response = await fetch(API_ROUTES.GET_BLOGS_ID(id));
+    const baseUrl =
+      process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_LANDING_URL;
+    const response = await fetch(baseUrl + API_ROUTES.GET_BLOGS_ID(id));
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -86,16 +88,16 @@ export async function generateMetadata(
     title: blog.title,
     description: cleanDescription,
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_LANDING_URL}/news/${blog.id}`,
+      canonical: `${process.env.NEXT_PUBLIC_LANDING_URL}/news/${blog.slug}`,
     },
     openGraph: {
       title: blog.title,
       description: cleanDescription,
-      url: `${process.env.NEXT_PUBLIC_LANDING_URL}/news/${blog.id}`,
+      url: `${process.env.NEXT_PUBLIC_LANDING_URL}/news/${blog.slug}`,
       siteName: 'Brilliant AI',
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/${blog.image}`,
+          url: blog.thumbnail,
           width: 1200,
           height: 630,
           alt: blog.title,

@@ -3,14 +3,6 @@ import slugify from 'slugify';
 
 import { bucket, db } from '@/app/firebase/admin';
 
-// The Props interface is not strictly necessary for route handlers
-// as Next.js injects the params directly.
-// interface Props {
-//   params: {
-//     id: string;
-//   };
-// }
-
 export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -46,7 +38,9 @@ export async function PUT(
     const formData = await request.formData();
     const title = formData.get('title') as string;
     const content = formData.get('content') as string;
-    const thumbnail = formData.get('thumbnail') as File | null;
+    const newThumbnailFile = formData.get('thumbnail') as File | null;
+    const currentThumbnailUrlFromClient =
+      (formData.get('currentThumbnailUrl') as string) || '';
 
     if (!title || !content) {
       return NextResponse.json(
@@ -55,70 +49,76 @@ export async function PUT(
       );
     }
 
-    let thumbnailUrl = (formData.get('currentThumbnailUrl') as string) || '';
+    let finalThumbnailUrl: string | null = null;
 
     // Generate new slug from updated title
     const newSlug = slugify(title, { lower: true, strict: true });
 
-    // Get existing blog
+    // Get existing blog data
     const existingSnapshot = await db.ref(`blogs/${oldSlug}`).once('value');
     if (!existingSnapshot.exists()) {
       return NextResponse.json({ error: 'Blog not found' }, { status: 404 });
     }
+    const existingBlog = existingSnapshot.val();
+    const existingThumbnailUrl = existingBlog.thumbnail || null; // Get current thumbnail URL from DB
 
-    // Handle thumbnail replacement
-    if (thumbnail) {
-      // Delete old thumbnail if exists
-      if (thumbnailUrl) {
-        // Correctly extract the file name from the URL
-        const oldFileName = thumbnailUrl.split('/').pop();
-        if (oldFileName && oldFileName.startsWith('complai-blogs%2F')) {
-          // Check if it's a GCS encoded URL
-          try {
-            // Decode the file name to get the actual path
-            const decodedOldFileName = decodeURIComponent(oldFileName);
-            await bucket.file(decodedOldFileName).delete();
-          } catch (error) {
-            console.error('Error deleting old thumbnail:', error);
+    // --- Handle Thumbnail ---
+    if (newThumbnailFile && newThumbnailFile.size > 0) {
+      // Case 1: A new thumbnail file is uploaded
+      // Delete old thumbnail from storage if it exists
+      if (existingThumbnailUrl) {
+        try {
+          // Extract the full path within the bucket from the existing URL
+          const urlParts = existingThumbnailUrl.split(`${bucket.name}/`);
+          if (urlParts.length > 1) {
+            const pathInBucketToDelete = urlParts[1];
+            // Decode the path in case it contains URL-encoded characters
+            const decodedPath = decodeURIComponent(pathInBucketToDelete);
+            await bucket.file(decodedPath).delete();
+          } else {
+            console.warn(
+              'Could not parse existing thumbnail URL for deletion:',
+              existingThumbnailUrl
+            );
           }
-        } else if (oldFileName) {
-          // Assume it's a direct filename if not URL encoded
-          try {
-            await bucket.file(`complai-blogs/${oldFileName}`).delete();
-          } catch (error) {
-            console.error('Error deleting old thumbnail:', error);
-          }
+        } catch (error) {
+          // It's possible the file doesn't exist anymore or there's a permission issue.
+          // Log the error but don't block the update process.
+          console.error('Error deleting old thumbnail:', error);
         }
       }
 
       // Upload new thumbnail
-      const buffer = Buffer.from(await thumbnail.arrayBuffer());
-      // Ensure fileName is unique and descriptive, including the newSlug
-      const fileName = `complai-blogs/${newSlug}-${Date.now()}-${thumbnail.name}`;
-      const file = bucket.file(fileName);
+      const buffer = Buffer.from(await newThumbnailFile.arrayBuffer());
+      const fileNameInStorage = `complai-blogs/${newSlug}-${Date.now()}-${newThumbnailFile.name}`;
+      const file = bucket.file(fileNameInStorage);
 
       await file.save(buffer, {
-        contentType: thumbnail.type,
+        contentType: newThumbnailFile.type,
         public: true,
         metadata: { cacheControl: 'public, max-age=31536000' },
       });
 
-      thumbnailUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
+      finalThumbnailUrl = `https://storage.googleapis.com/${bucket.name}/${fileNameInStorage}`;
+    } else {
+      // Case 2: No new thumbnail file is uploaded
+      // Preserve the existing thumbnail URL if it was sent from the client
+      finalThumbnailUrl = currentThumbnailUrlFromClient || existingThumbnailUrl;
     }
 
     const updatedData = {
       title,
       content,
       slug: newSlug,
-      thumbnail: thumbnailUrl,
+      thumbnail: finalThumbnailUrl, // Use the determined finalThumbnailUrl
       updatedAt: Date.now(),
-      createdAt: existingSnapshot.val().createdAt || Date.now(),
+      createdAt: existingBlog.createdAt || Date.now(),
     };
 
     // Write updated data to new slug key
     await db.ref(`blogs/${newSlug}`).set(updatedData);
 
-    // Delete old blog entry
+    // Delete old blog entry in Firebase Realtime Database
     if (oldSlug !== newSlug) {
       await db.ref(`blogs/${oldSlug}`).remove();
     }
@@ -154,28 +154,27 @@ export async function DELETE(
     }
 
     // Delete thumbnail from storage if it exists
-    // The property was `thumbnail` in PUT, so assume it's `thumbnail` here too.
     if (blog.thumbnail) {
-      const fileName = blog.thumbnail.split('/').pop();
-      if (fileName && fileName.startsWith('complai-blogs%2F')) {
-        // Check if it's a GCS encoded URL
-        try {
-          const decodedFileName = decodeURIComponent(fileName);
-          await bucket.file(decodedFileName).delete();
-        } catch (error) {
-          console.error('Error deleting thumbnail:', error);
+      try {
+        // Extract the full path within the bucket from the thumbnail URL
+        const urlParts = blog.thumbnail.split(`${bucket.name}/`);
+        if (urlParts.length > 1) {
+          const pathInBucketToDelete = urlParts[1];
+          // Decode the path in case it contains URL-encoded characters
+          const decodedPath = decodeURIComponent(pathInBucketToDelete);
+          await bucket.file(decodedPath).delete();
+        } else {
+          console.warn(
+            'Could not parse thumbnail URL for deletion:',
+            blog.thumbnail
+          );
         }
-      } else if (fileName) {
-        // Assume it's a direct filename if not URL encoded
-        try {
-          await bucket.file(`complai-blogs/${fileName}`).delete();
-        } catch (error) {
-          console.error('Error deleting thumbnail:', error);
-        }
+      } catch (error) {
+        console.error('Error deleting thumbnail from storage:', error);
       }
     }
 
-    // Delete the blog entry
+    // Delete the blog entry from Firebase Realtime Database
     await blogRef.remove();
 
     return NextResponse.json(

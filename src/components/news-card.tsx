@@ -7,7 +7,7 @@ interface NewsCardProps {
   title: string;
   description: string;
   imageUrl: string;
-  id: number;
+  slug: string;
 }
 
 export function NewsCard({
@@ -15,10 +15,10 @@ export function NewsCard({
   title,
   description,
   imageUrl,
-  id,
+  slug,
 }: NewsCardProps) {
   return (
-    <Link href={`/news/${id}`}>
+    <Link href={`/news/${slug}`}>
       <div className="relative rounded-xl overflow-hidden h-64 md:h-96 group">
         <Image
           src={imageUrl || '/placeholder.svg'}

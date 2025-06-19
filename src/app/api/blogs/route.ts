@@ -7,9 +7,21 @@ export async function GET() {
   try {
     const blogsRef = db.ref('blogs');
     const snapshot = await blogsRef.once('value');
-    const blogs = snapshot.val();
+    const blogsObject = snapshot.val(); // This will be the object with slugs as keys
 
-    return NextResponse.json({ blogs }, { status: 200 });
+    const blogsArray = [];
+    if (blogsObject) {
+      // Iterate over the keys (slugs) of the blogsObject
+      for (const slug in blogsObject) {
+        if (Object.prototype.hasOwnProperty.call(blogsObject, slug)) {
+          // Add each blog object to the array
+          blogsArray.push(blogsObject[slug]);
+        }
+      }
+    }
+
+    // Return the array of blogs
+    return NextResponse.json(blogsArray, { status: 200 });
   } catch (error) {
     console.error('Error fetching blogs:', error);
     return NextResponse.json(

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { ROUTES } from '@/constants/routes';
 
 // Dynamically import MDEditor (to support SSR)
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
@@ -48,7 +49,7 @@ const Page = () => {
       setContent('');
 
       setThumbnail(null);
-      router.push('/admin');
+      router.push(ROUTES.ADMIN.DASHBOARD);
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);

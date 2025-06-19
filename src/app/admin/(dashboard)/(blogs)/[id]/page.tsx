@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
+import { ROUTES } from '@/constants/routes';
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
 
@@ -22,6 +23,7 @@ const Page = () => {
   const params = useParams();
   const id = params.id as string | undefined;
   const router = useRouter();
+
   useEffect(() => {
     const fetchBlog = async () => {
       if (!id) return;
@@ -31,7 +33,7 @@ const Page = () => {
         const blog = await res.json();
         setTitle(blog.title);
         setContent(blog.content);
-        setCurrentThumbnailUrl(blog.thumbnail); // Not thumbnailUrl
+        setCurrentThumbnailUrl(blog.thumbnail); // Correctly setting currentThumbnailUrl from fetched blog data
       } catch (err) {
         console.error('Error fetching blog:', err);
         setError('Failed to fetch blog');
@@ -50,8 +52,14 @@ const Page = () => {
       const formData = new FormData();
       formData.append('title', title);
       formData.append('content', content || '');
+
+      // IMPORTANT: Append currentThumbnailUrl ONLY if a new thumbnail is NOT selected
+      // This tells the API route what the existing thumbnail URL is, so it can be preserved
+      // if no new file is uploaded, or deleted if a new file is uploaded.
       if (thumbnail) {
         formData.append('thumbnail', thumbnail);
+      } else if (currentThumbnailUrl) {
+        formData.append('currentThumbnailUrl', currentThumbnailUrl);
       }
 
       const res = await fetch(`/api/blogs/${id}`, {
@@ -66,7 +74,7 @@ const Page = () => {
 
       const data = await res.json();
       setSuccess(`Blog updated! Slug: ${data.slug}`);
-      router.push('/admin');
+      router.push(ROUTES.ADMIN.DASHBOARD);
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);
@@ -115,6 +123,7 @@ const Page = () => {
             onChange={(e) => {
               if (e.target.files && e.target.files[0]) {
                 setThumbnail(e.target.files[0]);
+                setCurrentThumbnailUrl(null); // Clear current URL preview if new file selected
               }
             }}
           />

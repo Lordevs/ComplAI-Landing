@@ -6,16 +6,18 @@ import { API_ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-import { NewsData } from '@/types/news';
+import { Blog } from '@/types/news';
+import { parseBodyContentToText } from '@/lib/text-utils';
 import useMobile from '@/hooks/useMobile';
 import { Button } from '@/components/ui/button';
 import { NewsCard } from '@/components/news-card';
+import { formatDate } from '@/app/(landing)/news/[id]/page';
 
 export function NewsSection() {
   const isMobile = useMobile();
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [newsData, setNewsData] = useState<NewsData | null>(null);
+  const [newsData, setNewsData] = useState<Blog[]>([]);
 
   const scrollToCard = (index: number) => {
     cardRefs.current[index]?.scrollIntoView({
@@ -24,23 +26,6 @@ export function NewsSection() {
       inline: 'center',
     });
     setActiveIndex(index);
-  };
-
-  // Helper function to extract plain text from the body of an HTML string
-  const parseBodyContentToText = (htmlString: string): string => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlString, 'text/html');
-    return doc.body.textContent || '';
-  };
-
-  // Helper function to format the ISO date into "dd MMM yyyy" (e.g., "03 Feb 2025")
-  const formatDate = (isoString: string): string => {
-    const date = new Date(isoString);
-    return date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-    });
   };
 
   useEffect(() => {
@@ -87,12 +72,12 @@ export function NewsSection() {
     };
   }, []);
 
-  const latestBlogs = newsData?.blogs
+  const latestBlogs = (newsData || [])
     // sort by uploaded_at descending, if your backend doesn’t already return newest-first
     .slice() // clone so we don’t mutate original
     .sort(
       (a, b) =>
-        new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime()
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     )
     .slice(0, 3);
 
@@ -131,7 +116,7 @@ export function NewsSection() {
 
             return (
               <Wrapper
-                key={news.id}
+                key={news.slug}
                 {...(!isMobile && {
                   initial: { y: 50 },
                   whileInView: { y: 0 },
@@ -148,11 +133,11 @@ export function NewsSection() {
                 className="flex-shrink-0 w-80 lg:w-auto"
               >
                 <NewsCard
-                  date={formatDate(news.uploaded_at)}
+                  date={formatDate(news.createdAt)}
                   title={news.title}
                   description={mainContentText}
-                  imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${news.image}`}
-                  id={news.id}
+                  imageUrl={news.thumbnail}
+                  slug={news.slug}
                 />
               </Wrapper>
             );
