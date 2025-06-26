@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
 import { useRef } from 'react';
+import { motion, Variants } from 'framer-motion';
 
 import LogoSlider from '../logo-slider';
 
