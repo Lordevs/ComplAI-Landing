@@ -39,7 +39,7 @@ export default function AboutHeroSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="relative overflow-hidden py-16 md:mx-auto  max-w-7xl"
+        className="relative overflow-hidden py-16 md:mx-auto  max-w-7xl px-10 md:px-0"
       >
         {/* Background SVG */}
 

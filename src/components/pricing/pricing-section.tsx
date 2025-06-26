@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 
-import { PricingPlan } from '@/types/pricing';
 import { PricingCards } from '@/components/pricing/new-pricing-cards';
+import { PricingPlan } from '@/types/pricing';
 
 const pricingPlans: PricingPlan[] = [
   {
@@ -100,7 +100,7 @@ export function PricingSection() {
         delay: 0.2,
       }}
       viewport={{ once: true, amount: 0.3 }}
-      className="container pt-3 pb-12 px-8 md:px-16 mx-auto md:max-w-screen-xl"
+      className="container pt-3 pb-12  px-8 md:px-16 mx-auto md:max-w-screen-xl"
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}

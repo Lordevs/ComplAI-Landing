@@ -1,8 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { solutions } from '@/data/solutions';
 import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import SolCard from './sol-card';
 
@@ -30,9 +31,23 @@ const itemVariants: Variants = {
   },
 };
 
-export default function SolutionsSection() {
+interface SolutionsSectionProps {
+  ctaButton?: React.ReactNode;
+  backgroundImage?: { src: string; alt: string; width?: number; height?: number; className?: string };
+  title?: string;
+  description?: string;
+  className?: string;
+}
+
+export default function SolutionsSection({
+  ctaButton,
+  backgroundImage,
+  title = 'Our Solutions',
+  description = 'Discover the innovative features that streamline compliance, enhance productivity, and provide peace of mind. Tailored for legal professionals, by legal professionals.',
+  className = '',
+}: SolutionsSectionProps) {
   return (
-    <section className="text-center px-4 pt-10 pb-24 md:pb-32 md:px-6">
+    <section className={`text-center px-4 pt-10 pb-24 md:pb-32 md:px-6 relative ${className}`}>
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -44,24 +59,36 @@ export default function SolutionsSection() {
           viewport={{ once: true }}
           className="text-3xl md:text-5xl font-bold mb-2"
         >
-          Our <span className="text-primary">Solutions</span>
+          {title.includes('<span') ? (
+            <span dangerouslySetInnerHTML={{ __html: title }} />
+          ) : (
+            <>
+              {title.split(' ').map((word, i) =>
+                word === 'Solutions' ? (
+                  <span key={i} className="text-primary">{word} </span>
+                ) : (
+                  word + ' '
+                )
+              )}
+            </>
+          )}
         </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.22, 1, 0.36, 1],
-            delay: 0.1,
-          }}
-          viewport={{ once: true }}
-          className="text-gray-600 max-w-2xl mx-auto mb-10"
-        >
-          Discover the innovative features that streamline compliance, enhance
-          productivity, and provide peace of mind. Tailored for legal
-          professionals, by legal professionals.
-        </motion.p>
+        {description && (
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+              delay: 0.1,
+            }}
+            viewport={{ once: true }}
+            className="text-gray-600 max-w-2xl mx-auto mb-10"
+          >
+            {description}
+          </motion.p>
+        )}
 
         <motion.div
           variants={containerVariants}
@@ -92,7 +119,23 @@ export default function SolutionsSection() {
             );
           })}
         </motion.div>
+        {ctaButton && (
+          <div className="flex flex-col items-center justify-center mt-10">
+            {ctaButton}
+          </div>
+        )}
       </div>
+      {backgroundImage && (
+        <div className="absolute bottom-0 flex items-center justify-center w-full z-0">
+          <Image
+            src={backgroundImage.src}
+            alt={backgroundImage.alt}
+            width={backgroundImage.width || 800}
+            height={backgroundImage.height || 800}
+            className={backgroundImage.className || 'h-full object-cover'}
+          />
+        </div>
+      )}
     </section>
   );
 }
