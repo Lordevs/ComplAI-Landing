@@ -1,13 +1,14 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
-import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
+import { FormEvent, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
+import { API_ROUTES } from '@/constants/routes';
 import SuccessSubmissionModal from '../modals/SuccessModal';
 
 // Animation variants
@@ -53,15 +54,13 @@ export default function DemoForm() {
         role,
         phone_no: phoneNo,
         message,
+        form_type: 'demo',
       };
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/feedback/enterprise-enquiries/`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body),
-        }
-      );
+      const response = await fetch(API_ROUTES.SEND_EMAIL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
       if (response.ok) {
         // reset inputs
         setFullName('');
@@ -74,7 +73,7 @@ export default function DemoForm() {
         setShowSuccess(true);
       } else {
         const data = await response.json();
-        setError(data.message || 'Submission failed. Please try again.');
+        setError(data.error || 'Submission failed. Please try again.');
       }
     } catch (err) {
       console.error(err);

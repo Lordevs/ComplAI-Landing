@@ -31,4 +31,5 @@ export const API_ROUTES = {
     // return `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/blogs/${id}`;
     return `/api/blogs/${id}`;
   },
+  SEND_EMAIL: `/api/send-email`,
 };
