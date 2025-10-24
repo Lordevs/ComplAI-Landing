@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
+import { getBlogBySlug, updateBlog } from '@/services/blog-api';
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
 
@@ -15,6 +16,7 @@ const Page = () => {
   const [currentThumbnailUrl, setCurrentThumbnailUrl] = useState<string | null>(
     null
   );
+  const [blogId, setBlogId] = useState<string | null>(null);
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
@@ -28,12 +30,17 @@ const Page = () => {
     const fetchBlog = async () => {
       if (!id) return;
       try {
-        const res = await fetch(`/api/blogs/${id}`);
-        if (!res.ok) throw new Error('Failed to fetch blog');
-        const blog = await res.json();
+        const blog = await getBlogBySlug(id);
+        setBlogId(blog.id);
         setTitle(blog.title);
         setContent(blog.content);
-        setCurrentThumbnailUrl(blog.thumbnail); // Correctly setting currentThumbnailUrl from fetched blog data
+        // Handle both relative and absolute URLs
+        const thumbnailUrl = blog.thumbnail
+          ? blog.thumbnail.startsWith('http')
+            ? blog.thumbnail
+            : `${process.env.NEXT_PUBLIC_BACKEND_URL}${blog.thumbnail}`
+          : null;
+        setCurrentThumbnailUrl(thumbnailUrl);
       } catch (err) {
         console.error('Error fetching blog:', err);
         setError('Failed to fetch blog');
@@ -49,31 +56,17 @@ const Page = () => {
     setSuccess(null);
 
     try {
-      const formData = new FormData();
-      formData.append('title', title);
-      formData.append('content', content || '');
-
-      // IMPORTANT: Append currentThumbnailUrl ONLY if a new thumbnail is NOT selected
-      // This tells the API route what the existing thumbnail URL is, so it can be preserved
-      // if no new file is uploaded, or deleted if a new file is uploaded.
-      if (thumbnail) {
-        formData.append('thumbnail', thumbnail);
-      } else if (currentThumbnailUrl) {
-        formData.append('currentThumbnailUrl', currentThumbnailUrl);
+      if (!blogId) {
+        throw new Error('Blog ID not found');
       }
 
-      const res = await fetch(`/api/blogs/${id}`, {
-        method: 'PUT',
-        body: formData,
-      });
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || 'Failed to update blog');
-      }
-
-      const data = await res.json();
-      setSuccess(`Blog updated! Slug: ${data.slug}`);
+      const response = await updateBlog(
+        blogId,
+        title,
+        content || '',
+        thumbnail || undefined
+      );
+      setSuccess(`Blog updated! Slug: ${response.data.slug}`);
       router.push(ROUTES.ADMIN.DASHBOARD);
     } catch (err: unknown) {
       if (err instanceof Error) {

@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
+import { createBlog } from '@/services/blog-api';
 
 // Dynamically import MDEditor (to support SSR)
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
@@ -25,29 +26,14 @@ const Page = () => {
     setSuccess(null);
 
     try {
-      const formData = new FormData();
-      formData.append('title', title);
-      formData.append('content', content || '');
-
-      if (thumbnail) {
-        formData.append('thumbnail', thumbnail);
-      }
-
-      const res = await fetch('/api/blogs', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || 'Failed to add blog');
-      }
-
-      const data = await res.json();
-      setSuccess(`Blog created! Slug: ${data.slug}`);
+      const response = await createBlog(
+        title,
+        content || '',
+        thumbnail || undefined
+      );
+      setSuccess(`Blog created! Slug: ${response.data.slug}`);
       setTitle('');
       setContent('');
-
       setThumbnail(null);
       router.push(ROUTES.ADMIN.DASHBOARD);
     } catch (err: unknown) {

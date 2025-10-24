@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { API_ROUTES } from '@/constants/routes';
+import { getBlogBySlug } from '@/services/blog-api';
 
 function cleanAndTruncateDescription(
   text: string,
@@ -29,17 +29,12 @@ function cleanAndTruncateDescription(
 
 const getNewsItem = async (id: string) => {
   try {
-    if (typeof id !== 'string') return;
-    const baseUrl =
-      process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_LANDING_URL;
-    const response = await fetch(baseUrl + API_ROUTES.GET_BLOGS_ID(id));
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data;
+    if (typeof id !== 'string') return null;
+    const blog = await getBlogBySlug(id);
+    return blog;
   } catch (error) {
     console.error('Error fetching news data:', error);
+    return null;
   }
 };
 
@@ -95,14 +90,16 @@ export async function generateMetadata(
       description: cleanDescription,
       url: `${process.env.NEXT_PUBLIC_LANDING_URL}/news/${blog.slug}`,
       siteName: 'Brilliant AI',
-      images: [
-        {
-          url: blog.thumbnail,
-          width: 1200,
-          height: 630,
-          alt: blog.title,
-        },
-      ],
+      images: blog.thumbnail
+        ? [
+            {
+              url: blog.thumbnail,
+              width: 1200,
+              height: 630,
+              alt: blog.title,
+            },
+          ]
+        : [],
       type: 'article',
       // publishedTime: blog.publishedDate,
       section: 'News',
@@ -113,7 +110,7 @@ export async function generateMetadata(
       description: cleanDescription,
       site: '@BrilliantAI',
       creator: '@YourCreatorHandle',
-      images: [blog.thumbnailUrl],
+      images: blog.thumbnail ? [blog.thumbnail] : [],
     },
   };
 }

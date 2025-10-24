@@ -3,10 +3,9 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { API_ROUTES } from '@/constants/routes';
+import { Blog, getBlogBySlug } from '@/services/blog-api';
 import readingTime from 'reading-time';
 
-import { Blog } from '@/types/news';
 import { formatDate } from '@/lib/date-utils';
 import Spinner from '@/components/_common/spinner';
 import CTASection from '@/components/cta-section';
@@ -19,13 +18,9 @@ export default function NewsExplanation() {
 
   useEffect(() => {
     if (!id) return;
-    fetch(API_ROUTES.GET_BLOGS_ID(id as string))
-      .then((res) => {
-        if (!res.ok) throw new Error(`Status ${res.status}`);
-        return res.json();
-      })
+    getBlogBySlug(id as string)
       .then(setNewsItem)
-      .catch((e) => console.error(e));
+      .catch((e) => console.error('Error fetching blog:', e));
   }, [id]);
 
   if (!newsItem) {
@@ -61,7 +56,7 @@ export default function NewsExplanation() {
           title={title}
           date={formatDate(createdAt)}
           readingTime={readTimeText}
-          coverImageUrl={thumbnail}
+          coverImageUrl={thumbnail || '/placeholder.svg'}
           content={content}
         />
       </div>

@@ -7,7 +7,6 @@ import ValuesSection from '@/components/about/values-section';
 import CTASection from '@/components/cta-section';
 import FAQSection from '@/components/faq';
 import { NewsSection } from '@/components/news-section';
-import TeamsSlider from '@/components/teams-slider';
 
 export default function Contact() {
   const cta = {
@@ -29,9 +28,9 @@ export default function Contact() {
         <TrustedSection />
         <ValuesSection />
         <SecurityFeatures />
-        <div className="py-20">
+        {/* <div className="py-20">
           <TeamsSlider />
-        </div>
+        </div> */}
         <FAQSection faqs={AboutFAQs.questions}></FAQSection>
         <CTASection
           cta={cta}

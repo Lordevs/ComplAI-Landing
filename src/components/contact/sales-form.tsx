@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import Image from 'next/image';
+import { API_ROUTES } from '@/constants/routes';
 import { motion, Variants } from 'framer-motion';
 
 import { Button } from '@/components/ui/button';
@@ -53,16 +54,14 @@ export default function SalesForm() {
         role,
         phone_no: phoneNo,
         message,
+        form_type: 'general',
       };
 
-      const resp = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/feedback/enterprise-enquiries/`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        }
-      );
+      const resp = await fetch(API_ROUTES.SEND_EMAIL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
 
       if (resp.ok) {
         // reset fields
@@ -75,7 +74,7 @@ export default function SalesForm() {
         setShowSuccess(true);
       } else {
         const data = await resp.json();
-        setError(data.message || 'Submission failed.');
+        setError(data.error || 'Submission failed.');
       }
     } catch (err: unknown) {
       console.error(err);

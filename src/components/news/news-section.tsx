@@ -3,26 +3,19 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { API_ROUTES } from '@/constants/routes';
+import { BlogListResponse, getAllBlogs } from '@/services/blog-api';
 import { ArrowRight } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 import readingTime from 'reading-time';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { formatDate } from '@/lib/date-utils';
-import { parseBodyContentToText } from '@/lib/text-utils';
 
 import { Skeleton } from '../ui/skeleton';
 import { BlogCard } from './blog-card';
 
-interface BlogItem {
-  content: string;
-  createdAt: number;
-  slug: string;
-  thumbnail: string;
-  title: string;
-  updatedAt: number;
-}
-
-type NewsData = BlogItem[];
+type NewsData = BlogListResponse;
 
 export default function NewsSection() {
   const [newsData, setNewsData] = useState<NewsData | null>(null);
@@ -32,9 +25,7 @@ export default function NewsSection() {
     const fetchNewsData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(API_ROUTES.GET_BLOGS);
-        if (!response.ok) throw new Error(`Status ${response.status}`);
-        const data: BlogItem[] = await response.json();
+        const data = await getAllBlogs();
         setNewsData(data);
       } catch (err) {
         console.error('Error fetching news data:', err);
@@ -79,14 +70,16 @@ export default function NewsSection() {
   }
 
   // No data
-  if (!newsData || newsData.length === 0) {
+  if (!newsData || !newsData.results || newsData.results.length === 0) {
     return (
       <div className="container mx-auto px-4 py-8">No articles found.</div>
     );
   }
 
   // Sort by date desc
-  const sorted = [...newsData].sort((a, b) => b.createdAt - a.createdAt);
+  const sorted = [...newsData.results].sort(
+    (a, b) => b.createdAt - a.createdAt
+  );
   const featured = sorted[0];
   const recent = sorted.slice(1);
 
@@ -98,7 +91,7 @@ export default function NewsSection() {
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="w-full md:w-1/2 relative h-[300px] md:h-[380px] rounded-lg overflow-hidden">
               <Image
-                src={featured.thumbnail}
+                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${featured.thumbnail}`}
                 alt={featured.title}
                 fill
                 className="object-cover rounded-lg"
@@ -115,9 +108,37 @@ export default function NewsSection() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                 {featured.title}
               </h2>
-              <p className="text-gray-700">
-                {parseBodyContentToText(featured.content).slice(0, 200)}
-              </p>
+              <div className="text-gray-700 prose prose-sm max-w-none">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                  components={{
+                    p: ({ children }) => (
+                      <p className="text-gray-700">{children}</p>
+                    ),
+                    strong: ({ children }) => (
+                      <strong className="font-semibold">{children}</strong>
+                    ),
+                    em: ({ children }) => (
+                      <em className="italic">{children}</em>
+                    ),
+                    ul: ({ children }) => (
+                      <ul className="list-disc pl-4">{children}</ul>
+                    ),
+                    ol: ({ children }) => (
+                      <ol className="list-decimal pl-4">{children}</ol>
+                    ),
+                    li: ({ children }) => (
+                      <li className="text-gray-700">{children}</li>
+                    ),
+                    a: ({ children }) => (
+                      <span className="text-gray-700">{children}</span>
+                    ),
+                  }}
+                >
+                  {featured.content.slice(0, 200)}
+                </ReactMarkdown>
+              </div>
               <Link
                 href={`/news/${featured.slug}`}
                 className="group text-right inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors w-fit"
@@ -139,11 +160,8 @@ export default function NewsSection() {
               key={blog.slug}
               date={formatDate(blog.createdAt)}
               title={blog.title}
-              description={parseBodyContentToText(featured.content).slice(
-                0,
-                200
-              )}
-              imageUrl={blog.thumbnail}
+              description={blog.content.slice(0, 200)}
+              imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}${blog.thumbnail}`}
               slug={blog.slug}
             />
           ))}

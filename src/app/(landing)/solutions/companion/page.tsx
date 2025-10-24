@@ -10,7 +10,6 @@ import { HowItWorks } from '@/components/companion/how-it-works';
 import WhyCompanionSection from '@/components/companion/why-companion';
 import FAQSection from '@/components/faq';
 import NavigateToTop from '@/components/navigate-to-top';
-import TestimonialSlider from '@/components/testimonials';
 
 export default function CompanionPage() {
   // Example default props
@@ -91,7 +90,7 @@ export default function CompanionPage() {
           <WhyCompanionSection />
           <HowItWorks />
           <CompanionBanner />
-          <TestimonialSlider showBadge={false} />
+          {/* <TestimonialSlider showBadge={false} /> */}
           <FAQSection faqs={CompanionFAQs.questions}></FAQSection>
           <NavigateToTop />
         </main>

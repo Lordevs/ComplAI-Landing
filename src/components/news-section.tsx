@@ -2,13 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { API_ROUTES } from '@/constants/routes';
+import { Blog, getAllBlogs } from '@/services/blog-api';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-import { Blog } from '@/types/news';
 import { formatDate } from '@/lib/date-utils';
-import { parseBodyContentToText } from '@/lib/text-utils';
 import useMobile from '@/hooks/useMobile';
 import { Button } from '@/components/ui/button';
 import { NewsCard } from '@/components/news-card';
@@ -31,12 +29,8 @@ export function NewsSection() {
   useEffect(() => {
     const fetchNewsData = async () => {
       try {
-        const response = await fetch(API_ROUTES.GET_BLOGS);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setNewsData(data);
+        const response = await getAllBlogs();
+        setNewsData(response.results);
       } catch (error) {
         console.error('Error fetching news data:', error);
       }
@@ -110,10 +104,7 @@ export function NewsSection() {
           lg:overflow-x-visible lg:grid lg:grid-cols-3"
         >
           {latestBlogs?.map((news, index) => {
-            const mainContentText = parseBodyContentToText(news.content).slice(
-              0,
-              200
-            );
+            const mainContentText = news.content.slice(0, 200);
 
             const Wrapper = isMobile ? 'div' : motion.div;
 
@@ -139,7 +130,7 @@ export function NewsSection() {
                   date={formatDate(news.createdAt)}
                   title={news.title}
                   description={mainContentText}
-                  imageUrl={news.thumbnail}
+                  imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}${news.thumbnail}`}
                   slug={news.slug}
                 />
               </Wrapper>

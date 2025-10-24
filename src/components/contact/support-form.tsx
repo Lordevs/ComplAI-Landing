@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 
-import TeamsSlider from '../teams-slider';
 import { Card } from '../ui/card';
 
 export default function SupportForm() {
@@ -77,10 +76,10 @@ export default function SupportForm() {
           </div>
         </Card>
 
-        <TeamsSlider
+        {/* <TeamsSlider
           className="md:text-3xl font-semibold justify-self-start text-left"
           showSidesFade={false}
-        />
+        /> */}
       </div>
     </div>
   );

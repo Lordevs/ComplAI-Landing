@@ -10,8 +10,6 @@ import NavigateToTop from '@/components/navigate-to-top';
 import { NewsSection } from '@/components/news-section';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
 import SolutionsSection from '@/components/solutions-section';
-import TeamsSlider from '@/components/teams-slider';
-import TestimonialSlider from '@/components/testimonials';
 
 export const metadata: Metadata = {
   title: 'Compl-AI | Instant Compliance Insights for Your Team',
@@ -42,9 +40,9 @@ export default function Home() {
           <Hero />
           {/* <IndustryStandards /> */}
           <SolutionsSection />
-          <TeamsSlider />
+          {/* <TeamsSlider /> */}
           <SecurityFeatures />
-          <TestimonialSlider showBadge={false} />
+          {/* <TestimonialSlider showBadge={false} /> */}
           <PricingBanner />
           <FAQSection faqs={HomeFAQs.questions} showBadge={false} />
           <CTASection cta={cta} showBgImage={true} showRadialImage={false} />

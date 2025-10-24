@@ -18,7 +18,7 @@ const subtitle =
   'Your in-house compliance partner, powered by Artificial Intelligence.';
 const buttons = {
   primary: {
-    text: 'Get Started',
+    text: 'Start Free Trial',
     href: '/pricing',
   },
 };
