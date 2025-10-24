@@ -12,7 +12,6 @@ import { NewsSection } from '@/components/news-section';
 import { PricingBanner } from '@/components/pricing/pricing-banner';
 import { PricingSection } from '@/components/pricing/pricing-section';
 import SolutionsSection from '@/components/solutions-section';
-import TeamsSlider from '@/components/teams-slider';
 
 export default function Contact() {
   const cta = {
@@ -87,7 +86,7 @@ export default function Contact() {
         />
         <PricingBanner />
         <SecurityFeatures className="mb-28" />
-        <TeamsSlider />
+        {/* <TeamsSlider /> */}
         <FAQSection faqs={PricingFAQs.questions} />
         <CTASection
           cta={cta}
