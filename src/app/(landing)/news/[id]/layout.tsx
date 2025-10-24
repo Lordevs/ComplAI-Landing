@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-
-import { getBlogBySlug } from '@/lib/blog-storage';
+import { getBlogBySlug } from '@/services/blog-api';
 
 function cleanAndTruncateDescription(
   text: string,
@@ -91,14 +90,16 @@ export async function generateMetadata(
       description: cleanDescription,
       url: `${process.env.NEXT_PUBLIC_LANDING_URL}/news/${blog.slug}`,
       siteName: 'Brilliant AI',
-      images: [
-        {
-          url: blog.thumbnail,
-          width: 1200,
-          height: 630,
-          alt: blog.title,
-        },
-      ],
+      images: blog.thumbnail
+        ? [
+            {
+              url: blog.thumbnail,
+              width: 1200,
+              height: 630,
+              alt: blog.title,
+            },
+          ]
+        : [],
       type: 'article',
       // publishedTime: blog.publishedDate,
       section: 'News',
@@ -109,7 +110,7 @@ export async function generateMetadata(
       description: cleanDescription,
       site: '@BrilliantAI',
       creator: '@YourCreatorHandle',
-      images: [blog.thumbnail],
+      images: blog.thumbnail ? [blog.thumbnail] : [],
     },
   };
 }

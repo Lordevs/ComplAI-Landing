@@ -62,6 +62,9 @@ export function BlogCard({
               li: ({ children }) => (
                 <li className="text-gray-600">{children}</li>
               ),
+              a: ({ children }) => (
+                <span className="text-gray-600">{children}</span>
+              ),
             }}
           >
             {description}

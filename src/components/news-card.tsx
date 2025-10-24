@@ -77,6 +77,9 @@ export function NewsCard({
                 li: ({ children }) => (
                   <li className="text-white">{children}</li>
                 ),
+                a: ({ children }) => (
+                  <span className="text-white">{children}</span>
+                ),
               }}
             >
               {description}

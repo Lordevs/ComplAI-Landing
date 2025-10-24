@@ -115,7 +115,7 @@ export default function NewsDetail({
       {/* News Image */}
       <div className="w-full my-6">
         <Image
-          src={coverImageUrl}
+          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${coverImageUrl}`}
           alt={title}
           width={1280}
           height={600}

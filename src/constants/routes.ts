@@ -24,12 +24,27 @@ export const ROUTES = {
   },
 } as const;
 
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL || 'https://api.compl-ai.co.uk';
+
 export const API_ROUTES = {
-  // GET_BLOGS: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/blogs`,
-  GET_BLOGS: `/api/blogs`,
+  // Blog API routes - direct to backend
+  GET_BLOGS: `${BACKEND_URL}/api/blogs/`,
   GET_BLOGS_ID(id: string) {
-    // return `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/blogs/${id}`;
-    return `/api/blogs/${id}`;
+    return `${BACKEND_URL}/api/blogs/${id}/`;
   },
+  GET_BLOGS_BY_SLUG(slug: string) {
+    return `${BACKEND_URL}/api/blogs/by_slug/${slug}/`;
+  },
+  CREATE_BLOG: `${BACKEND_URL}/api/blogs/`,
+  UPDATE_BLOG(id: string) {
+    return `${BACKEND_URL}/api/blogs/${id}/`;
+  },
+  DELETE_BLOG(id: string) {
+    return `${BACKEND_URL}/api/blogs/${id}/`;
+  },
+  FILTER_BLOGS_BY_DATE: `${BACKEND_URL}/api/blogs/filter_by_date/`,
+
+  // Email API route - still using Next.js API
   SEND_EMAIL: `/api/send-email`,
 };

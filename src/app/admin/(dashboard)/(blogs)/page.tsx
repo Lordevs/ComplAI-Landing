@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { API_ROUTES, ROUTES } from '@/constants/routes';
+import { ROUTES } from '@/constants/routes';
+import { deleteBlog, getAllBlogs } from '@/services/blog-api';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -17,40 +18,34 @@ import {
 
 type Blog = {
   id: string;
-  title: string;
   slug: string;
+  title: string;
   content: string;
   thumbnail: string;
   date: string;
 };
 
-type BlogAPIResponse = {
-  title: string;
-  slug: string;
-  content: string;
-  thumbnail: string;
-  createdAt: string;
-  updatedAt: string;
-};
-
 const fetchBlogs = async (): Promise<Blog[]> => {
-  const res = await fetch(API_ROUTES.GET_BLOGS);
-  if (!res.ok) return [];
+  try {
+    const response = await getAllBlogs();
+    console.log('data', response);
 
-  const data: BlogAPIResponse[] = await res.json();
-  console.log('data', data);
-  if (!Array.isArray(data)) return [];
-
-  return data.map((blog) => ({
-    id: blog.slug,
-    title: blog.title ?? '',
-    slug: blog.slug ?? '',
-    content: blog.content ?? '',
-    date: blog.createdAt
-      ? new Date(Number(blog.createdAt)).toISOString().slice(0, 10)
-      : '',
-    thumbnail: blog.thumbnail ?? '',
-  }));
+    return response.results.map((blog) => ({
+      id: blog.id,
+      slug: blog.slug,
+      title: blog.title,
+      content: blog.content,
+      date: new Date(blog.createdAt).toISOString().slice(0, 10),
+      thumbnail: blog.thumbnail
+        ? blog.thumbnail.startsWith('http')
+          ? blog.thumbnail
+          : `${process.env.NEXT_PUBLIC_BACKEND_URL}${blog.thumbnail}`
+        : '',
+    }));
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    return [];
+  }
 };
 
 const BlogListPage = () => {
@@ -60,21 +55,15 @@ const BlogListPage = () => {
     fetchBlogs().then(setBlogs);
   }, []);
 
-  const handleEdit = (id: string) => {
-    router.push(`${ROUTES.ADMIN.DASHBOARD}/${id}`);
+  const handleEdit = (blog: Blog) => {
+    router.push(`${ROUTES.ADMIN.DASHBOARD}/${blog.slug}`);
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this blog?')) return;
 
     try {
-      const response = await fetch(API_ROUTES.GET_BLOGS_ID(id), {
-        method: 'DELETE',
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to delete blog');
-      }
+      await deleteBlog(id);
 
       // Refresh the blogs list
       const updatedBlogs = await fetchBlogs();
@@ -126,7 +115,7 @@ const BlogListPage = () => {
                   <Button
                     size="sm"
                     variant="outline"
-                    onClick={() => handleEdit(blog.id)}
+                    onClick={() => handleEdit(blog)}
                   >
                     Edit
                   </Button>

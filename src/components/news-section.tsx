@@ -2,11 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { API_ROUTES } from '@/constants/routes';
+import { Blog, getAllBlogs } from '@/services/blog-api';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-import { Blog } from '@/types/news';
 import { formatDate } from '@/lib/date-utils';
 import useMobile from '@/hooks/useMobile';
 import { Button } from '@/components/ui/button';
@@ -30,12 +29,8 @@ export function NewsSection() {
   useEffect(() => {
     const fetchNewsData = async () => {
       try {
-        const response = await fetch(API_ROUTES.GET_BLOGS);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setNewsData(data);
+        const response = await getAllBlogs();
+        setNewsData(response.results);
       } catch (error) {
         console.error('Error fetching news data:', error);
       }
@@ -135,7 +130,7 @@ export function NewsSection() {
                   date={formatDate(news.createdAt)}
                   title={news.title}
                   description={mainContentText}
-                  imageUrl={news.thumbnail}
+                  imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}${news.thumbnail}`}
                   slug={news.slug}
                 />
               </Wrapper>
