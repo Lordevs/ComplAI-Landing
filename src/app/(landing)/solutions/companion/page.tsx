@@ -1,7 +1,7 @@
 'use client';
 
-import { CompanionFAQs } from '@/constants/faqs';
 import { Suspense } from 'react';
+import { CompanionFAQs } from '@/constants/faqs';
 
 import { CompanionBanner } from '@/components/companion/companion-banner';
 import { CompanionHero } from '@/components/companion/companion-hero';
