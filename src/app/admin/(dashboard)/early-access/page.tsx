@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import {
   EarlyAccessRequest,
   getAllEarlyAccessRequests,
 } from '@/services/early-access-api';
+import { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -67,6 +67,7 @@ const EarlyAccessRequestsPage = () => {
       name: r.name,
       company: r.company,
       phone: r.phone,
+      companyPosition: r.companyPosition,
       createdAt: new Date(r.createdAt).toISOString(),
       hasMessage: !!(r.message && r.message.trim()),
       hasPhone: !!(r.phone && r.phone.trim()),
@@ -125,6 +126,7 @@ const EarlyAccessRequestsPage = () => {
                     <TableHead>Name</TableHead>
                     <TableHead>Email</TableHead>
                     <TableHead>Company</TableHead>
+                    <TableHead>Company Position</TableHead>
                     <TableHead>Phone</TableHead>
                     <TableHead>Request Submitted</TableHead>
                   </TableRow>
@@ -141,6 +143,11 @@ const EarlyAccessRequestsPage = () => {
                       <TableCell>
                         {request.company && request.company.trim()
                           ? request.company
+                          : 'N/A'}
+                      </TableCell>
+                      <TableCell>
+                        {request.companyPosition && request.companyPosition.trim()
+                          ? request.companyPosition
                           : 'N/A'}
                       </TableCell>
                       <TableCell>

@@ -12,6 +12,7 @@ export interface EarlyAccessRequest {
   company?: string;
   name?: string;
   phone?: string;
+  companyPosition?: string;
   message?: string;
   createdAt: number;
   updatedAt?: number;
@@ -53,6 +54,7 @@ export async function getAllEarlyAccessRequests(): Promise<EarlyAccessListRespon
         updatedAt: request.updatedAt || undefined,
         status: request.status || 'pending',
         notes: request.notes || '',
+        companyPosition: request.companyPosition || '',
       });
     });
 
