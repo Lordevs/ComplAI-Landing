@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import { ROUTES } from '@/constants/routes';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -19,7 +20,7 @@ const subtitle =
 const buttons = {
   primary: {
     text: 'Start Free Trial',
-    href: '/pricing',
+    href: ROUTES.SIGN_IN,
   },
 };
 
