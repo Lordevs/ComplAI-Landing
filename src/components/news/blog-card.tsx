@@ -29,7 +29,7 @@ export function BlogCard({
           src={imageUrl || '/placeholder.svg'}
           alt={title}
           fill
-          priority
+          loading="lazy"
           className="object-cover transition-transform duration-300 scale-x-125"
           unoptimized
         />

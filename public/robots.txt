@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: /sitemap.xml 
+Sitemap: https://compl-ai.co.uk/sitemap.xml 

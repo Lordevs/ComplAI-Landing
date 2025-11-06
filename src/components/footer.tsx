@@ -1,6 +1,6 @@
+import { ROUTES } from '@/constants/routes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ROUTES } from '@/constants/routes';
 
 import { Logo } from './logo';
 
@@ -77,9 +77,9 @@ export function Footer() {
         <div className="grid grid-cols-1 col-span-full md:grid-cols-4 gap-8 md:relative">
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-white">
+            <h2 className="text-xl font-semibold text-white">
               {footer.quickLinks.title}
-            </h3>
+            </h2>
             <ul className="space-y-1">
               {footer.quickLinks.links.map((link) => (
                 <li key={link.href}>
@@ -96,9 +96,9 @@ export function Footer() {
 
           {/* Product Links */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-white">
+            <h2 className="text-xl font-semibold text-white">
               {footer.productLinks.title}
-            </h3>
+            </h2>
             <ul className="space-y-1">
               {footer.productLinks.links.map((link) => (
                 <li key={link.title}>
@@ -122,9 +122,9 @@ export function Footer() {
 
           {/* Company Links */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-white">
+            <h2 className="text-xl font-semibold text-white">
               {footer.company.title}
-            </h3>
+            </h2>
             <ul className="space-y-1">
               {footer.company.links.map((link) => (
                 <li key={link.title}>
@@ -141,9 +141,9 @@ export function Footer() {
 
           {/* Policy Links */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-white">
+            <h2 className="text-xl font-semibold text-white">
               {footer.policyLinks.title}
-            </h3>
+            </h2>
             <ul className="space-y-1">
               {footer.policyLinks.links.map((link) => (
                 <li key={link.title}>

@@ -1,11 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -56,6 +55,10 @@ export function Hero() {
   const [visibleIndex, setVisibleIndex] = useState(0);
 
   useEffect(() => {
+    // Preload the second image after mount
+    const img = new window.Image();
+    img.src = images[1].src;
+
     const interval = setInterval(() => {
       setVisibleIndex((prev) => (prev + 1) % images.length);
     }, 10000);
@@ -64,9 +67,6 @@ export function Hero() {
 
   return (
     <>
-      <Head>
-        <link rel="preload" as="image" href="/images/bg/home-hero-bg.svg" />
-      </Head>
       <section className="relative pt-36 md:pt-[8rem] pb-[16rem] md:pb-[24rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center overflow-hidden">
         <motion.div
           className="mx-auto container max-w-5xl text-center z-10"
@@ -121,7 +121,10 @@ export function Hero() {
               alt={images[visibleIndex].alt}
               width={800}
               height={800}
-              priority
+              priority={visibleIndex === 0}
+              fetchPriority="high"
+              sizes="(max-width: 768px) 100vw, 800px"
+              quality={85}
               className="block w-full h-auto"
             />
           </motion.div>

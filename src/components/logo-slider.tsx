@@ -83,6 +83,7 @@ export default function LogoSlider({
                   src={logo.url || '/placeholder.svg'}
                   alt={`${logo.name} logo`}
                   className="w-full h-full object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -101,6 +102,7 @@ export default function LogoSlider({
                   src={logo.url || '/placeholder.svg'}
                   alt={`${logo.name} logo`}
                   className="h-full w-full object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -118,6 +120,7 @@ export default function LogoSlider({
                   src={logo.url || '/placeholder.svg'}
                   alt={`${logo.name} logo`}
                   className="h-full w-full object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -135,6 +138,7 @@ export default function LogoSlider({
                   src={logo.url || '/placeholder.svg'}
                   alt={`${logo.name} logo`}
                   className="h-full w-full object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -152,6 +156,7 @@ export default function LogoSlider({
                   src={logo.url || '/placeholder.svg'}
                   alt={`${logo.name} logo`}
                   className="h-full w-full object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}

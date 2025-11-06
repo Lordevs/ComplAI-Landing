@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { solutions } from '@/data/solutions';
 import { motion, Variants } from 'framer-motion';
 
@@ -107,27 +106,11 @@ export default function SolutionsSection({
           viewport={{ once: true, amount: 0.05 }}
           className="grid gap-y-[3.25rem] gap-x-9 sm:grid-cols-2 lg:grid-cols-3 items-stretch"
         >
-          {solutions.map((card, idx) => {
-            const isCompanion = card.title === 'Companion';
-            const cardContent = (
-              <motion.div variants={itemVariants} className="h-full">
-                <SolCard {...card} />
-              </motion.div>
-            );
-            return isCompanion ? (
-              <Link
-                key={idx}
-                href={card.buttonLink ?? '#'}
-                className="flex flex-col"
-              >
-                {cardContent}
-              </Link>
-            ) : (
-              <div key={idx} className="flex flex-col cursor-default">
-                {cardContent}
-              </div>
-            );
-          })}
+          {solutions.map((card, idx) => (
+            <motion.div key={idx} variants={itemVariants} className="h-full">
+              <SolCard {...card} />
+            </motion.div>
+          ))}
         </motion.div>
         {ctaButton && (
           <div className="flex flex-col items-center justify-center mt-10">
@@ -143,6 +126,7 @@ export default function SolutionsSection({
             width={backgroundImage.width || 800}
             height={backgroundImage.height || 800}
             className={backgroundImage.className || 'h-full object-cover'}
+            loading="lazy"
           />
         </div>
       )}

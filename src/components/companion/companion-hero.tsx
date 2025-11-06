@@ -80,7 +80,7 @@ export function CompanionHero() {
               width={700}
               height={700}
               className="w-full max-w-2xl"
-              fetchPriority="high"
+              loading="lazy"
             />
           </motion.div>
         </div>

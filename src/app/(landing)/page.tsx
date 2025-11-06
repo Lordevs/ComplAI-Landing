@@ -1,15 +1,17 @@
-import { Suspense } from 'react';
-import { Metadata } from 'next';
 import { HomeFAQs } from '@/constants/faqs';
+import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 
-import { SecurityFeatures } from '@/components/_common/security-features';
-import CTASection from '@/components/cta-section';
-import FAQSection from '@/components/faq';
 import { Hero } from '@/components/home/hero';
-import NavigateToTop from '@/components/navigate-to-top';
-import { NewsSection } from '@/components/news-section';
-import { PricingBanner } from '@/components/pricing/pricing-banner';
-import SolutionsSection from '@/components/solutions-section';
+
+// Lazy load below-the-fold components
+const SolutionsSection = dynamic(() => import('@/components/solutions-section'), { ssr: true });
+const SecurityFeatures = dynamic(() => import('@/components/_common/security-features').then(mod => ({ default: mod.SecurityFeatures })), { ssr: true });
+const PricingBanner = dynamic(() => import('@/components/pricing/pricing-banner').then(mod => ({ default: mod.PricingBanner })), { ssr: true });
+const FAQSection = dynamic(() => import('@/components/faq'), { ssr: true });
+const CTASection = dynamic(() => import('@/components/cta-section'), { ssr: true });
+const NewsSection = dynamic(() => import('@/components/news-section').then(mod => ({ default: mod.NewsSection })), { ssr: true });
 
 export const metadata: Metadata = {
   title: 'Compl-AI - AI-powered compliance for SRA-regulated law firms',
@@ -34,22 +36,19 @@ export default function Home() {
   };
 
   return (
-    <>
-      <Suspense>
-        <main>
-          <Hero />
-          {/* <IndustryStandards /> */}
-          <SolutionsSection />
-          {/* <TeamsSlider /> */}
-          <SecurityFeatures />
-          {/* <TestimonialSlider showBadge={false} /> */}
-          <PricingBanner />
-          <FAQSection faqs={HomeFAQs.questions} showBadge={false} />
-          <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
-          <NewsSection />
-        </main>
-      </Suspense>
-      <NavigateToTop />
-    </>
+    <Suspense>
+      <main>
+        <Hero />
+        {/* <IndustryStandards /> */}
+        <SolutionsSection />
+        {/* <TeamsSlider /> */}
+        <SecurityFeatures />
+        {/* <TestimonialSlider showBadge={false} /> */}
+        <PricingBanner />
+        <FAQSection faqs={HomeFAQs.questions} showBadge={false} />
+        <CTASection cta={cta} showBgImage={true} showRadialImage={false} />
+        <NewsSection />
+      </main>
+    </Suspense>
   );
 }

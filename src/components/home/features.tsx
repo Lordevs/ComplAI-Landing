@@ -46,7 +46,7 @@ function FeatureCard({
         <CardContent className=" md:py-6 py-6 px-6 flex flex-col items-center justify-center">
           {topImage && (
             <div className="relative h-28 w-full mb-2">
-              <Image src={topImage} layout="fill" objectFit="contain" alt="" />
+              <Image src={topImage} layout="fill" objectFit="contain" alt="" loading="lazy" />
             </div>
           )}
           <div className="flex items-center justify-center gap-4">
@@ -57,13 +57,14 @@ function FeatureCard({
                   layout="fill"
                   objectFit="contain"
                   alt=""
+                  loading="lazy"
                 />
               </div>
             )}
             <div>
               <div className="flex items-center justify-center gap-2 mb-4">
                 {titleIcon && (
-                  <Image src={titleIcon} width={52} height={52} alt="" />
+                  <Image src={titleIcon} width={52} height={52} alt="" loading="lazy" />
                 )}
                 <h3 className="text-xl font-semibold text-[#0A2758]">
                   {title}
@@ -78,6 +79,7 @@ function FeatureCard({
                   layout="fill"
                   objectFit="contain"
                   alt=""
+                  loading="lazy"
                 />
               </div>
             )}
@@ -91,6 +93,7 @@ function FeatureCard({
                 layout="fill"
                 objectFit="contain"
                 alt=""
+                loading="lazy"
               />
             </div>
           )}

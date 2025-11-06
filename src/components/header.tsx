@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 import { Logo } from './logo';
 import { MobileSideNav } from './mobile-side-nav';
@@ -13,12 +13,18 @@ import TopNavItems from './top-nav-items';
 
 export function Header() {
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll);
+
+    // Check initial scroll position
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -26,15 +32,17 @@ export function Header() {
     <header
       className={cn(
         'fixed top-0 z-50 w-full bg-transparent px-8',
-        hasScrolled &&
-          'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60'
+        mounted && hasScrolled &&
+        'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60'
       )}
+      suppressHydrationWarning
     >
       <div
         className={cn(
           'container flex h-16 items-center justify-between mx-auto mt-4 rounded-[20px] transition-all px-2 md:px-5 gap-8 md:w-fit',
-          hasScrolled ? 'border-none' : 'border px-4 bg-white/95'
+          mounted && hasScrolled ? 'border-none' : 'border px-4 bg-white/95'
         )}
+        suppressHydrationWarning
       >
         <Logo />
 

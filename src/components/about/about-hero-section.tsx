@@ -30,6 +30,9 @@ const itemVariants: Variants = {
 
 export default function AboutHeroSection() {
   const isMobile = useMobile();
+  const showMobileLayout = isMobile === true;
+  const showDesktopLayout = isMobile === false;
+  
   return (
     <>
       <div className="absolute left-0 top-0 bottom-0 right-0 bg-gradient-to-b from-[#70a2ff36] to-[#43619900]" />
@@ -88,7 +91,7 @@ export default function AboutHeroSection() {
                   inefficient, frustrating, and unnecessarily costly.
                 </motion.p>
               </motion.div>
-              {!isMobile && (
+              {showDesktopLayout && (
                 <>
                   <motion.div
                     variants={itemVariants}
@@ -123,7 +126,7 @@ export default function AboutHeroSection() {
               drafting policies.
             </motion.p>
           </motion.div>
-          {isMobile && (
+          {showMobileLayout && (
             <>
               <motion.div
                 variants={itemVariants}
