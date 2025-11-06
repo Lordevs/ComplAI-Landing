@@ -11,19 +11,20 @@ The ComplAI Landing page has been successfully deployed to your VPS with the dom
 
 ### 📊 Deployment Details
 
-| Component | Status | Details |
-|-----------|--------|---------|
-| **Repository** | ✅ Cloned | [ComplAI-Landing](https://github.com/Arsalanbashir831/ComplAI-Landing.git) |
-| **Dependencies** | ✅ Installed | npm packages with --legacy-peer-deps |
-| **Build** | ✅ Success | Production build completed |
-| **PM2 Process** | ✅ Running | Port 3001, auto-restart enabled |
-| **Nginx Proxy** | ✅ Configured | Port 80/443 → Port 3001 |
-| **SSL Certificate** | ✅ Active | Let's Encrypt, expires Jan 27, 2026 |
-| **Auto-start** | ✅ Enabled | PM2 will start on server reboot |
+| Component           | Status        | Details                                                                    |
+| ------------------- | ------------- | -------------------------------------------------------------------------- |
+| **Repository**      | ✅ Cloned     | [ComplAI-Landing](https://github.com/Arsalanbashir831/ComplAI-Landing.git) |
+| **Dependencies**    | ✅ Installed  | npm packages with --legacy-peer-deps                                       |
+| **Build**           | ✅ Success    | Production build completed                                                 |
+| **PM2 Process**     | ✅ Running    | Port 3001, auto-restart enabled                                            |
+| **Nginx Proxy**     | ✅ Configured | Port 80/443 → Port 3001                                                    |
+| **SSL Certificate** | ✅ Active     | Let's Encrypt, expires Jan 27, 2026                                        |
+| **Auto-start**      | ✅ Enabled    | PM2 will start on server reboot                                            |
 
 ### 🔧 Technical Configuration
 
 **PM2 Process:**
+
 - Name: `complai-landing`
 - Port: 3001
 - Status: Online
@@ -31,12 +32,14 @@ The ComplAI Landing page has been successfully deployed to your VPS with the dom
 - Logs: `/var/www/complai-landing/logs/`
 
 **Nginx Configuration:**
+
 - File: `/etc/nginx/sites-available/compl-ai.co.uk`
 - SSL: Let's Encrypt certificate
 - HTTP → HTTPS redirect: Enabled
 - Proxy: localhost:3001
 
 **SSL Certificate:**
+
 - Provider: Let's Encrypt
 - Domains: `compl-ai.co.uk`
 - Expiry: January 27, 2026
@@ -90,14 +93,17 @@ pm2 monit
 ### 📝 Next Steps
 
 1. **Update Environment Variables** (when ready):
+
    - Edit `/var/www/complai-landing/.env.local`
    - Update PM2 environment: `pm2 restart complai-landing`
 
 2. **Add www subdomain** (optional):
+
    - Add CNAME record: `www.compl-ai.co.uk` → `compl-ai.co.uk`
    - Update SSL certificate: `sudo certbot --nginx -d www.compl-ai.co.uk`
 
 3. **Configure Email Service**:
+
    - Set up Resend API key for contact forms
    - Update FROM_EMAIL and TO_EMAIL
 
@@ -108,6 +114,7 @@ pm2 monit
 ### 🔍 Verification
 
 **Test the deployment:**
+
 ```bash
 # Check HTTPS
 curl -I https://compl-ai.co.uk
@@ -136,6 +143,7 @@ The ComplAI Landing page is now live and accessible at **https://compl-ai.co.uk*
 ### 🎯 Summary
 
 Your landing page is successfully deployed and running. The site is:
+
 - **Secure**: HTTPS with valid SSL certificate
 - **Fast**: Optimized Next.js production build
 - **Reliable**: PM2 process management with auto-restart

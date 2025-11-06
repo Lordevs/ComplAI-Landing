@@ -12,18 +12,25 @@ export const HOME_META_DATA = {
     'GDPR AI assistant',
     'Compl-AI',
   ],
-  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk.com' }],
-  metadataBase: new URL('https://compl-ai.co.uk.com'),
+  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk' }],
+  metadataBase: new URL('https://compl-ai.co.uk'),
+  icons: {
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    apple: '/favicon.png',
+  },
   openGraph: {
     title: 'Compl-AI | Smarter Compliance with Artificial Intelligence',
     description:
       'Streamline compliance with Compl-AI. Designed for legal and enterprise teams to meet regulatory obligations effortlessly using AI.',
-    url: 'https://compl-ai.co.uk.com',
+    url: 'https://compl-ai.co.uk',
     siteName: 'Compl-AI',
     type: 'website',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_LANDING_URL}/og/logo.png`,
+        url: 'https://compl-ai.co.uk/og/logo.png',
         width: 1200,
         height: 630,
         alt: 'Compl-AI platform dashboard',
@@ -47,8 +54,8 @@ export const ABOUT_META_DATA = {
     'enterprise compliance solutions',
     'company mission',
   ],
-  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk.com' }],
-  metadataBase: new URL('https://compl-ai.co.uk.com'),
+  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk' }],
+  metadataBase: new URL('https://compl-ai.co.uk'),
   openGraph: {
     title: 'About Compl-AI | Our Mission & Vision',
     description:
@@ -58,7 +65,7 @@ export const ABOUT_META_DATA = {
     type: 'website',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_LANDING_URL}/og/logo.png`,
+        url: 'https://compl-ai.co.uk/og/logo.png',
         width: 1200,
         height: 630,
         alt: 'About Compl-AI team and mission',
@@ -81,8 +88,8 @@ export const CONTACT_META_DATA = {
     'legal technology inquiries',
     'enterprise compliance contact',
   ],
-  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk.com' }],
-  metadataBase: new URL('https://compl-ai.co.uk.com'),
+  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk' }],
+  metadataBase: new URL('https://compl-ai.co.uk'),
   openGraph: {
     title: 'Contact Compl-AI | Get in Touch with Us',
     description:
@@ -92,7 +99,7 @@ export const CONTACT_META_DATA = {
     type: 'website',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_LANDING_URL}/og/logo.png`,
+        url: 'https://compl-ai.co.uk/og/logo.png',
         width: 1200,
         height: 630,
         alt: 'Contact Compl-AI team',
@@ -115,8 +122,8 @@ export const PRICING_META_DATA = {
     'legal technology pricing',
     'enterprise compliance costs',
   ],
-  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk.com' }],
-  metadataBase: new URL('https://compl-ai.co.uk.com'),
+  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk' }],
+  metadataBase: new URL('https://compl-ai.co.uk'),
   openGraph: {
     title: 'Pricing | Compl-AI Plans & Features',
     description:
@@ -126,7 +133,7 @@ export const PRICING_META_DATA = {
     type: 'website',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_LANDING_URL}/og/logo.png`,
+        url: 'https://compl-ai.co.uk/og/logo.png',
         width: 1200,
         height: 630,
         alt: 'Compl-AI pricing plans',
@@ -149,8 +156,8 @@ export const NEWS_META_DATA = {
     'legal technology insights',
     'enterprise compliance news',
   ],
-  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk.com' }],
-  metadataBase: new URL('https://compl-ai.co.uk.com'),
+  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk' }],
+  metadataBase: new URL('https://compl-ai.co.uk'),
   openGraph: {
     title: 'News | Compl-AI Updates & Insights',
     description:
@@ -160,7 +167,7 @@ export const NEWS_META_DATA = {
     type: 'website',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_LANDING_URL}/og/logo.png`,
+        url: 'https://compl-ai.co.uk/og/logo.png',
         width: 1200,
         height: 630,
         alt: 'Compl-AI news and updates',
@@ -183,8 +190,8 @@ export const DEMO_META_DATA = {
     'legal technology demo',
     'enterprise compliance demo',
   ],
-  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk.com' }],
-  metadataBase: new URL('https://compl-ai.co.uk.com'),
+  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk' }],
+  metadataBase: new URL('https://compl-ai.co.uk'),
   openGraph: {
     title: 'Demo | Compl-AI AI Compliance Assistant',
     description:
@@ -194,7 +201,7 @@ export const DEMO_META_DATA = {
     type: 'website',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_LANDING_URL}/og/logo.png`,
+        url: 'https://compl-ai.co.uk/og/logo.png',
         width: 1200,
         height: 630,
         alt: 'Compl-AI demo interface',
@@ -218,8 +225,8 @@ export const COMPANION_META_DATA = {
     'legal technology assistant',
     'enterprise compliance AI',
   ],
-  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk.com' }],
-  metadataBase: new URL('https://compl-ai.co.uk.com'),
+  authors: [{ name: 'Compl-AI Team', url: 'https://compl-ai.co.uk' }],
+  metadataBase: new URL('https://compl-ai.co.uk'),
   openGraph: {
     title: 'Companion | Compl-AI AI Compliance Assistant',
     description:
@@ -229,7 +236,7 @@ export const COMPANION_META_DATA = {
     type: 'website',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_LANDING_URL}/og/logo.png`,
+        url: 'https://compl-ai.co.uk/og/logo.png',
         width: 1200,
         height: 630,
         alt: 'Companion AI compliance assistant',
