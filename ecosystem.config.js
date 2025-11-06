@@ -1,0 +1,30 @@
+module.exports = {
+  apps: [
+    {
+      name: 'complai-landing',
+      script: 'npm',
+      args: 'start',
+      cwd: '/var/www/complai-landing',
+      instances: 1,
+      exec_mode: 'fork',
+      env: {
+        NODE_ENV: 'production',
+        PORT: 3001,
+        RESEND_API_KEY: 'temp_key_for_build',
+        FROM_EMAIL: 'temp@compl-ai.co.uk',
+        TO_EMAIL: 'temp@compl-ai.co.uk',
+        NEXT_PUBLIC_LANDING_URL: 'https://compl-ai.co.uk',
+        FIREBASE_PROJECT_ID: 'temp',
+        FIREBASE_PRIVATE_KEY: 'temp',
+        FIREBASE_CLIENT_EMAIL: 'temp@temp.iam.gserviceaccount.com',
+      },
+      error_file: '/var/www/complai-landing/logs/pm2-error.log',
+      out_file: '/var/www/complai-landing/logs/pm2-out.log',
+      log_file: '/var/www/complai-landing/logs/pm2-combined.log',
+      time: true,
+      autorestart: true,
+      max_restarts: 10,
+      min_uptime: '10s',
+    },
+  ],
+};
