@@ -3,8 +3,8 @@
 import { ROUTES } from '@/constants/routes';
 import { motion } from 'framer-motion';
 
-import { PricingPlan } from '@/types/pricing';
 import { PricingCards } from '@/components/pricing/new-pricing-cards';
+import { PricingPlan } from '@/types/pricing';
 
 const pricingPlans: PricingPlan[] = [
   {
@@ -43,7 +43,7 @@ const pricingPlans: PricingPlan[] = [
     featuresHeader: 'Everything in Top-up and Go PLUS:',
     comitmentText: '12-month commitment.',
     features: [
-      { text: '500 credits per month with no rollover.' },
+      { text: '1000 credits per month with no rollover.' },
       {
         text: 'Access to Resolve, our AI-powered tool for efficient complaint handling.',
       },

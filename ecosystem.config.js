@@ -10,9 +10,9 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         PORT: 3001,
-        RESEND_API_KEY: 'temp_key_for_build',
-        FROM_EMAIL: 'temp@compl-ai.co.uk',
-        TO_EMAIL: 'temp@compl-ai.co.uk',
+        RESEND_API_KEY: 're_FJ6AUiMD_34tfdPdJwEgjERHgL9cJicfW',
+        FROM_EMAIL: 'support@compl-ai.co.uk',
+        TO_EMAIL: 'support@compl-ai.co.uk',
         NEXT_PUBLIC_LANDING_URL: 'https://compl-ai.co.uk',
         FIREBASE_PROJECT_ID: 'temp',
         FIREBASE_PRIVATE_KEY: 'temp',
