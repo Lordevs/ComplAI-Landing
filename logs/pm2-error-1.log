@@ -1,9 +1,0 @@
-2025-10-29T19:15:10:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
-2025-10-29T19:22:47:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
-2025-10-29T19:55:23:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
-2025-10-29T19:55:55:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
-2025-11-16T17:59:20:  ⨯ The requested resource isn't a valid image for /ybtb.fit received text/html; charset=utf-8
-2025-11-17T00:12:57:  ⨯ The requested resource isn't a valid image for /ybtb.fit received text/html; charset=utf-8
-2025-11-17T11:18:57:  ⨯ The requested resource isn't a valid image for /ybtb.fit received text/html; charset=utf-8
-2025-11-17T11:19:01:  ⨯ The requested resource isn't a valid image for /ybtb.fit received text/html; charset=utf-8
-2025-11-17T11:19:03:  ⨯ The requested resource isn't a valid image for /ybtb.fit received text/html; charset=utf-8
