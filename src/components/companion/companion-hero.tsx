@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
 
 import { CTAButton } from '../cta-button';
 
@@ -57,7 +57,7 @@ export function CompanionHero() {
               variants={itemVariants}
               className="text-3xl md:text-5xl font-semibold text-gray-900"
             >
-              Your AI Compliance Expert
+              Your AI Compliance Assistant
             </motion.h2>
             <motion.p variants={itemVariants} className="text-xl mt-6 mb-4">
               Get instant answers to compliance queries
