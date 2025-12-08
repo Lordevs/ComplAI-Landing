@@ -1,12 +1,12 @@
 'use client';
 
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { useState } from 'react';
+import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import { motion, Variants } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
-import Image from 'next/image';
-import { useState } from 'react';
 
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { CTAButton } from '@/components/cta-button';
 
 const title = {
@@ -23,8 +23,6 @@ const buttons = {
     href: ROUTES.REGISTER,
   },
 };
-
-
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -103,7 +101,6 @@ export function Hero() {
                 whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
                 className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black group cursor-pointer border border-white/10 ring-1 ring-white/5"
               >
-
                 <Image
                   src="/images/video-thumbnail.jpg"
                   alt="Video thumbnail"
