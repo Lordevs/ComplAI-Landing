@@ -1,13 +1,13 @@
 'use client';
 
-import { useState } from 'react';
-import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import { motion, Variants } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
+import Image from 'next/image';
+import { useState } from 'react';
 
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { CTAButton } from '@/components/cta-button';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 const title = {
   start: 'AI Powered',
@@ -108,16 +108,16 @@ export function Hero() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
                   priority
                 />
-                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300 z-10" />
+                <div className="absolute inset-0 bg-gray-900/30 group-hover:bg-gray-900/35 transition-colors duration-300 z-10 top-0 bottom-0 left-0 right-0 " />
                 <div className="absolute inset-0 flex items-center justify-center z-20">
                   <div className="relative">
                     {/* Pulsing rings */}
-                    <div className="absolute inset-0 bg-primary/30 rounded-full animate-ping opacity-75" />
+                    <div className="absolute inset-0 bg-primary/20 rounded-full animate-ping opacity-75" />
                     <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
 
                     {/* Main button */}
-                    <div className="relative w-20 h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition-transform duration-300 border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:shadow-[0_0_50px_rgba(255,255,255,0.4)]">
-                      <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white drop-shadow-lg" />
+                    <div className="relative w-16 h-16 md:w-24 md:h-24 bg-white backdrop-blur-md rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition-transform duration-300 border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:shadow-[0_0_50px_rgba(255,255,255,0.4)]">
+                      <Play className="w-6 h-6 md:w-10 md:h-10 text-primary fill-primary drop-shadow-lg" />
                     </div>
                   </div>
                 </div>
