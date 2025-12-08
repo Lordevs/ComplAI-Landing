@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { ROUTES } from '@/constants/routes';
-import { AnimatePresence, motion, Variants } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { motion, Variants } from 'framer-motion';
+import { ArrowRight, Play } from 'lucide-react';
+import Image from 'next/image';
+import { useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -23,10 +24,7 @@ const buttons = {
   },
 };
 
-const images = [
-  { src: '/images/homehero.png', alt: 'Hero Image 1' },
-  { src: '/images/hero-bg-2.png', alt: 'Hero Image 2' },
-];
+
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -52,22 +50,11 @@ const itemVariants: Variants = {
 };
 
 export function Hero() {
-  const [visibleIndex, setVisibleIndex] = useState(0);
-
-  useEffect(() => {
-    // Preload the second image after mount
-    const img = new window.Image();
-    img.src = images[1].src;
-
-    const interval = setInterval(() => {
-      setVisibleIndex((prev) => (prev + 1) % images.length);
-    }, 10000);
-    return () => clearInterval(interval);
-  }, []);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <>
-      <section className="relative pt-36 md:pt-[8rem] pb-[16rem] md:pb-[24rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center overflow-hidden">
+      <section className="relative pt-36 md:pt-[8rem] px-4 md:px-0 bg-[url(/images/bg/home-hero-bg.svg)] bg-no-repeat bg-center bg-cover min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center overflow-hidden">
         <motion.div
           className="mx-auto container max-w-5xl text-center z-10"
           variants={containerVariants}
@@ -103,33 +90,54 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={visibleIndex}
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 80 }}
-            transition={{
-              type: 'spring',
-              stiffness: 120,
-              damping: 20,
-            }}
-            className="absolute bottom-0 md:-bottom-4 lg:bottom-0 -translate-x-1/2 max-w-[800px] w-full"
-          >
-            <Image
-              src={images[visibleIndex].src}
-              alt={images[visibleIndex].alt}
-              width={800}
-              height={800}
-              priority
-              fetchPriority="high"
-              sizes="(max-width: 768px) 100vw, 800px"
-              quality={90}
-              className="block w-full h-auto"
-              style={{ width: '100%', height: 'auto' }}
-            />
-          </motion.div>
-        </AnimatePresence>
+        <div className="w-full max-w-5xl my-8 px-4 md:px-0 perspective-1000">
+          <Dialog open={isPlaying} onOpenChange={setIsPlaying}>
+            <DialogTrigger asChild>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  opacity: { duration: 0.8, delay: 0.2 },
+                  y: { duration: 0.8, delay: 0.2 },
+                }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+                className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black group cursor-pointer border border-white/10 ring-1 ring-white/5"
+              >
+
+                <Image
+                  src="/images/video-thumbnail.jpg"
+                  alt="Video thumbnail"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
+                  priority
+                />
+                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300 z-10" />
+                <div className="absolute inset-0 flex items-center justify-center z-20">
+                  <div className="relative">
+                    {/* Pulsing rings */}
+                    <div className="absolute inset-0 bg-primary/30 rounded-full animate-ping opacity-75" />
+                    <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
+
+                    {/* Main button */}
+                    <div className="relative w-20 h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition-transform duration-300 border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:shadow-[0_0_50px_rgba(255,255,255,0.4)]">
+                      <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white drop-shadow-lg" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-5xl p-0 bg-black/95 border-white/10 backdrop-blur-xl overflow-hidden [&>button]:text-white [&>button]:top-4 [&>button]:right-4 [&>button]:bg-white/10 [&>button]:hover:bg-white/20 [&>button]:rounded-full [&>button]:p-2 [&>button]:z-50 shadow-2xl">
+              <div className="aspect-video w-full">
+                <iframe
+                  src="https://www.youtube.com/embed/Hd2nORWgyTU?autoplay=1&rel=0&modestbranding=1"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </DialogContent>
+          </Dialog>
+        </div>
       </section>
     </>
   );
