@@ -1,13 +1,13 @@
 'use client';
 
+import { useState } from 'react';
+import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import { motion, Variants } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
-import Image from 'next/image';
-import { useState } from 'react';
 
-import { CTAButton } from '@/components/cta-button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { CTAButton } from '@/components/cta-button';
 
 const title = {
   start: 'AI Powered',
