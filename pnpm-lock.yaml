@@ -53,10 +53,10 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       firebase:
-        specifier: ^11.9.1
+        specifier: ^11.10.0
         version: 11.10.0
       firebase-admin:
-        specifier: ^13.4.0
+        specifier: ^13.6.0
         version: 13.6.0
       framer-motion:
         specifier: ^12.3.1
@@ -65,7 +65,7 @@ importers:
         specifier: ^0.474.0
         version: 0.474.0(react@19.2.0)
       mammoth:
-        specifier: ^1.9.0
+        specifier: ^1.11.0
         version: 1.11.0
       next:
         specifier: 16.0.7
