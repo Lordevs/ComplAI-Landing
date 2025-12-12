@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -135,7 +135,7 @@ export function Hero() {
           initial="hidden"
           animate="show"
           exit="exit"
-          className="absolute left-1/2 bottom-0 md:-bottom-4 lg:bottom-0 -translate-x-1/2 max-w-[800px] w-full aspect-square"
+          className="absolute bottom-0 md:-bottom-4 lg:bottom-0 -translate-x-1/2 max-w-[800px] w-full aspect-square"
         >
           <Image
             src={images[visibleIndex].src}
