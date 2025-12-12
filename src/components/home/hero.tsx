@@ -24,7 +24,7 @@ const buttons = {
 };
 
 const images = [
-  { src: '/images/homehero.png', alt: 'Hero Image 1' },
+  { src: '/images/homehero.webp', alt: 'Hero Image 1' },
   { src: '/images/hero-bg-2.webp', alt: 'Hero Image 2' },
 ];
 
