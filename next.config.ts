@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   images: {
     // Unoptimized images to reduce build size and processing time
     unoptimized: true,
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -74,6 +75,20 @@ const nextConfig: NextConfig = {
       '@radix-ui/react-tabs',
       '@radix-ui/react-tooltip',
     ],
+  },
+
+  async headers() {
+    return [
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
   },
 };
 

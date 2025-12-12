@@ -120,6 +120,7 @@ export default function DemoForm() {
                 alt="Demo Illustration"
                 fill
                 priority
+                fetchPriority="high"
                 className="object-contain"
               />
             </motion.div>

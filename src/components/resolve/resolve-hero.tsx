@@ -31,6 +31,7 @@ export function ResolveHero() {
               fill
               className="object-contain"
               priority
+              fetchPriority="high"
             />
           </div>
         </div>

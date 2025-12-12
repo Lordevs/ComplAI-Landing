@@ -54,17 +54,7 @@ export default function RootLayout({
         {/* Preconnect to external origins */}
         <link
           rel="preconnect"
-          href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
           href="https://api.compl-ai.co.uk"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://storage.googleapis.com"
           crossOrigin="anonymous"
         />
         {/* Google Analytics preconnect */}

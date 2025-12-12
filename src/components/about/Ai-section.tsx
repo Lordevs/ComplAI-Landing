@@ -51,6 +51,7 @@ export default function AiSection() {
             fill
             className="bg-cover"
             priority
+            fetchPriority="high"
           />
         </motion.div>
       </div>
