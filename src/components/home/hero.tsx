@@ -25,7 +25,7 @@ const buttons = {
 
 const images = [
   { src: '/images/homehero.png', alt: 'Hero Image 1' },
-  { src: '/images/hero-bg-2.png', alt: 'Hero Image 2' },
+  { src: '/images/hero-bg-2.webp', alt: 'Hero Image 2' },
 ];
 
 const containerVariants: Variants = {

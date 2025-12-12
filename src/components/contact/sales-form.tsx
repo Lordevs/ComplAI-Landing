@@ -99,7 +99,7 @@ export default function SalesForm() {
           className="overflow-hidden grid grid-cols-1 gap-8 order-2 items-center justify-items-center text-left md:order-1"
         >
           <Image
-            src="/images/demohead.png"
+            src="/images/demohead.webp"
             alt="Demo Illustration"
             width={600}
             height={400}

@@ -75,7 +75,7 @@ export function CompanionHero() {
             className="flex justify-end pl-4 md:p-0"
           >
             <Image
-              src="/images/companion-hero.png"
+              src="/images/companion-hero.webp"
               alt="Companion Hero Image"
               width={700}
               height={700}

@@ -116,7 +116,7 @@ export default function DemoForm() {
               className="relative w-full aspect-[1.3] hidden md:block mt-6"
             >
               <Image
-                src="/images/demohead.png"
+                src="/images/demohead.webp"
                 alt="Demo Illustration"
                 fill
                 priority

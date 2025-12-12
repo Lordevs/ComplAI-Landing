@@ -105,18 +105,18 @@ export default function ValuesSection() {
           <ValueCard
             title="Technology-Driven Leadership"
             description="We pioneer the use of cutting-edge technology to transform compliance in the legal industry, setting new standards for efficiency and innovation."
-            icon="/images/icons/technology.png"
+            icon="/images/icons/technology.webp"
             className="col-span-full md:col-span-2"
           />
           <ValueCard
             title="Collaboration for Impact"
             description="We foster teamwork and partnership to create meaningful change for our users and the industry."
-            icon="/images/icons/collaborate.png"
+            icon="/images/icons/collaborate.webp"
           />
           <ValueCard
             title="Integrity and Accountability"
             description="We are committed to acting with integrity, taking ownership of our work, and delivering dependable solutions."
-            icon="/images/icons/integrity.png"
+            icon="/images/icons/integrity.webp"
           />
           <ValueCard
             title="Empowerment Through Simplicity"
