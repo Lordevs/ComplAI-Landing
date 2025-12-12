@@ -80,8 +80,42 @@ const nextConfig: NextConfig = {
 
   async headers() {
     return [
+      // Hashed Next.js build assets (immutable)
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+
+      // Next.js image optimizer endpoint
+      {
+        source: '/_next/image',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400',
+          },
+        ],
+      },
+
+      // Public images
       {
         source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+
+      // SVGs anywhere
+      {
+        source: '/:path*.svg',
         headers: [
           {
             key: 'Cache-Control',
