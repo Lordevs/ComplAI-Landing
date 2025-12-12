@@ -25,6 +25,7 @@ export function Logo({
         height={150}
         priority
         fetchPriority="high"
+        className="h-8 w-auto"
       />
     </Link>
   );

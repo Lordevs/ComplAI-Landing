@@ -47,7 +47,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/homehero.png"
+          href="/images/homehero.webp"
           fetchPriority="high"
         />
 
