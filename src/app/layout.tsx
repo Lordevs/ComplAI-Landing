@@ -43,12 +43,12 @@ export default function RootLayout({
           }}
         />
 
-        {/* Preload LCP hero image */}
+        {/* Preload background image */}
         <link
           rel="preload"
           as="image"
-          href="/images/homehero.webp"
-          fetchPriority="high"
+          href="/images/bg/home-hero-bg.svg"
+          type="image/svg+xml"
         />
 
         {/* Preconnect to external origins */}
