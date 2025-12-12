@@ -6,23 +6,21 @@ import { ArrowUp } from 'lucide-react';
 import { Button } from './ui/button';
 
 export default function NavigateToTop() {
-  const [visible, setVisible] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.scrollY > 300;
+  });
 
   useEffect(() => {
-    setMounted(true);
-
     const handleScroll = () => {
       setVisible(window.scrollY > 300);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent hydration mismatch by not rendering until mounted
-  if (!mounted || !visible) return null;
+  if (!visible) return null;
 
   return (
     <div className="fixed bottom-4 right-4 z-50">

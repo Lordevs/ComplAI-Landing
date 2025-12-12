@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
     // Unoptimized images to reduce build size and processing time
     unoptimized: true,
     formats: ['image/avif', 'image/webp'],
+    qualities: [75, 90],
     remotePatterns: [
       {
         protocol: 'https',

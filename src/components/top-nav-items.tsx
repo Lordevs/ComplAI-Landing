@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -95,38 +95,34 @@ export default function TopNavItems({
   onLinkClick,
 }: TopNavItemsProps) {
   const pathname = usePathname();
-  const [activeSection, setActiveSection] = useState('home');
+  const activeSection =
+    pathname === ROUTES.HOME ? 'home' : (pathname ?? '').replace('/', '');
+
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth < 768;
+  });
 
   // Detect mobile viewport based on window width
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth < 768);
     }
-    handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Sync activeSection when the route changes
-  useEffect(() => {
-    setActiveSection(
-      pathname === ROUTES.HOME ? 'home' : pathname.replace('/', '')
-    );
-  }, [pathname]);
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLElement>,
-    item: { title: string; href: string }
-  ) => {
-    setActiveSection(item.title.toLowerCase());
-    onLinkClick?.();
-  };
-
   const isActive = (title: string) =>
     activeSection.startsWith(title.toLowerCase());
+
+  const handleNavClick = () =>
+    // e: React.MouseEvent<HTMLElement>,
+    // item: { title: string; href: string }
+    {
+      onLinkClick?.();
+    };
 
   return (
     <ScrollArea>
@@ -295,7 +291,6 @@ export default function TopNavItems({
                             if (!sol.comingSoon) {
                               setMobileSolutionsOpen(false);
                               onLinkClick?.();
-                              setActiveSection('solutions');
                             }
                           }}
                           aria-disabled={sol.comingSoon}
@@ -373,7 +368,7 @@ export default function TopNavItems({
                     'font-medium transition-colors hover:text-primary whitespace-nowrap',
                     { 'text-primary font-semibold': isActive(item.title) }
                   )}
-                  onClick={(e) => handleNavClick(e, item)}
+                  onClick={() => handleNavClick()}
                 >
                   {item.title}
                 </Link>
