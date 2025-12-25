@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import {
   AnimatePresence,
@@ -9,8 +11,6 @@ import {
   Variants,
 } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -149,7 +149,7 @@ export function Hero() {
               alt={images[visibleIndex].alt}
               fill
               priority={visibleIndex === 0}
-              fetchPriority='high'
+              fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 800px"
               quality={90}
               className="object-contain object-bottom"
