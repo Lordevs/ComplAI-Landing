@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import {
   AnimatePresence,
@@ -9,8 +11,6 @@ import {
   Variants,
 } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 

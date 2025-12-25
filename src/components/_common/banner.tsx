@@ -1,11 +1,11 @@
 'use client';
 
+import { FC } from 'react';
 import { domAnimation, LazyMotion, m, Variants } from 'framer-motion';
 import { Check } from 'lucide-react';
-import { FC } from 'react';
 
-import { CTAButton } from '@/components/cta-button';
 import { Card, CardContent } from '@/components/ui/card';
+import { CTAButton } from '@/components/cta-button';
 
 interface BannerProps {
   title: string;
@@ -77,10 +77,7 @@ export const Banner: FC<BannerProps> = ({
               </m.h3>
 
               {subtitle && (
-                <m.h4
-                  variants={itemVariants}
-                  className="text-lg font-medium"
-                >
+                <m.h4 variants={itemVariants} className="text-lg font-medium">
                   {subtitle}
                 </m.h4>
               )}
@@ -93,7 +90,10 @@ export const Banner: FC<BannerProps> = ({
               </m.p>
 
               <m.div variants={itemVariants}>
-                <CTAButton href={ctaHref} className="text-base font-medium py-5">
+                <CTAButton
+                  href={ctaHref}
+                  className="text-base font-medium py-5"
+                >
                   {ctaText}
                 </CTAButton>
               </m.div>

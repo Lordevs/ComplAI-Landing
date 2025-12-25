@@ -1,8 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { solutions } from '@/data/solutions';
 import { domAnimation, LazyMotion, m, Variants } from 'framer-motion';
-import Image from 'next/image';
 
 import SolCard from './sol-card';
 

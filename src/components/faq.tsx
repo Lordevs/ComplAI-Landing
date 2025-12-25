@@ -87,8 +87,8 @@ export default function FAQSection({
             viewport={{ once: true }}
             className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"
           >
-            Explore the most common questions about our platform and how it helps
-            you stay compliant.
+            Explore the most common questions about our platform and how it
+            helps you stay compliant.
           </m.p>
         </div>
 
