@@ -34,6 +34,7 @@ export default function SolCard({
               height={200}
               className="object-contain max-h-[200px]"
               loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
             image
@@ -68,6 +69,7 @@ export default function SolCard({
             height={200}
             className="object-contain max-h-[200px]"
             loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
           image

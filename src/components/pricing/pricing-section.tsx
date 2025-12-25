@@ -1,10 +1,10 @@
 'use client';
 
 import { ROUTES } from '@/constants/routes';
-import { motion } from 'framer-motion';
+import { domAnimation, LazyMotion, m } from 'framer-motion';
 
-import { PricingPlan } from '@/types/pricing';
 import { PricingCards } from '@/components/pricing/new-pricing-cards';
+import { PricingPlan } from '@/types/pricing';
 
 const pricingPlans: PricingPlan[] = [
   {
@@ -90,33 +90,33 @@ const pricingPlans: PricingPlan[] = [
 
 export function PricingSection() {
   return (
-    <motion.main
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        type: 'spring',
-        stiffness: 50,
-        damping: 20,
-        mass: 0.6,
-        delay: 0.2,
-      }}
-      viewport={{ once: true, amount: 0.3 }}
-      className="container pt-3 pb-12  px-8 md:px-16 mx-auto md:max-w-screen-xl"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+    <LazyMotion features={domAnimation}>
+      <m.main
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{
           type: 'spring',
-          stiffness: 45,
-          damping: 14,
-          mass: 0.7,
-          delay: 0.4,
+          stiffness: 50,
+          damping: 20,
+          mass: 0.6,
+          delay: 0.1,
         }}
-        viewport={{ once: true, amount: 0.3 }}
+        className="container pt-3 pb-12  px-8 md:px-16 mx-auto md:max-w-screen-xl"
       >
-        <PricingCards plans={pricingPlans} />
-      </motion.div>
-    </motion.main>
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            type: 'spring',
+            stiffness: 45,
+            damping: 14,
+            mass: 0.7,
+            delay: 0.3,
+          }}
+        >
+          <PricingCards plans={pricingPlans} />
+        </m.div>
+      </m.main>
+    </LazyMotion>
   );
 }

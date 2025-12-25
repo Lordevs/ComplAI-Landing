@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { ROUTES } from '@/constants/routes';
 import {
   AnimatePresence,
@@ -11,6 +9,8 @@ import {
   Variants,
 } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { CTAButton } from '@/components/cta-button';
 
@@ -70,8 +70,7 @@ const imageVariants: Variants = {
       type: 'spring',
       stiffness: 120,
       damping: 20,
-      // Delay only the first slide to wait for text animation
-      delay: index === 0 ? 1.2 : 0,
+      delay: index === 0 ? 0.5 : 0,
     },
   }),
   exit: { opacity: 0, y: 80 },
@@ -150,7 +149,7 @@ export function Hero() {
               fill
               priority={visibleIndex === 0}
               fetchPriority="high"
-              sizes="(max-width: 768px) 100vw, 800px"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
               quality={90}
               className="object-contain object-bottom"
             />

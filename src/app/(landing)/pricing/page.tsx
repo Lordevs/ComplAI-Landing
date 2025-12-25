@@ -32,9 +32,9 @@ export default function Contact() {
         <div className="relative text-center space-y-2 mt-28 bg-gradient-to-b from-[#edf8ff00] to-[#70a2ff85] md:mt-32">
           <motion.h1
             // 1. Animation starting state
-            initial={{ y: 50 }}
+            initial={{ opacity: 0 }}
             // 2. Animation end state
-            animate={{ y: 0 }}
+            animate={{ opacity: 1 }}
             // 3. Animation timing
             transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
             className="text-3xl md:text-6xl font-bold"
@@ -47,7 +47,7 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.4, ease: 'easeOut' }}
-            className="font-normal text-md md:text-xl !mt-  md:!mb-0"
+            className="font-normal text-md md:text-xl !mt-4  md:!mb-0"
           >
             Streamline Your Law Firm&rsquo;s Compliance with Artificial
             Intelligence
